@@ -477,15 +477,9 @@
             align-items: center;
         }
 
+        /* No full-length line — connectors are per-step */
         .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--dark) 0%, rgba(61, 122, 0, 0.3) 50%, var(--dark) 100%);
+            display: none;
         }
 
         .process-step {
@@ -493,12 +487,20 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 0 0 56px 0;
+            padding: 0 0 16px 0;
             position: relative;
         }
 
         .process-step:last-child {
             padding-bottom: 0;
+        }
+
+        /* Connector line between steps */
+        .step-connector {
+            width: 2px;
+            height: 48px;
+            background: linear-gradient(to bottom, var(--dark), rgba(61, 122, 0, 0.3));
+            margin: 0 auto;
         }
 
         .step-marker {
@@ -1128,9 +1130,8 @@
                 gap: 32px;
             }
 
-            .process-timeline::before {
-                left: 50%;
-                transform: translateX(-50%);
+            .step-connector {
+                height: 36px;
             }
 
             .testimonial-quote {
@@ -1281,6 +1282,7 @@
                     <p>We walk through your home, understand what matters most to you, and build a custom plan around your schedule and priorities.</p>
                 </div>
             </div>
+            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">2</span></div>
                 <div class="step-body">
@@ -1288,6 +1290,7 @@
                     <p>You get a detailed timeline, materials list, and logistics plan. No surprises on moving day — just a clear, confident roadmap.</p>
                 </div>
             </div>
+            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">3</span></div>
                 <div class="step-body">
@@ -1295,6 +1298,7 @@
                     <p>Our trained crew wraps, boxes, and labels everything with museum-quality care. Specialty items like art, antiques, and electronics get individual attention.</p>
                 </div>
             </div>
+            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">4</span></div>
                 <div class="step-body">
@@ -1302,6 +1306,7 @@
                     <p>Everything is loaded with precision, secured for transit, and delivered by the same dedicated team who packed it. No hand-offs, no strangers.</p>
                 </div>
             </div>
+            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">5</span></div>
                 <div class="step-body">
