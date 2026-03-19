@@ -18,12 +18,6 @@
                     <span>✓ Insured</span>
                     <span>✓ Bonded</span>
                 </div>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="Google">G</a>
-                    <a href="#" aria-label="Yelp">Y</a>
-                </div>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
@@ -52,7 +46,6 @@
                     <li>HQ: Garden City, NY</li>
                     <li><a href="${base}contact.html">Get a Free Quote</a></li>
                     <li>Hours: Mon–Sun 7AM–9PM</li>
-                    <li>NY DOT License #T-39547</li>
                 </ul>
             </div>
             <div class="footer-section">
