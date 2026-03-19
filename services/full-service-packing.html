@@ -443,12 +443,13 @@
 
         .process-section {
             padding: 100px 24px;
-            background: var(--white);
+            background: var(--off-white);
+            overflow: hidden;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 72px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -469,17 +470,24 @@
         }
 
         .process-timeline {
-            max-width: 600px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
         }
 
-        /* No full-length line — connectors are per-step */
+        /* Horizontal connector line behind all steps */
         .process-timeline::before {
-            display: none;
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: calc(10% + 24px);
+            right: calc(10% + 24px);
+            height: 2px;
+            background: linear-gradient(to right, var(--dark), rgba(61, 122, 0, 0.4), var(--dark));
+            z-index: 1;
         }
 
         .process-step {
@@ -487,7 +495,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 0 0 16px 0;
+            padding: 0 12px;
             position: relative;
         }
 
@@ -495,12 +503,9 @@
             padding-bottom: 0;
         }
 
-        /* Connector line between steps */
+        /* Hide vertical connectors in new horizontal layout */
         .step-connector {
-            width: 2px;
-            height: 48px;
-            background: linear-gradient(to bottom, var(--dark), rgba(61, 122, 0, 0.3));
-            margin: 0 auto;
+            display: none;
         }
 
         .step-marker {
@@ -521,6 +526,7 @@
         .process-step:hover .step-marker {
             border-color: var(--lime);
             box-shadow: 0 0 24px rgba(200, 255, 0, 0.15);
+            transform: scale(1.08);
         }
 
         .step-number {
@@ -531,24 +537,34 @@
         }
 
         .step-body {
-            padding-top: 20px;
+            padding-top: 24px;
         }
 
         .step-body h3 {
             font-family: var(--font-primary);
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 10px;
         }
 
         .step-body p {
-            font-size: 16px;
+            font-size: 15px;
             color: #555;
             line-height: 1.7;
-            max-width: 480px;
+            max-width: 220px;
             margin: 0 auto;
         }
+
+        /* Staggered animation for process steps */
+        .process-step.scroll-fade {
+            transition-delay: 0s;
+        }
+        .process-step.scroll-fade:nth-child(1) { transition-delay: 0s; }
+        .process-step.scroll-fade:nth-child(2) { transition-delay: 0.1s; }
+        .process-step.scroll-fade:nth-child(3) { transition-delay: 0.2s; }
+        .process-step.scroll-fade:nth-child(4) { transition-delay: 0.3s; }
+        .process-step.scroll-fade:nth-child(5) { transition-delay: 0.4s; }
 
         /* =================================
            FEATURES SECTION — "The White-Glove Difference"
@@ -1130,8 +1146,49 @@
                 gap: 32px;
             }
 
-            .step-connector {
-                height: 36px;
+            .process-timeline {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                gap: 0;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+
+            .process-step {
+                padding: 0 0 40px 0;
+                position: relative;
+            }
+
+            .process-step:last-child {
+                padding-bottom: 0;
+            }
+
+            /* Vertical connector between steps on mobile */
+            .process-step:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 40px;
+                background: linear-gradient(to bottom, var(--dark), rgba(61, 122, 0, 0.3));
+            }
+
+            .step-body h3 {
+                font-size: 22px;
+            }
+
+            .step-body p {
+                max-width: 360px;
+                font-size: 16px;
+            }
+
+            /* Reset stagger delays on mobile for smoother feel */
+            .process-step.scroll-fade:nth-child(n) {
+                transition-delay: 0s;
             }
 
             .testimonial-quote {
@@ -1279,39 +1336,35 @@
                 <div class="step-marker"><span class="step-number">1</span></div>
                 <div class="step-body">
                     <h3>Free Consultation</h3>
-                    <p>We walk through your home, understand what matters most to you, and build a custom plan around your schedule and priorities.</p>
+                    <p>We walk through your home, understand what matters most, and build a custom plan around your schedule.</p>
                 </div>
             </div>
-            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">2</span></div>
                 <div class="step-body">
                     <h3>Tailored Game Plan</h3>
-                    <p>You get a detailed timeline, materials list, and logistics plan. No surprises on moving day — just a clear, confident roadmap.</p>
+                    <p>A detailed timeline, materials list, and logistics plan. No surprises on moving day.</p>
                 </div>
             </div>
-            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">3</span></div>
                 <div class="step-body">
                     <h3>Professional Packing</h3>
-                    <p>Our trained crew wraps, boxes, and labels everything with museum-quality care. Specialty items like art, antiques, and electronics get individual attention.</p>
+                    <p>Our trained crew wraps, boxes, and labels everything with museum-quality care and attention.</p>
                 </div>
             </div>
-            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">4</span></div>
                 <div class="step-body">
                     <h3>Secure Transport</h3>
-                    <p>Everything is loaded with precision, secured for transit, and delivered by the same dedicated team who packed it. No hand-offs, no strangers.</p>
+                    <p>Loaded with precision, secured for transit, and delivered by the same team who packed it.</p>
                 </div>
             </div>
-            <div class="step-connector"></div>
             <div class="process-step scroll-fade">
                 <div class="step-marker"><span class="step-number">5</span></div>
                 <div class="step-body">
                     <h3>Unpack & Settle In</h3>
-                    <p>We unbox, organize, and place everything exactly where you want it. Beds made, kitchen stocked, artwork hung. You walk into a finished home.</p>
+                    <p>We unbox and place everything where you want it. Walk into a finished home, not a pile of boxes.</p>
                 </div>
             </div>
         </div>
