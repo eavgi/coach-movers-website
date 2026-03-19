@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Coach Movers — Long Island Moving Company</title>
+    <meta name="description" content="Review Coach Movers' Terms of Service. Learn about our policies, liability coverage, cancellation terms, and more. Licensed movers serving Long Island, NYC, CT, and NJ.">
+    <meta property="og:title" content="Terms of Service | Coach Movers">
+    <meta property="og:description" content="Our complete Terms of Service outline. Transparent policies for your moving needs.">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="apple-touch-icon" href="/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0A0A0A; --lime: #C8FF00; --white: #FFFFFF;
+            --off-white: #F7F7F5; --gray: #555555; --light-border: #E5E5E5;
+            --dark-charcoal: #1A1A1A;
+            --font-primary: "Bricolage Grotesque", sans-serif;
+            --font-secondary: "Figtree", sans-serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font-secondary); color:var(--dark); background:var(--white); line-height:1.6; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+        img { max-width:100%; height:auto; display:block; }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+        @keyframes slideInLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+        @keyframes slideInRight { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+        @keyframes pulseGlow { 0%,100% { box-shadow:0 0 20px rgba(200,255,0,0.15); } 50% { box-shadow:0 0 40px rgba(200,255,0,0.3); } }
+        @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-6px); } }
+        .anim-up { opacity:0; transform:translateY(30px); transition:all 0.7s cubic-bezier(0.16,1,0.3,1); }
+        .anim-up.visible { opacity:1; transform:translateY(0); }
+
+        /* ===== TOP BAR ===== */
+        .top-bar { background:var(--dark); padding:8px 0; text-align:center; font-size:15px; color:#ccc; }
+        .top-bar a { color:var(--lime); font-weight:600; }
+
+        /* ===== NAV (matches homepage exactly) ===== */
+        nav {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            position: sticky; top:0; z-index:100;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        .nav-container { max-width:1200px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; height:80px; }
+        .nav-logo { display:flex; align-items:center; height:50px; }
+        .nav-logo a { display:flex; align-items:center; }
+        .nav-logo img { height:50px; width:auto; background:var(--white); padding:8px; border-radius:8px; }
+        .nav-links { display:flex; list-style:none; gap:48px; align-items:center; }
+        .nav-links a { font-weight:500; font-size:15px; position:relative; padding-bottom:4px; transition:color 0.3s; color:var(--gray); }
+        .nav-links a:hover { color:var(--lime); }
+        .nav-links a.active { color:var(--dark); font-weight:700; border-bottom:3px solid var(--lime); }
+        .nav-cta { background:var(--lime); color:var(--dark); padding:12px 24px; border-radius:8px; font-weight:700; font-size:15px; display:inline-block; transition:transform 0.2s; }
+        .nav-cta:hover { transform:translateY(-1px); }
+        .nav-dropdown { position:relative; }
+        .nav-dropdown > a { display:flex; align-items:center; gap:4px; }
+        .nav-dropdown > a::after { content:"▾"; font-size:10px; opacity:0.6; }
+        .dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid var(--light-border); border-radius:12px; padding:12px 0; min-width:220px; box-shadow:0 8px 32px rgba(0,0,0,0.12); opacity:0; visibility:hidden; transition:all 0.2s; z-index:200; }
+        .nav-dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 20px; font-size:15px; font-weight:500; color:var(--dark) !important; transition:background 0.15s; }
+        .dropdown-menu a:hover { background:rgba(200,255,0,0.12); }
+        .dd-icon { font-size:18px; width:24px; text-align:center; }
+        .dropdown-divider { height:1px; background:var(--light-border); margin:8px 0; }
+        .hamburger { display:none; cursor:pointer; flex-direction:column; gap:5px; border:none; background:none; padding:8px; }
+        .hamburger span { width:24px; height:2px; background:var(--dark); transition:all 0.3s; display:block; }
+        .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+        .hamburger.active span:nth-child(2) { opacity:0; }
+        .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
+
+        /* Mobile menu */
+        .mobile-menu { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(10,10,10,0.92); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); z-index:300; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; opacity:0; visibility:hidden; transition:all 0.3s; }
+        .mobile-menu.active { opacity:1; visibility:visible; }
+        .mobile-menu a { color:#fff; font-size:20px; font-weight:600; padding:12px 32px; border-radius:8px; transition:background 0.2s; }
+        .mobile-menu a:hover { background:rgba(255,255,255,0.1); }
+        .mobile-menu .nav-cta { background:var(--lime); color:var(--dark); margin-top:16px; }
+        .mobile-menu-close { position:absolute; top:24px; right:24px; width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:50%; cursor:pointer; transition:all 0.2s; }
+        .mobile-menu-close:hover { background:rgba(200,255,0,0.2); transform:scale(1.1); }
+        .mobile-menu-close svg { width:20px; height:20px; stroke:#fff; stroke-width:2.5; }
+
+        @media (max-width:768px) {
+            nav { position:absolute; left:0; right:0; top:0; background:rgba(10,10,10,0.4); backdrop-filter:blur(12px) saturate(150%); -webkit-backdrop-filter:blur(12px) saturate(150%); border-bottom:1px solid rgba(255,255,255,0.08); box-shadow:none; }
+            .nav-container { height:70px; }
+            .nav-logo img { background:transparent; }
+            .nav-cta { display:none; }
+            .nav-links { display:none; }
+            .hamburger { display:flex; }
+            .hamburger span { background:#fff; }
+        }
+
+        /* ===== HERO ===== */
+        .terms-hero {
+            background-color: var(--dark);
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .terms-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(200,255,0,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .terms-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200,255,0,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-terms-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .hero-terms-inner h1 {
+            font-family: var(--font-primary);
+            font-size: clamp(40px, 6vw, 56px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 16px;
+            animation: fadeUp 0.8s ease both;
+        }
+        .hero-terms-inner h1 .lime { color: var(--lime); }
+        .hero-terms-inner p {
+            color: #a0a0a0;
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 640px;
+            margin: 0 auto;
+            animation: fadeUp 0.8s ease 0.15s both;
+        }
+        .last-updated {
+            color: var(--lime);
+            font-size: 14px;
+            margin-top: 12px;
+            font-weight: 600;
+            animation: fadeUp 0.8s ease 0.3s both;
+        }
+
+        @media (max-width: 768px) {
+            .terms-hero { min-height: 320px; }
+            .hero-terms-inner { padding: 80px 24px 40px; }
+            .hero-terms-inner h1 { font-size: 32px; }
+            .hero-terms-inner p { font-size: 16px; }
+        }
+
+        /* ===== TERMS CONTENT ===== */
+        .terms-content {
+            padding: 80px 24px;
+            background: var(--white);
+        }
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .terms-section {
+            margin-bottom: 56px;
+            animation: fadeUp 0.8s ease both;
+        }
+        .terms-section:nth-child(1) { animation-delay: 0s; }
+        .terms-section:nth-child(2) { animation-delay: 0.1s; }
+        .terms-section:nth-child(3) { animation-delay: 0.2s; }
+        .terms-section:nth-child(4) { animation-delay: 0.3s; }
+        .terms-section:nth-child(5) { animation-delay: 0.4s; }
+        .terms-section h2 {
+            font-family: var(--font-primary);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--lime);
+            display: inline-block;
+        }
+        .terms-section p {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .terms-section ul {
+            list-style: none;
+            margin: 16px 0 16px 24px;
+        }
+        .terms-section li {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .terms-section li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+            font-weight: 700;
+        }
+        .highlight {
+            background: rgba(200,255,0,0.12);
+            padding: 24px;
+            border-left: 4px solid var(--lime);
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .highlight p {
+            margin: 0;
+            font-weight: 600;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .terms-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+        .terms-table th {
+            background: var(--dark);
+            color: var(--lime);
+            padding: 14px;
+            text-align: left;
+            font-weight: 700;
+        }
+        .terms-table td {
+            border-bottom: 1px solid var(--light-border);
+            padding: 14px;
+            color: var(--gray);
+        }
+        .terms-table tr:hover {
+            background: var(--off-white);
+        }
+
+        /* ===== CONTACT CTA ===== */
+        .terms-cta {
+            margin-top: 80px;
+            padding: 48px;
+            background: var(--dark);
+            border-radius: 16px;
+            text-align: center;
+            color: var(--white);
+            border: 1px solid rgba(200,255,0,0.1);
+            animation: fadeUp 0.8s ease 0.5s both;
+        }
+        .terms-cta h3 {
+            font-family: var(--font-primary);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .terms-cta p {
+            color: #a0a0a0;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+        .terms-cta a {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+            margin: 0 8px;
+        }
+        .terms-cta a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(200,255,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .terms-content { padding: 60px 24px; }
+            .terms-section h2 { font-size: 24px; }
+            .terms-section p, .terms-section li { font-size: 15px; }
+            .highlight { padding: 18px; }
+            .terms-cta { padding: 32px 24px; }
+            .terms-cta h3 { font-size: 22px; }
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 24px 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .footer-brand h4 {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            color: #888;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .site-footer h4 {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .site-footer ul {
+            list-style: none;
+        }
+        .site-footer li {
+            margin-bottom: 10px;
+        }
+        .site-footer a {
+            color: #888;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .site-footer a:hover {
+            color: var(--lime);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+        .footer-bottom a {
+            color: var(--lime);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        🚚 Questions? Call <a href="tel:5168712770">(516) 871-2770</a> or email <a href="mailto:info@coachmovers.com">info@coachmovers.com</a> — Available Mon-Fri 7AM-9PM, Sat 8AM-8PM, Sun 9AM-6PM
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Coach Movers">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li class="nav-dropdown">
+                    <a href="#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="services/local-moving.html"><span class="dd-icon">🏠</span> Local Moving</a>
+                        <a href="services/long-distance.html"><span class="dd-icon">🗺️</span> Long Distance</a>
+                        <a href="services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
+                        <a href="services/storage.html"><span class="dd-icon">🏭</span> Storage Solutions</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="index.html#services"><span class="dd-icon">✨</span> View All Services</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html#quote-form" class="nav-cta">Get Quote</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html#quote-form" class="nav-cta">Get Quote</a>
+        <div class="mobile-menu-close" id="mobileMenuClose">
+            <svg viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="terms-hero">
+        <div class="hero-terms-inner">
+            <h1>Terms of <span class="lime">Service</span></h1>
+            <p>Please review our complete Terms of Service. These terms govern your use of Coach Movers' services and our relationship with you.</p>
+            <div class="last-updated">Last Updated: March 2026</div>
+        </div>
+    </section>
+
+    <!-- TERMS CONTENT -->
+    <section class="terms-content">
+        <div class="terms-container">
+            <!-- Acceptance of Terms -->
+            <div class="terms-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By booking moving services with Coach Movers or using our website, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our services. Coach Movers reserves the right to modify these terms at any time. Your continued use of our services following any changes constitutes your acceptance of the new terms.</p>
+            </div>
+
+            <!-- Services Description -->
+            <div class="terms-section">
+                <h2>2. Services Description</h2>
+                <p>Coach Movers provides a comprehensive range of moving and related services, including:</p>
+                <ul>
+                    <li>Local moving services throughout Long Island, NYC, Connecticut, and New Jersey</li>
+                    <li>Long-distance and interstate moving</li>
+                    <li>Professional packing and unpacking services</li>
+                    <li>Short-term and long-term storage solutions</li>
+                    <li>Loading and unloading services</li>
+                    <li>Specialty item handling (pianos, artwork, antiques, etc.)</li>
+                </ul>
+                <p>All services are provided by licensed, insured, and bonded professionals. We operate under New York DOT License #T-39547 and maintain comprehensive insurance coverage for your protection.</p>
+            </div>
+
+            <!-- Quotes and Estimates -->
+            <div class="terms-section">
+                <h2>3. Quotes and Estimates</h2>
+                <p>All initial quotes and estimates provided by Coach Movers are non-binding preliminary estimates based on the information you provide. These estimates are designed to give you a general idea of potential costs but are subject to the following conditions:</p>
+                <ul>
+                    <li>Final pricing is based on the actual weight of your belongings, measured at time of pickup</li>
+                    <li>Additional charges may apply for items requiring special handling or equipment</li>
+                    <li>Travel time, distance, and route conditions may affect final pricing</li>
+                    <li>Access restrictions, parking limitations, or building elevator unavailability may increase costs</li>
+                    <li>On-site estimates are typically accurate within 10-15% of final invoice amounts</li>
+                    <li>Video or phone estimates may have higher variance due to difficulty assessing all items</li>
+                </ul>
+                <div class="highlight">
+                    <p>A formal binding quote will be provided in writing after an on-site inspection or detailed assessment of your move, if requested.</p>
+                </div>
+            </div>
+
+            <!-- Booking and Cancellation -->
+            <div class="terms-section">
+                <h2>4. Booking and Cancellation Policy</h2>
+                <p><strong>Booking Confirmation:</strong> Moving dates are reserved upon receipt of a signed estimate and booking deposit. A confirmation email will be sent within 24 hours of booking.</p>
+                <p><strong>Cancellation by Customer:</strong> The following cancellation policy applies:</p>
+                <ul>
+                    <li>Cancellations made 30 or more days prior to scheduled move date: Full refund of deposit</li>
+                    <li>Cancellations made 15-29 days prior to scheduled move date: 50% refund of deposit</li>
+                    <li>Cancellations made less than 15 days prior to scheduled move date: No refund of deposit</li>
+                    <li>Cancellations made 72 hours or less prior to move date: Full moving charge applies</li>
+                    <li>No-show (customer unavailable on scheduled date): Full moving charge applies</li>
+                </ul>
+                <p><strong>Rescheduling:</strong> Moves may be rescheduled without penalty if requested with at least 30 days' notice. Requests with less notice are subject to availability and may incur fees.</p>
+                <p><strong>Cancellation by Coach Movers:</strong> Coach Movers reserves the right to cancel or reschedule services due to weather emergencies, equipment failure, illness of assigned crew, or other circumstances beyond our control. In such cases, we will provide prompt notification and offer alternative dates or a full refund of all payments made.</p>
+            </div>
+
+            <!-- Liability and Insurance -->
+            <div class="terms-section">
+                <h2>5. Liability and Insurance Coverage</h2>
+                <p>Coach Movers maintains comprehensive liability and cargo insurance to protect your belongings during transport and storage. Please understand the following regarding coverage:</p>
+                <div class="table-wrapper">
+                    <table class="terms-table">
+                        <tr>
+                            <th>Coverage Type</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Standard Valuation</strong></td>
+                            <td>Included with all moves. Covers up to $0.60 per pound per item in case of loss or damage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full Value Protection</strong></td>
+                            <td>Optional upgrade. Covers declared value of items. Additional charge applies (typically 0.5-1% of move value)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High-Value Items</strong></td>
+                            <td>Items valued over $5,000 require separate declaration and may require additional coverage</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Storage Coverage</strong></td>
+                            <td>Items stored in our facilities are covered under our warehouse insurance during storage period</td>
+                        </tr>
+                    </table>
+                </div>
+                <p><strong>Important Limitations:</strong> Insurance does not cover loss, damage, or disappearance of certain items including money, jewelry, artwork, collectibles, or items packed by the customer. For high-value items, please discuss coverage options with our moving consultant.</p>
+                <p><strong>Damage Claims:</strong> Any claims for damage must be reported in writing within 10 days of delivery. Claims submitted after 30 days may not be eligible for compensation. Photographs and detailed descriptions of damaged items are required.</p>
+            </div>
+
+            <!-- Customer Responsibilities -->
+            <div class="terms-section">
+                <h2>6. Customer Responsibilities</h2>
+                <p>To ensure a smooth and safe moving experience, customers agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete inventory of items to be moved</li>
+                    <li>Disclose any fragile, valuable, or specialty items that require special handling</li>
+                    <li>Ensure clear access to pickup and delivery locations (removing obstacles, arranging parking, scheduling building access)</li>
+                    <li>Arrange for building manager approval if required by residential or commercial buildings</li>
+                    <li>Provide elevator reservations if building access requires them</li>
+                    <li>Ensure adequate space at delivery location for placement of furniture and boxes</li>
+                    <li>Be present or have authorized representative present during pickup and delivery</li>
+                    <li>Provide accurate floor plans and building dimensions if available</li>
+                    <li>Arrange pet care or secure pets during moving operations for safety</li>
+                </ul>
+            </div>
+
+            <!-- Prohibited Items -->
+            <div class="terms-section">
+                <h2>7. Prohibited Items</h2>
+                <p>For safety, legal, and insurance reasons, the following items cannot be transported by Coach Movers:</p>
+                <ul>
+                    <li>Hazardous materials (flammable liquids, explosives, compressed gases, chemicals)</li>
+                    <li>Perishable food items</li>
+                    <li>Medications and controlled substances</li>
+                    <li>Firearms and ammunition</li>
+                    <li>Propane grills and propane tanks (empty grills may be transported with customer approval)</li>
+                    <li>Fertilizers and pesticides</li>
+                    <li>Paint, varnish, and solvents</li>
+                    <li>Batteries (loose or in equipment)</li>
+                    <li>Live plants (generally; discuss specific requests with our team)</li>
+                    <li>Items believed to be stolen or claimed by third parties</li>
+                    <li>Any items that are illegal to transport under federal or state law</li>
+                </ul>
+                <p>Customers are fully responsible for any prohibited items packed in boxes or containers. Coach Movers is not liable for any penalties, fines, or charges resulting from the transportation of prohibited items.</p>
+            </div>
+
+            <!-- Payment Terms -->
+            <div class="terms-section">
+                <h2>8. Payment Terms</h2>
+                <p><strong>Booking Deposit:</strong> A deposit of 10-25% of the estimated moving cost is required to confirm your moving date. This deposit is applied to your final invoice.</p>
+                <p><strong>Final Payment:</strong> The balance of the moving invoice is due upon completion of services. We accept cash, check, credit card, and bank transfer. For moves exceeding $10,000, a 50% deposit may be required.</p>
+                <p><strong>Payment for Additional Services:</strong> Any additional services provided beyond the original estimate (extra hours, additional boxes, specialty handling) are billed at standard rates upon completion.</p>
+                <p><strong>Late Payments:</strong> Invoices are due within 30 days of service completion. Accounts unpaid after 60 days may be subject to late fees of 1.5% monthly interest or be referred to collection.</p>
+                <p><strong>Price Guarantee:</strong> If you receive a written quote that is binding, the final price will not exceed that quote amount (excluding additional services not included in the original quote).</p>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="terms-section">
+                <h2>9. Limitation of Liability</h2>
+                <p>Except in cases of gross negligence or willful misconduct, Coach Movers' total liability for any claim arising from our services shall not exceed the total amount paid for those services in the 12 months preceding the claim.</p>
+                <p>Coach Movers is not liable for:</p>
+                <ul>
+                    <li>Indirect, incidental, consequential, or punitive damages</li>
+                    <li>Loss of use, enjoyment, or economic loss</li>
+                    <li>Damage to floors, walls, ceilings, or architectural elements caused by normal moving operations (unless directly caused by negligence)</li>
+                    <li>Delays caused by traffic, weather, building access restrictions, or other circumstances beyond our control</li>
+                    <li>Items lost or damaged due to customer's failure to properly pack or disclose items</li>
+                    <li>Costs incurred for replacement accommodations, temporary storage, or other indirect expenses</li>
+                </ul>
+            </div>
+
+            <!-- Dispute Resolution -->
+            <div class="terms-section">
+                <h2>10. Dispute Resolution</h2>
+                <p><strong>Informal Resolution:</strong> In case of any dispute, the customer agrees to first contact Coach Movers directly to attempt resolution. Most issues can be resolved through direct communication with our management team within 30 days of the dispute arising.</p>
+                <p><strong>Mediation:</strong> If informal resolution is unsuccessful, either party may request mediation. Both parties agree to split mediation costs equally and to negotiate in good faith.</p>
+                <p><strong>Binding Arbitration:</strong> Any disputes that cannot be resolved through negotiation or mediation shall be resolved through binding arbitration administered by the American Arbitration Association (AAA) in Nassau County, New York, in accordance with its rules. Each party shall bear its own attorney's fees and costs.</p>
+                <p><strong>Small Claims Exception:</strong> Either party may bring claims in small claims court if the claim qualifies under that court's jurisdiction limits, notwithstanding the arbitration requirement.</p>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="terms-section">
+                <h2>11. Governing Law and Jurisdiction</h2>
+                <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law principles. Both parties submit to the exclusive jurisdiction of the arbitration process described above or, if applicable, the small claims courts of Nassau County, New York.</p>
+                <p>Coach Movers is licensed and operates under the jurisdiction of the New York Department of Transportation (DOT License #T-39547) and complies with all applicable New York and federal moving industry regulations.</p>
+            </div>
+
+            <!-- Changes to Terms -->
+            <div class="terms-section">
+                <h2>12. Changes to These Terms</h2>
+                <p>Coach Movers reserves the right to update these Terms of Service at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services following any changes constitutes your acceptance of the revised terms. For material changes, we will provide at least 30 days' notice via email if you have provided your contact information.</p>
+                <p>The date of last update is displayed at the top of this page. Please review these terms periodically to stay informed of any changes.</p>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="terms-section">
+                <h2>13. Contact Information</h2>
+                <p>If you have questions about these Terms of Service or need further clarification, please contact Coach Movers:</p>
+                <div class="highlight">
+                    <p><strong>Coach Movers</strong><br>
+                    📍 Garden City, NY (Long Island)<br>
+                    📞 (516) 871-2770<br>
+                    ✉️ info@coachmovers.com<br>
+                    🌐 coachmovers.com<br>
+                    📋 NY DOT License #T-39547</p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="terms-cta">
+                <h3>Ready to Move?</h3>
+                <p>Get a free, no-obligation quote from Long Island's most trusted moving company.</p>
+                <a href="contact.html#quote-form">Get a Free Quote</a>
+                <a href="tel:5168712770">Call (516) 871-2770</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h4>Coach Movers</h4>
+                <p>Long Island's most trusted moving company since 2002.</p>
+                <p>✓ Licensed &nbsp; ✓ Insured &nbsp; ✓ Bonded</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services/local-moving.html">Local Moving</a></li>
+                    <li><a href="services/long-distance.html">Long Distance</a></li>
+                    <li><a href="services/packing.html">Packing Services</a></li>
+                    <li><a href="services/storage.html">Storage Solutions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Get In Touch</h4>
+                <ul>
+                    <li>📞 (516) 871-2770</li>
+                    <li><a href="mailto:info@coachmovers.com">✉️ info@coachmovers.com</a></li>
+                    <li>📍 Garden City, NY</li>
+                    <li><a href="contact.html#quote-form" style="color:var(--lime);">Get a Free Quote →</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Coach Movers. All rights reserved. | <a href="/privacy.html" style="color: var(--lime);">Privacy Policy</a> | <a href="/terms.html" style="color: var(--lime);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        document.getElementById('mobileMenuClose').addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll-up nav reveal
+        let lastY = window.scrollY, navHid = false;
+        const navEl = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY, up = y < lastY;
+            if (y < 300) {
+                navEl.style.position = '';
+                navEl.style.transform = '';
+                navEl.style.transition = '';
+                navHid = false;
+            } else if (up && navHid) {
+                navEl.style.position = 'fixed';
+                navEl.style.top = '0';
+                navEl.style.left = '0';
+                navEl.style.right = '0';
+                navEl.style.transform = 'translateY(0)';
+                navEl.style.transition = 'transform 0.3s ease';
+                navHid = false;
+            } else if (!up && !navHid && y > 300) {
+                navEl.style.transform = 'translateY(-100%)';
+                navEl.style.transition = 'transform 0.3s ease';
+                navHid = true;
+            }
+            lastY = y <= 0 ? 0 : y;
+        }, { passive: true });
+
+        // Scroll animations
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.anim-up').forEach(el => animObserver.observe(el));
+    </script>
+</body>
+</html>
