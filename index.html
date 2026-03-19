@@ -20,6 +20,7 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0A0A0A">
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Figtree:wght@400;500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared/header-footer.css">
     <style>
         /* ==================== DESIGN TOKENS ==================== */
         :root {
@@ -163,44 +164,6 @@
             .chat-popup { width: 280px; right: -8px; }
         }
 
-        /* ==================== SERVICE AREAS FOOTER ==================== */
-        .service-areas-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .service-areas-list span {
-            font-size: 15px;
-            color: #A0A0A0;
-            background: rgba(255,255,255,0.05);
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: #CCCCCC;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-        .social-links a:hover {
-            background: #C8FF00;
-            color: #0A0A0A;
-        }
-
-        
         .skip-link {
             position: absolute;
             top: -100px;
@@ -326,278 +289,6 @@
 
         .hidden {
             display: none;
-        }
-
-        /* ==================== TOP BAR ==================== */
-        .top-bar {
-            background: var(--dark);
-            color: var(--white);
-            text-align: center;
-            padding: 12px 0;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .top-bar a {
-            color: var(--lime);
-            font-weight: 600;
-        }
-
-        /* ==================== NAVIGATION ==================== */
-        nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            height: 50px;
-        }
-
-        .nav-logo img {
-            height: 50px;
-            width: auto;
-            background: var(--white);
-            padding: 8px;
-            border-radius: 8px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-lg);
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 15px;
-            position: relative;
-            padding-bottom: 4px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--lime);
-        }
-
-        .nav-links a.active {
-            color: var(--lime);
-            border-bottom: 3px solid var(--lime);
-        }
-
-
-        /* Services dropdown */
-        .nav-dropdown {
-            position: relative;
-        }
-        .nav-dropdown > a {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .nav-dropdown > a::after {
-            content: "▾";
-            font-size: 10px;
-            opacity: 0.6;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--light-border);
-            border-radius: 12px;
-            padding: 12px 0;
-            min-width: 220px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-50%) translateY(8px);
-            transition: all 0.2s ease;
-            z-index: 200;
-        }
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--dark) !important;
-            transition: background 0.15s;
-        }
-        .dropdown-menu a:hover {
-            background: rgba(200, 255, 0, 0.12);
-            color: var(--dark) !important;
-        }
-        .dropdown-menu a .dd-icon {
-            font-size: 18px;
-            width: 24px;
-            text-align: center;
-        }
-        .dropdown-divider {
-            height: 1px;
-            background: var(--light-border);
-            margin: 8px 0;
-        }
-        .nav-cta {
-            background: var(--lime);
-            color: var(--dark);
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--white);
-            color: var(--lime);
-            border: 2px solid var(--lime);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 250;
-        }
-
-        .hamburger span {
-            width: 24px;
-            height: 3px;
-            background: var(--dark);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* ==================== MOBILE MENU ==================== */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 200;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 24px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mobile-menu a {
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 14px 40px;
-            border-radius: 8px;
-            transition: background 0.2s;
-        }
-
-        .mobile-menu a:hover,
-        .mobile-menu a:active {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu a:visited {
-            color: #ffffff;
-        }
-
-        .mobile-menu a.active {
-            color: #C8FF00;
-        }
-
-        .mobile-menu .nav-cta {
-            background: #C8FF00;
-            color: #0A0A0A;
-            padding: 16px 40px;
-            border-radius: 8px;
-            font-weight: 700;
-            margin-top: 16px;
-        }
-
-        .mobile-menu .nav-cta:visited {
-            color: #0A0A0A;
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
-            z-index: 10;
-        }
-        .mobile-menu-close:hover {
-            background: rgba(200,255,0,0.2);
-            transform: scale(1.1);
-        }
-        .mobile-menu-close svg {
-            width: 20px;
-            height: 20px;
-            stroke: #fff;
-            stroke-width: 2.5;
         }
 
         /* ==================== HERO SECTION ==================== */
@@ -1430,74 +1121,6 @@
             border-top: 4px solid var(--lime);
         }
 
-        /* ==================== FOOTER ==================== */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: var(--spacing-xl) var(--spacing-md);
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .footer-section h4 {
-            color: var(--lime);
-            margin-bottom: 12px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section a {
-            color: #CCCCCC;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--lime);
-        }
-
-        .footer-section a.active {
-            color: var(--lime) !important;
-            font-weight: 600;
-        }
-
-        .footer-logo {
-            height: 40px;
-            margin-bottom: 12px;
-        }
-
-        .credentials {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-            font-size: 15px;
-            color: #aaa;
-        }
-
-        .footer-divider {
-            height: 1px;
-            background: #2a2a2a;
-            margin: var(--spacing-lg) 0;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            color: #aaa;
-            font-size: 15px;
-        }
-
         /* ==================== SCROLL ANIMATIONS ==================== */
         .fade-up {
             opacity: 1;
@@ -1533,110 +1156,6 @@
             :root {
                 --spacing-2xl: 80px;
                 --spacing-xl: 48px;
-            }
-
-            nav {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                background: rgba(10, 10, 10, 0.4);
-                backdrop-filter: blur(12px) saturate(150%);
-                -webkit-backdrop-filter: blur(12px) saturate(150%);
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-                box-shadow: none;
-                z-index: 100;
-            }
-
-            .nav-container {
-                height: 70px;
-            }
-
-            .nav-logo img {
-                background: transparent;
-            }
-
-            .nav-cta {
-                display: none;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger span {
-                background: #fff;
-            }
-
-    
-        /* Services dropdown */
-        .nav-dropdown {
-            position: relative;
-        }
-        .nav-dropdown > a {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .nav-dropdown > a::after {
-            content: "▾";
-            font-size: 10px;
-            opacity: 0.6;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--light-border);
-            border-radius: 12px;
-            padding: 12px 0;
-            min-width: 220px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-50%) translateY(8px);
-            transition: all 0.2s ease;
-            z-index: 200;
-        }
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--dark) !important;
-            transition: background 0.15s;
-        }
-        .dropdown-menu a:hover {
-            background: rgba(200, 255, 0, 0.12);
-            color: var(--dark) !important;
-        }
-        .dropdown-menu a .dd-icon {
-            font-size: 18px;
-            width: 24px;
-            text-align: center;
-        }
-        .dropdown-divider {
-            height: 1px;
-            background: var(--light-border);
-            margin: 8px 0;
-        }
-        .nav-cta {
-                display: none;
             }
 
             .hero-form-card h3 {
@@ -1705,10 +1224,6 @@
                 padding: 60px 16px;
             }
 
-            .nav-container {
-                height: 70px;
-            }
-
             .hero {
                 min-height: auto;
                 padding: var(--spacing-xl) 16px;
@@ -1735,10 +1250,6 @@
 
             .stat-number {
                 font-size: 36px;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
             }
 
             .about-container {
@@ -2102,41 +1613,6 @@
             }
         }
 
-        /* Service area tabs */
-        .area-tabs {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-        .area-tab {
-            background: rgba(255,255,255,0.08);
-            color: #aaa;
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: var(--font-secondary);
-        }
-        .area-tab:hover {
-            background: rgba(200,255,0,0.1);
-            color: #ccc;
-        }
-        .area-tab.active {
-            background: var(--lime);
-            color: var(--dark);
-            border-color: var(--lime);
-        }
-        .area-panel {
-            display: none;
-        }
-        .area-panel.active {
-            display: block;
-        }
-
         /* Mobile hero CTA button (replaces form on mobile) */
         .mobile-hero-cta {
             display: none;
@@ -2331,55 +1807,8 @@
     </script>
 </head>
 <body class="js-loaded">
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        Call Us: <a href="tel:+15168712770">(516) 871-2770</a>
-    </div>
-
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="/"><img src="images/logo.png" alt="Coach Movers"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a class="" href="/">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li class="nav-dropdown">
-                    <a href="#services">Services</a>
-                    <div class="dropdown-menu">
-                        <a href="services/local-moving.html"><span class="dd-icon">🏠</span> Local Moving</a>
-                        <a href="services/long-distance.html"><span class="dd-icon">🚛</span> Long-Distance</a>
-                        <a href="services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
-                    <a href="services/full-service-packing.html"><span class="dd-icon">✨</span> Full-Service Packing</a>
-                        <a href="services/storage.html"><span class="dd-icon">🔒</span> Storage Solutions</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#services"><span class="dd-icon">✨</span> All Services</a>
-                    </div>
-                </li>
-                <li><a href="contact/">Contact</a></li>
-            </ul>
-            <a class="nav-cta" href="#hero-form">Get a Quote</a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-            <svg viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-        </button>
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="services/local-moving.html">🏠 Local Moving</a>
-        <a href="services/long-distance.html">🚛 Long-Distance</a>
-        <a href="services/packing.html">📦 Packing Services</a>
-        <a href="services/storage.html">🔒 Storage Solutions</a>
-        <a href="contact/">Contact</a>
-        <a class="nav-cta" href="#hero-form">Get a Quote</a>
-    </div>
+    <div id="site-header" data-base-path=""></div>
+    <script src="shared/header.js"></script>
 
     <!-- HERO SECTION -->
     <section class="hero" id="main-content">
@@ -3270,124 +2699,8 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="Coach Movers" style="height: 40px;">
-                </div>
-                <p style="font-size: 15px; color: #aaa; margin-bottom: 12px;">Long Island's most trusted moving company since 2002.</p>
-                <div class="credentials">
-                    <span>✓ Licensed</span>
-                    <span>✓ Insured</span>
-                    <span>✓ Bonded</span>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                    <a href="#" aria-label="Google">G</a>
-                    <a href="#" aria-label="Yelp">Y</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a class="active" href="/">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/services">Services</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="services/local-moving.html">Local Moving</a></li>
-                    <li><a href="services/long-distance.html">Long-Distance</a></li>
-                    <li><a href="services/packing.html">Packing Services</a>
-    <a href="services/full-service-packing.html">Full-Service Packing</a></li>
-                    <li><a href="services/storage.html">Storage Solutions</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Get In Touch</h4>
-                <ul>
-                    <li><a href="tel:+15168712770">(516) 871-2770</a></li>
-                    <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
-                    <li>HQ: Garden City, NY</li>
-                    <li><a href="/contact">Get a Free Quote</a></li>
-                    <li>Hours: Mon–Sun 7AM–9PM</li>
-                    <li>NY DOT License #T-39547</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Service Areas</h4>
-                <div class="area-tabs">
-                    <button class="area-tab active" onclick="switchAreaTab(this, 'nassau')">Nassau</button>
-                    <button class="area-tab" onclick="switchAreaTab(this, 'suffolk')">Suffolk</button>
-                    <button class="area-tab" onclick="switchAreaTab(this, 'nyc')">NYC</button>
-                    <button class="area-tab" onclick="switchAreaTab(this, 'ct')">CT</button>
-                    <button class="area-tab" onclick="switchAreaTab(this, 'nj')">NJ</button>
-                </div>
-                <div class="area-panel active" id="area-nassau">
-                    <div class="service-areas-list">
-                        <span>Garden City</span> <span>East Meadow</span> <span>Massapequa</span>
-                        <span>Farmingdale</span> <span>Levittown</span> <span>Hicksville</span>
-                        <span>Bethpage</span> <span>Wantagh</span> <span>Seaford</span>
-                        <span>Plainview</span> <span>Syosset</span> <span>Manhasset</span>
-                        <span>Freeport</span> <span>Merrick</span> <span>Bellmore</span>
-                        <span>Oceanside</span> <span>Rockville Centre</span> <span>Mineola</span>
-                        <span>Great Neck</span> <span>Glen Cove</span> <span>Long Beach</span>
-                        <span>Valley Stream</span> <span>Hempstead</span> <span>Lynbrook</span>
-                        <span>Floral Park</span> <span>New Hyde Park</span> <span>Williston Park</span>
-                        <span>Roslyn</span> <span>Jericho</span> <span>Oyster Bay</span>
-                        <span>Woodbury</span> <span>Old Westbury</span> <span>Carle Place</span>
-                    </div>
-                </div>
-                <div class="area-panel" id="area-suffolk">
-                    <div class="service-areas-list">
-                        <span>Huntington</span> <span>Babylon</span> <span>Islip</span>
-                        <span>Smithtown</span> <span>Brookhaven</span> <span>Commack</span>
-                        <span>Dix Hills</span> <span>Hauppauge</span> <span>Bay Shore</span>
-                        <span>Patchogue</span> <span>Ronkonkoma</span> <span>Centereach</span>
-                        <span>Lindenhurst</span> <span>West Islip</span> <span>Deer Park</span>
-                        <span>Northport</span> <span>Cold Spring Harbor</span> <span>Stony Brook</span>
-                        <span>Port Jefferson</span> <span>Sayville</span> <span>Riverhead</span>
-                    </div>
-                </div>
-                <div class="area-panel" id="area-nyc">
-                    <div class="service-areas-list">
-                        <span>Manhattan</span> <span>Upper East Side</span> <span>Upper West Side</span>
-                        <span>Midtown</span> <span>Chelsea</span> <span>SoHo</span>
-                        <span>Tribeca</span> <span>Financial District</span> <span>Harlem</span>
-                        <span>Brooklyn</span> <span>Queens</span> <span>Bronx</span>
-                        <span>Staten Island</span>
-                    </div>
-                </div>
-                <div class="area-panel" id="area-ct">
-                    <div class="service-areas-list">
-                        <span>Stamford</span> <span>Greenwich</span> <span>Norwalk</span>
-                        <span>Darien</span> <span>Westport</span> <span>Fairfield</span>
-                        <span>Bridgeport</span> <span>New Haven</span> <span>Milford</span>
-                        <span>Danbury</span> <span>Shelton</span> <span>Stratford</span>
-                    </div>
-                </div>
-                <div class="area-panel" id="area-nj">
-                    <div class="service-areas-list">
-                        <span>Jersey City</span> <span>Hoboken</span> <span>Newark</span>
-                        <span>Fort Lee</span> <span>Weehawken</span> <span>Edgewater</span>
-                        <span>Bayonne</span> <span>Elizabeth</span> <span>Perth Amboy</span>
-                        <span>New Brunswick</span> <span>Princeton</span> <span>Red Bank</span>
-                        <span>Morristown</span> <span>Montclair</span> <span>Paramus</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-divider"></div>
-        <div class="footer-bottom">
-            <p>© 2025 Coach Movers. All rights reserved. | <a href="/privacy.html" style="color: var(--lime);">Privacy Policy</a> | <a href="/terms.html" style="color: var(--lime);">Terms of Service</a></p>
-        </div>
-    </footer>
+    <div id="site-footer" data-base-path=""></div>
+    <script src="shared/footer.js"></script>
 
     <!-- Chat widget removed -->
 
@@ -3400,30 +2713,6 @@
     <script>
         // Enable scroll animations only after JS loads
         document.body.classList.add('js-loaded');
-
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close menu with X button
-        document.getElementById('mobileMenuClose').addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-        });
-
-        // Close menu when link is clicked
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-
 
         function nextCtaStep() {
             const step1 = document.getElementById('ctaStep1');
@@ -3523,34 +2812,6 @@
         const statsBar = document.querySelector('.stats-bar');
         if (statsBar) counterObserver.observe(statsBar);
 
-        // Set active nav link and footer links
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            // Set active mobile menu link
-            document.querySelectorAll('.mobile-menu a').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            // Set active footer links
-            document.querySelectorAll('.footer-section a').forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
         /* ==================== FEATURE 1: 4-STEP QUOTE FORM JS ==================== */
         let currentStep = 1;
         const totalSteps = 4;
@@ -3647,14 +2908,6 @@
             }
         }
 
-        // Service area tabs
-        function switchAreaTab(btn, areaId) {
-            document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById('area-' + areaId).classList.add('active');
-        }
-
         // Checklist toggle
         function toggleChecklist(btn) {
             const content = document.getElementById('checklistContent');
@@ -3677,41 +2930,6 @@
                 checkbox.classList.add('checked');
             }
         }
-
-        // Show nav on scroll up, hide on scroll down (from anywhere on page)
-        let lastScrollY = window.scrollY;
-        let navHidden = false;
-        const navEl = document.querySelector('nav');
-
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const scrollingUp = currentScrollY < lastScrollY;
-            const pastHero = currentScrollY > 300;
-
-            if (!pastHero) {
-                // At top of page — always show, use default sticky
-                navEl.style.position = '';
-                navEl.style.transform = '';
-                navEl.style.transition = '';
-                navHidden = false;
-            } else if (scrollingUp && navHidden) {
-                // Scrolling up from mid-page — slide nav in (fixed at top)
-                navEl.style.position = 'fixed';
-                navEl.style.top = '0';
-                navEl.style.left = '0';
-                navEl.style.right = '0';
-                navEl.style.transform = 'translateY(0)';
-                navEl.style.transition = 'transform 0.3s ease';
-                navHidden = false;
-            } else if (!scrollingUp && !navHidden && pastHero) {
-                // Scrolling down — hide the nav
-                navEl.style.transform = 'translateY(-100%)';
-                navEl.style.transition = 'transform 0.3s ease';
-                navHidden = true;
-            }
-
-            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
-        }, { passive: true });
 
         // Sticky CTA - show after scrolling 500px
         const stickyCta = document.getElementById('stickyCta');
