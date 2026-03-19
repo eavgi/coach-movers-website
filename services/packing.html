@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Packing Services | Coach Movers</title>
+    <meta name="description" content="Coach Movers offers white-glove packing services on Long Island. We professionally pack everything from fragile items to entire homes. Free supplies included.">
+    <meta property="og:title" content="Professional Packing Services | Coach Movers">
+    <meta property="og:description" content="Coach Movers offers white-glove packing services on Long Island. We professionally pack everything from fragile items to entire homes. Free supplies included.">
+    <link rel="canonical" href="https://coachmovers.com/services/packing.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #0A0A0A; --lime: #C8FF00; --white: #FFFFFF;
+            --off-white: #F7F7F5; --gray: #555555; --light-border: #E5E5E5;
+            --font-primary: "Bricolage Grotesque", sans-serif;
+            --font-secondary: "Figtree", sans-serif;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--font-secondary); color:var(--dark); background:var(--white); line-height:1.6; }
+        a { text-decoration:none; color:inherit; }
+        img { max-width:100%; height:auto; display:block; }
+
+        /* Nav */
+        nav { position:sticky; top:0; z-index:200; background:var(--white); border-bottom:1px solid var(--light-border); }
+        .nav-container { max-width:1200px; margin:0 auto; padding:0 24px; height:80px; display:flex; align-items:center; justify-content:space-between; }
+        .nav-logo { font-family:var(--font-primary); font-size:24px; font-weight:800; }
+        .nav-links { display:flex; gap:32px; align-items:center; }
+        .nav-links a { font-size:15px; font-weight:500; color:var(--gray); transition:color 0.2s; }
+        .nav-links a:hover { color:var(--dark); }
+        .nav-cta { background:var(--lime); color:var(--dark); padding:12px 24px; border-radius:8px; font-weight:700; font-size:15px; }
+        .nav-cta:hover { transform:translateY(-1px); }
+        @media (max-width:768px) {
+            .nav-links { display:none; }
+        }
+
+        /* Hero */
+        .service-hero {
+            background-color: var(--dark);
+            padding: 100px 24px 80px;
+            text-align: center;
+        }
+        .service-hero h1 {
+            font-family:var(--font-primary); font-size:clamp(36px,6vw,56px);
+            font-weight:800; color:var(--white); line-height:1.1; margin-bottom:20px;
+        }
+        .service-hero h1 .lime { color:var(--lime); }
+        .service-hero p {
+            color:#b0b0b0; font-size:18px; max-width:650px; margin:0 auto 32px; line-height:1.7;
+        }
+        .hero-cta {
+            display:inline-block; background:var(--lime); color:var(--dark);
+            padding:16px 40px; border-radius:8px; font-weight:700; font-size:16px;
+            transition:transform 0.2s;
+        }
+        .hero-cta:hover { transform:translateY(-2px); }
+        .hero-badge {
+            display:inline-block; background:rgba(200,255,0,0.15); color:var(--lime);
+            padding:8px 20px; border-radius:50px; font-size:15px; font-weight:600;
+            margin-bottom:24px; letter-spacing:1px; text-transform:uppercase;
+        }
+
+        /* Content sections */
+        .container { max-width:1100px; margin:0 auto; padding:0 24px; }
+        section { padding:80px 24px; }
+
+        .features {
+            background:var(--off-white);
+        }
+        .features h2 {
+            font-family:var(--font-primary); font-size:clamp(28px,4vw,40px);
+            font-weight:800; text-align:center; margin-bottom:48px;
+        }
+        .features-grid {
+            display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+            gap:24px; max-width:1100px; margin:0 auto;
+        }
+        .feature-card {
+            background:var(--white); border:1px solid var(--light-border);
+            border-radius:12px; padding:32px; transition:all 0.3s;
+        }
+        .feature-card:hover {
+            box-shadow:0 4px 24px rgba(0,0,0,0.08); border-color:var(--lime);
+            transform:translateY(-4px);
+        }
+        .feature-card .icon { font-size:32px; margin-bottom:16px; }
+        .feature-card h3 {
+            font-family:var(--font-primary); font-size:20px; font-weight:700;
+            margin-bottom:8px;
+        }
+        .feature-card p { color:var(--gray); font-size:15px; line-height:1.7; }
+
+        /* Process */
+        .process h2 {
+            font-family:var(--font-primary); font-size:clamp(28px,4vw,40px);
+            font-weight:800; text-align:center; margin-bottom:48px;
+        }
+        .process-steps {
+            display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+            gap:32px; max-width:1100px; margin:0 auto;
+        }
+        .process-step {
+            text-align:center; padding:24px;
+        }
+        .step-num {
+            width:48px; height:48px; background:var(--lime); color:var(--dark);
+            border-radius:50%; display:flex; align-items:center; justify-content:center;
+            font-family:var(--font-primary); font-weight:800; font-size:20px;
+            margin:0 auto 16px;
+        }
+        .process-step h4 {
+            font-family:var(--font-primary); font-size:18px; margin-bottom:8px;
+        }
+        .process-step p { color:var(--gray); font-size:15px; }
+
+        /* FAQ */
+        .faq { background:var(--off-white); }
+        .faq h2 {
+            font-family:var(--font-primary); font-size:clamp(28px,4vw,40px);
+            font-weight:800; text-align:center; margin-bottom:48px;
+        }
+        .faq-list { max-width:800px; margin:0 auto; }
+        .faq-item {
+            background:var(--white); border:1px solid var(--light-border);
+            border-radius:12px; margin-bottom:12px; overflow:hidden;
+        }
+        .faq-q {
+            padding:20px 24px; font-weight:700; font-size:16px; cursor:pointer;
+            display:flex; justify-content:space-between; align-items:center;
+        }
+        .faq-q::after { content:"＋"; font-size:20px; color:var(--gray); }
+        .faq-item.open .faq-q::after { content:"−"; }
+        .faq-a {
+            max-height:0; overflow:hidden; transition:max-height 0.3s ease;
+        }
+        .faq-item.open .faq-a { max-height:300px; }
+        .faq-a p { padding:0 24px 20px; color:var(--gray); font-size:15px; line-height:1.7; }
+
+        /* CTA */
+        .cta-section {
+            background:var(--dark); padding:80px 24px; text-align:center;
+        }
+        .cta-section h2 {
+            font-family:var(--font-primary); font-size:clamp(28px,4vw,40px);
+            font-weight:800; color:var(--white); margin-bottom:16px;
+        }
+        .cta-section p {
+            color:#b0b0b0; font-size:16px; margin-bottom:32px; max-width:500px; margin-left:auto; margin-right:auto;
+        }
+        .cta-section .hero-cta { display:inline-block; }
+
+        /* Testimonial */
+        .testimonial-banner {
+            background:var(--dark); padding:48px 24px; text-align:center;
+        }
+        .testimonial-banner blockquote {
+            color:var(--white); font-size:18px; font-style:italic;
+            max-width:700px; margin:0 auto 16px; line-height:1.7;
+        }
+        .testimonial-banner cite {
+            color:var(--lime); font-size:15px; font-style:normal; font-weight:600;
+        }
+
+        /* Footer */
+        footer {
+            background:var(--dark); color:#999; padding:48px 24px 24px; text-align:center;
+            font-size:15px;
+        }
+        footer a { color:var(--lime); }
+        footer p { margin-bottom:8px; }
+    
+    
+    
+    /* ===== SHARED NAV/MENU CSS ===== */
+    .top-bar { background:#0A0A0A; padding:8px 0; text-align:center; font-size:15px; color:#ccc; }
+    .top-bar a { color:#C8FF00; font-weight:600; text-decoration:none; }
+    nav { background:rgba(255,255,255,0.8); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); position:sticky; top:0; z-index:100; box-shadow:0 1px 12px rgba(0,0,0,0.06); border-bottom:1px solid rgba(0,0,0,0.05); }
+    .nav-container { max-width:1200px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; height:80px; }
+    .nav-logo { display:flex; align-items:center; height:50px; }
+    .nav-logo a { display:flex; align-items:center; }
+    .nav-logo img { height:50px; width:auto; background:#fff; padding:8px; border-radius:8px; }
+    .nav-links { display:flex; list-style:none; gap:48px; align-items:center; margin:0; padding:0; }
+    .nav-links a { font-weight:500; font-size:15px; color:#555; text-decoration:none; }
+    .nav-links a:hover { color:#C8FF00; }
+    .nav-cta { background:#C8FF00; color:#0A0A0A !important; padding:12px 24px; border-radius:8px; font-weight:700; font-size:15px; display:inline-block; text-decoration:none; }
+    .nav-dropdown { position:relative; }
+    .nav-dropdown > a::after { content:" ▾"; font-size:10px; opacity:0.6; }
+    .dropdown-menu { position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px); background:rgba(255,255,255,0.95); backdrop-filter:blur(20px); border:1px solid #E5E5E5; border-radius:12px; padding:12px 0; min-width:220px; box-shadow:0 8px 32px rgba(0,0,0,0.12); opacity:0; visibility:hidden; transition:all 0.2s; z-index:200; }
+    .nav-dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+    .dropdown-menu a { display:flex !important; align-items:center; gap:10px; padding:10px 20px !important; font-size:15px !important; color:#0A0A0A !important; }
+    .dropdown-menu a:hover { background:rgba(200,255,0,0.12); }
+    .dd-icon { font-size:18px; width:24px; text-align:center; }
+    .dropdown-divider { height:1px; background:#E5E5E5; margin:8px 0; }
+    .hamburger { display:none; cursor:pointer; flex-direction:column; gap:5px; border:none; background:none; padding:8px; }
+    .hamburger span { width:24px; height:2px; background:#0A0A0A; transition:all 0.3s; display:block; }
+    .mobile-menu { position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(10,10,10,0.9); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); z-index:300; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; opacity:0; visibility:hidden; transition:all 0.3s; }
+    .mobile-menu.active { opacity:1; visibility:visible; }
+    .mobile-menu a { color:#fff !important; font-size:20px; font-weight:600; padding:12px 32px; border-radius:8px; text-decoration:none; }
+    .mobile-menu a:hover { background:rgba(255,255,255,0.1); }
+    .mobile-menu .nav-cta { background:#C8FF00 !important; color:#0A0A0A !important; margin-top:16px; }
+    .mobile-menu-close { position:absolute; top:24px; right:24px; width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:50%; cursor:pointer; }
+    .mobile-menu-close:hover { background:rgba(200,255,0,0.2); transform:scale(1.1); }
+    .mobile-menu-close svg { width:20px; height:20px; stroke:#fff; stroke-width:2.5; }
+    @media (max-width:768px) {
+        nav { position:absolute; left:0; right:0; top:0; background:rgba(10,10,10,0.4); backdrop-filter:blur(12px) saturate(150%); -webkit-backdrop-filter:blur(12px) saturate(150%); border-bottom:1px solid rgba(255,255,255,0.08); box-shadow:none; }
+        .nav-container { height:70px; }
+        .nav-logo img { background:transparent; }
+        .nav-cta:not(.mobile-menu .nav-cta) { display:none; }
+        .nav-links { display:none; }
+        .hamburger { display:flex; }
+        .hamburger span { background:#fff; }
+    }
+    @media (max-width:768px) {
+        footer > div:first-child { grid-template-columns:1fr 1fr !important; }
+    }
+    @media (max-width:480px) {
+        footer > div:first-child { grid-template-columns:1fr !important; }
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">Call Us: <a href="tel:5168712770">(516) 871-2770</a></div>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html"><img src="../images/logo.png" alt="Coach Movers"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li class="nav-dropdown">
+                    <a href="../index.html#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="../services/local-moving.html"><span class="dd-icon">🏠</span> Local Moving</a>
+                        <a href="../services/long-distance.html"><span class="dd-icon">🚛</span> Long-Distance</a>
+                        <a href="../services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
+                        <a href="../services/storage.html"><span class="dd-icon">🔒</span> Storage Solutions</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="../index.html#services"><span class="dd-icon">✨</span> All Services</a>
+                    </div>
+                </li>
+                <li><a href="../contact/">Contact</a></li>
+            </ul>
+            <a class="nav-cta" href="../contact/">Get a Quote</a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </button>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../services/local-moving.html">🏠 Local Moving</a>
+        <a href="../services/long-distance.html">🚛 Long-Distance</a>
+        <a href="../services/packing.html">📦 Packing</a>
+        <a href="../services/storage.html">🔒 Storage</a>
+        <a href="../contact/">Contact</a>
+        <a class="nav-cta" href="../contact/">Get a Quote</a>
+    </div>
+
+    <section class="service-hero">
+        <div class="hero-badge">White Glove Service</div>
+        <h1>Professional <span class="lime">Packing</span> Services</h1>
+        <p>Don't lift a finger. Our trained packers handle everything — from fragile china to bulky furniture. White-glove service with free supplies included.</p>
+        <a href="../index.html#hero-form" class="hero-cta">Get Your Free Quote →</a>
+    </section>
+
+    <section class="testimonial-banner"><blockquote>"I was dreading packing my entire kitchen. The Coach Movers team packed the whole house in one day. Not a single thing was broken."</blockquote><cite>— Michelle L., Manhasset</cite></section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Our Packing Services Include</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="icon">📦</div><h3>Full-Home Packing</h3><p>We pack your entire home from top to bottom. Every room, every item, professionally handled.</p></div>
+<div class="feature-card"><div class="icon">🥂</div><h3>Fragile Item Specialty</h3><p>China, glassware, artwork, mirrors — we use custom techniques and materials for delicate items.</p></div>
+<div class="feature-card"><div class="icon">🎁</div><h3>Free Supplies</h3><p>Boxes, tape, bubble wrap, wardrobe boxes, and specialty containers — all included at no extra cost.</p></div>
+<div class="feature-card"><div class="icon">📝</div><h3>Labeled & Organized</h3><p>Every box is labeled by room and contents so unpacking is fast and stress-free.</p></div>
+<div class="feature-card"><div class="icon">⚡</div><h3>Partial Packing</h3><p>Don't need everything packed? We'll handle just the tricky stuff — kitchens, fragiles, or specific rooms.</p></div>
+<div class="feature-card"><div class="icon">🔓</div><h3>Unpacking Too</h3><p>We offer full unpacking services at your new home. Boxes removed, items placed, ready to live.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="process-steps">
+                <div class="process-step"><div class="step-num">1</div><h4>Assessment</h4><p>We evaluate what needs packing and bring the right supplies.</p></div>
+<div class="process-step"><div class="step-num">2</div><h4>Pack Room by Room</h4><p>Our team systematically packs each room, wrapping and labeling everything.</p></div>
+<div class="process-step"><div class="step-num">3</div><h4>Load & Move</h4><p>Packed items are carefully loaded and transported to your new home.</p></div>
+<div class="process-step"><div class="step-num">4</div><h4>Unpack (Optional)</h4><p>We can unpack everything, place items, and remove all boxes.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item"><div class="faq-q">How long does packing a whole house take?</div><div class="faq-a"><p>A typical 3-bedroom home takes our crew 4–6 hours to fully pack. Larger homes may take a full day. We can also pack the day before your move.</p></div></div>
+<div class="faq-item"><div class="faq-q">Do you provide the packing materials?</div><div class="faq-a"><p>Yes! All packing supplies are included free of charge — boxes, tape, bubble wrap, wardrobe boxes, dish packs, and specialty crates.</p></div></div>
+<div class="faq-item"><div class="faq-q">Can I pack some things myself?</div><div class="faq-a"><p>Absolutely. Many clients pack personal items and let us handle the kitchen, fragiles, and artwork. We're flexible.</p></div></div>
+<div class="faq-item"><div class="faq-q">How do you handle fragile items?</div><div class="faq-a"><p>Fragile items are individually wrapped in packing paper and bubble wrap, then placed in double-walled boxes with cushioning. Artwork and mirrors get custom crating.</p></div></div>
+<div class="faq-item"><div class="faq-q">Do you offer unpacking services?</div><div class="faq-a"><p>Yes. We offer full unpacking at your new home — placing items where you want them, breaking down boxes, and hauling away packing materials.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Free quote in 2 minutes. No hidden fees. No surprises.</p>
+        <a href="../index.html#hero-form" class="hero-cta">Get Your Free Quote →</a>
+    </section>
+
+    
+    
+    <footer style="background:#0A0A0A; padding:64px 24px 24px;">
+        <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.2fr 0.8fr 0.8fr 1fr; gap:40px; margin-bottom:40px;">
+            <div>
+                <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:22px; color:#fff; margin-bottom:12px;">Coach Movers</h4>
+                <p style="font-size:15px; color:#999; margin-bottom:8px;">Long Island's most trusted moving company since 2002.</p>
+                <p style="font-size:15px; color:#999;">✓ Licensed &nbsp; ✓ Insured &nbsp; ✓ Bonded</p>
+            </div>
+            <div>
+                <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:16px; color:#fff; margin-bottom:16px;">Quick Links</h4>
+                <ul style="list-style:none; margin:0; padding:0;">
+                    <li style="margin-bottom:8px;"><a href="../index.html" style="font-size:15px; color:#999; text-decoration:none;">Home</a></li>
+                    <li style="margin-bottom:8px;"><a href="../index.html#about" style="font-size:15px; color:#999; text-decoration:none;">About Us</a></li>
+                    <li style="margin-bottom:8px;"><a href="../index.html#services" style="font-size:15px; color:#999; text-decoration:none;">Services</a></li>
+                    <li style="margin-bottom:8px;"><a href="../contact/" style="font-size:15px; color:#999; text-decoration:none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:16px; color:#fff; margin-bottom:16px;">Services</h4>
+                <ul style="list-style:none; margin:0; padding:0;">
+                    <li style="margin-bottom:8px;"><a href="../services/local-moving.html" style="font-size:15px; color:#999; text-decoration:none;">Local Moving</a></li>
+                    <li style="margin-bottom:8px;"><a href="../services/long-distance.html" style="font-size:15px; color:#999; text-decoration:none;">Long Distance</a></li>
+                    <li style="margin-bottom:8px;"><a href="../services/packing.html" style="font-size:15px; color:#999; text-decoration:none;">Packing Services</a></li>
+                    <li style="margin-bottom:8px;"><a href="../services/storage.html" style="font-size:15px; color:#999; text-decoration:none;">Storage Solutions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:16px; color:#fff; margin-bottom:16px;">Get In Touch</h4>
+                <ul style="list-style:none; margin:0; padding:0;">
+                    <li style="margin-bottom:8px; font-size:15px; color:#999;">📞 (516) 871-2770</li>
+                    <li style="margin-bottom:8px;"><a href="mailto:info@coachmovers.com" style="font-size:15px; color:#999; text-decoration:none;">✉️ info@coachmovers.com</a></li>
+                    <li style="margin-bottom:8px; font-size:15px; color:#999;">📍 Garden City, NY</li>
+                    <li><a href="../contact/" style="font-size:15px; color:#C8FF00; text-decoration:none;">Get a Free Quote →</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="max-width:1100px; margin:0 auto; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); text-align:center; font-size:15px; color:#999;">
+            <p>© 2025 Coach Movers. All Rights Reserved. | <a href="#" style="color:#C8FF00;">Privacy Policy</a> | <a href="#" style="color:#C8FF00;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+
+    
+
+
+    <script>
+        // Mobile menu
+        const _h = document.getElementById('hamburger');
+        const _m = document.getElementById('mobileMenu');
+        if (_h && _m) {
+            _h.addEventListener('click', () => { _h.classList.toggle('active'); _m.classList.toggle('active'); });
+            const _c = document.getElementById('mobileMenuClose');
+            if (_c) _c.addEventListener('click', () => { _h.classList.remove('active'); _m.classList.remove('active'); });
+            document.querySelectorAll('.mobile-menu a').forEach(l => l.addEventListener('click', () => { _h.classList.remove('active'); _m.classList.remove('active'); }));
+        }
+        // Scroll-up nav reveal
+        let _lastY = window.scrollY, _navHid = false;
+        const _nav = document.querySelector('nav');
+        if (_nav) {
+            window.addEventListener('scroll', () => {
+                const y = window.scrollY, up = y < _lastY;
+                if (y < 300) { _nav.style.position=''; _nav.style.transform=''; _nav.style.transition=''; _navHid=false; }
+                else if (up && _navHid) { _nav.style.position='fixed'; _nav.style.top='0'; _nav.style.left='0'; _nav.style.right='0'; _nav.style.transform='translateY(0)'; _nav.style.transition='transform 0.3s ease'; _navHid=false; }
+                else if (!up && !_navHid && y>300) { _nav.style.transform='translateY(-100%)'; _nav.style.transition='transform 0.3s ease'; _navHid=true; }
+                _lastY = y<=0?0:y;
+            }, {passive:true});
+        }
+    </script>
+
+</body>
+</html>

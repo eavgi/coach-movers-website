@@ -1,0 +1,3772 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Movers | Long Island's Most Trusted Moving Company Since 2002</title>
+    <meta name="description" content="Coach Movers: Long Island's trusted moving company. 23+ years, 15,000+ successful moves, 4.9★ rating. Local, long-distance, packing &amp; storage.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Coach Movers | Long Island's Most Trusted Moving Company Since 2002">
+    <meta property="og:description" content="Coach Movers: Long Island's trusted moving company. 23+ years, 15,000+ successful moves, 4.9★ rating. Local, long-distance, packing & storage.">
+    <meta property="og:url" content="https://coachmovers.com">
+    <meta property="og:image" content="https://coach-movers-website.netlify.app/og-image.jpg">
+    <meta property="og:site_name" content="Coach Movers">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coach Movers | Long Island's Most Trusted Moving Company">
+    <meta name="twitter:description" content="Long Island's trusted moving company. 23+ years, 15,000+ successful moves, 4.9★ rating.">
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="canonical" href="https://coachmovers.com">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚚</text></svg>">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A0A0A">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Figtree:wght@400;500&amp;display=swap" rel="stylesheet">
+    <style>
+        /* ==================== DESIGN TOKENS ==================== */
+        :root {
+            --dark: #0A0A0A;
+            --lime: #C8FF00;
+            --white: #FFFFFF;
+            --off-white: #F7F7F5;
+            --gray: #555555;
+            --light-border: #E5E5E5;
+            --dark-charcoal: #1A1A1A;
+            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --card-shadow-dark: 0 4px 24px rgba(200, 255, 0, 0.1);
+
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 64px;
+            --spacing-2xl: 120px;
+
+            --font-primary: "Bricolage Grotesque", sans-serif;
+            --font-secondary: "Figtree", sans-serif;
+        }
+
+        /* ==================== STICKY CTA ==================== */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0A0A0A;
+            padding: 8px 12px;
+            display: none;
+            gap: 8px;
+            z-index: 300;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+        .sticky-cta .btn-quote {
+            flex: 1;
+            background: #C8FF00;
+            color: #0A0A0A;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .sticky-cta .btn-call {
+            flex: 1;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .sticky-cta { display: flex; }
+            body { padding-bottom: 52px; }
+        }
+
+        /* ==================== CHAT WIDGET ==================== */
+        .chat-widget {
+            position: fixed;
+            bottom: 90px;
+            right: 16px;
+            z-index: 299;
+        }
+        .chat-bubble {
+            width: 56px;
+            height: 56px;
+            background: #C8FF00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+        .chat-bubble:hover {
+            transform: scale(1.1);
+        }
+        .chat-popup {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 24px;
+            display: none;
+        }
+        .chat-popup.active {
+            display: block;
+        }
+        .chat-popup h4 {
+            font-family: var(--font-primary, 'Bricolage Grotesque', sans-serif);
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: #0A0A0A;
+        }
+        .chat-popup p {
+            font-size: 15px;
+            color: #555555;
+            margin-bottom: 16px;
+        }
+        .chat-popup input, .chat-popup textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+        .chat-popup button {
+            width: 100%;
+            padding: 12px;
+            background: #0A0A0A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        @media (max-width: 768px) {
+            .chat-widget { bottom: 80px; }
+            .chat-popup { width: 280px; right: -8px; }
+        }
+
+        /* ==================== SERVICE AREAS FOOTER ==================== */
+        .service-areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .service-areas-list span {
+            font-size: 15px;
+            color: #A0A0A0;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: #CCCCCC;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .social-links a:hover {
+            background: #C8FF00;
+            color: #0A0A0A;
+        }
+
+        
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 12px 24px;
+            z-index: 10000;
+            font-weight: 700;
+            font-size: 16px;
+            transition: top 0.2s;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: var(--font-secondary);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h1 {
+            font-family: var(--font-primary);
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: var(--font-primary);
+            font-size: clamp(36px, 6vw, 48px);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-family: var(--font-primary);
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h4 {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .text-sm {
+            font-size: 15px;
+        }
+
+        .text-xs {
+            font-size: 15px;
+        }
+
+        /* ==================== UTILITIES ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-label {
+            font-family: var(--font-primary);
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-label-dark {
+            display: inline-block;
+            background: var(--dark);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+        }
+
+        .section-label-accent {
+            display: inline-block;
+            color: var(--dark);
+            padding-left: 12px;
+            border-left: 4px solid var(--lime);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* ==================== TOP BAR ==================== */
+        .top-bar {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 12px 0;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .top-bar a {
+            color: var(--lime);
+            font-weight: 600;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            background: var(--white);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--lime);
+        }
+
+        .nav-links a.active {
+            color: var(--lime);
+            border-bottom: 3px solid var(--lime);
+        }
+
+
+        /* Services dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-dropdown > a::after {
+            content: "▾";
+            font-size: 10px;
+            opacity: 0.6;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            padding: 12px 0;
+            min-width: 220px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(8px);
+            transition: all 0.2s ease;
+            z-index: 200;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--dark) !important;
+            transition: background 0.15s;
+        }
+        .dropdown-menu a:hover {
+            background: rgba(200, 255, 0, 0.12);
+            color: var(--dark) !important;
+        }
+        .dropdown-menu a .dd-icon {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+        .dropdown-divider {
+            height: 1px;
+            background: var(--light-border);
+            margin: 8px 0;
+        }
+        .nav-cta {
+            background: var(--lime);
+            color: var(--dark);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+            color: var(--lime);
+            border: 2px solid var(--lime);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 250;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ==================== MOBILE MENU ==================== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:visited {
+            color: #ffffff;
+        }
+
+        .mobile-menu a.active {
+            color: #C8FF00;
+        }
+
+        .mobile-menu .nav-cta {
+            background: #C8FF00;
+            color: #0A0A0A;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .mobile-menu .nav-cta:visited {
+            color: #0A0A0A;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+        .mobile-menu-close:hover {
+            background: rgba(200,255,0,0.2);
+            transform: scale(1.1);
+        }
+        .mobile-menu-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+            stroke-width: 2.5;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: min(100vh, 900px);
+            background-color: #0A0A0A;
+            background-image: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url('images/hero-truck.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(200, 255, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200, 255, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 .lime {
+            color: var(--lime);
+        }
+
+        .hero-subtitle {
+            color: #E0E0E0;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-top: 24px;
+        }
+
+        .hero-form-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 36px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--lime);
+            position: relative;
+        }
+
+        .hero-form-card h3 {
+            color: var(--dark);
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .hero-form-card .subtitle {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-border);
+            border-radius: 8px;
+            font-family: var(--font-secondary);
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--lime);
+            box-shadow: 0 0 0 3px rgba(200, 255, 0, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 14px 24px;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-button.primary {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .form-button.primary:hover {
+            background: var(--lime);
+            color: var(--dark);
+        }
+
+        .form-button.success {
+            background: var(--lime);
+            color: var(--dark);
+        }
+
+        .form-button.success:hover {
+            background: #b8ee00;
+        }
+
+        .form-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: var(--lime);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ==================== STATS BAR ==================== */
+        .stats-bar {
+            background: #0A0A0A;
+            padding: 32px 24px;
+            border-radius: 12px;
+            margin: 48px 16px;
+            max-width: 1200px;
+        }
+
+        @media (min-width: 1232px) {
+            .stats-bar {
+                margin: 48px auto;
+            }
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-item {
+            color: var(--white);
+        }
+
+        .stat-number {
+            font-family: var(--font-primary);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--lime);
+            margin-bottom: 8px;
+            counter-increment: stat-counter;
+        }
+
+        .stat-label {
+            color: #E0E0E0;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ==================== FEATURED IN ==================== */
+        .featured-in {
+            background: var(--off-white);
+            padding: var(--spacing-2xl) var(--spacing-md);
+            text-align: center;
+        }
+
+        .featured-in-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured-in h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .featured-in-text {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .press-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .press-logo {
+            height: 60px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .press-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            background: var(--white);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .about-content h2 {
+            margin-bottom: var(--spacing-lg);
+            color: var(--dark);
+        }
+
+        .about-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--gray);
+        }
+
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* ==================== OUR PROMISE ==================== */
+        .our-promise {
+            background: var(--white);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .our-promise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .our-promise h2 {
+            margin-bottom: var(--spacing-xl);
+            color: var(--dark);
+        }
+
+        .promise-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .promise-card {
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            transition: all 0.3s ease;
+        }
+
+        .promise-card:hover {
+            box-shadow: var(--card-shadow);
+            border-color: var(--lime);
+        }
+
+        .promise-card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .promise-card h4 {
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .promise-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        /* ==================== COMPARISON TABLE ==================== */
+        .comparison {
+            background: var(--dark);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .comparison-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comparison h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--dark);
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .comparison-table th {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 15px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .comparison-table td {
+            padding: 16px;
+            border-bottom: 1px solid #2a2a2a;
+            color: #CCCCCC;
+            font-size: 15px;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .feature {
+            color: var(--white);
+            font-weight: 500;
+            width: 45%;
+        }
+
+        .comparison-table .coach {
+            width: 30%;
+            color: var(--lime);
+            font-weight: 600;
+        }
+
+        .comparison-table .other {
+            width: 25%;
+        }
+
+        .check {
+            color: var(--lime);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .cross {
+            color: #ff4444;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .comparison-callout {
+            background: #1a1a1a;
+            border-left: 4px solid var(--lime);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .comparison-callout strong {
+            color: var(--lime);
+            font-size: 18px;
+        }
+
+        /* ==================== SERVICES ==================== */
+        .services {
+            background: var(--white);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .main-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--card-shadow);
+            border-color: var(--lime);
+            transform: translateY(-4px);
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 24px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .service-card a {
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .secondary-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .secondary-card {
+            background: var(--off-white);
+            border-radius: 12px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-card:hover {
+            background: var(--white);
+            box-shadow: var(--card-shadow);
+        }
+
+        .secondary-card h4 {
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        /* ==================== WHAT'S INCLUDED ==================== */
+        .included {
+            background: var(--dark);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .included-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .included h2 {
+            color: var(--white);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .included-subtitle {
+            color: var(--lime);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .included-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .included-box {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+        }
+
+        .included-box h4 {
+            color: var(--lime);
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .included-box ul {
+            list-style: none;
+        }
+
+        .included-box li {
+            color: #E0E0E0;
+            font-size: 15px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .included-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--lime);
+            font-weight: bold;
+        }
+
+        .included-callout {
+            background: var(--lime);
+            color: var(--dark);
+            padding: var(--spacing-lg);
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* ==================== PROCESS TIMELINE ==================== */
+        .process {
+            background: var(--white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process h2 {
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .process-card {
+            background: var(--off-white);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-color: var(--lime);
+        }
+
+        .process-card .step-num {
+            width: 44px;
+            height: 44px;
+            background: var(--lime);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-primary);
+            font-weight: 800;
+            font-size: 20px;
+            margin: 0 auto 12px;
+        }
+
+        .process-card .timing-badge {
+            display: inline-block;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .process-card h4 {
+            color: var(--dark);
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .process-card p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .process-card {
+                padding: 20px 16px;
+            }
+
+            .process-card h4 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Legacy timeline classes kept for checklist */
+        .timeline-content {
+                margin-left: 90px;
+            }
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials {
+            background: var(--off-white);
+            padding: var(--spacing-2xl) var(--spacing-md);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            margin-bottom: var(--spacing-lg);
+            color: var(--dark);
+        }
+
+        .testimonials-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            padding: 32px 24px;
+            background: var(--dark);
+            border-radius: 12px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box .big-number {
+            font-family: var(--font-primary);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--lime);
+            margin-bottom: 4px;
+        }
+
+        .stat-box .stat-text {
+            color: #b0b0b0;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            box-shadow: var(--card-shadow);
+        }
+
+        .stars {
+            color: #B45309;
+            font-size: 15px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .testimonial-text {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 15px;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta {
+            background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 100%);
+            padding: var(--spacing-2xl) var(--spacing-md);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+        .cta-container > h2,
+        .cta-container > .cta-subtitle {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .cta-subtitle {
+            color: #b0b0b0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: var(--spacing-xl);
+            font-size: 16px;
+        }
+
+        .cta-form {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--spacing-xl);
+            border: none;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid var(--lime);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-section h4 {
+            color: var(--lime);
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #CCCCCC;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--lime);
+        }
+
+        .footer-section a.active {
+            color: var(--lime) !important;
+            font-weight: 600;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 12px;
+        }
+
+        .credentials {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 15px;
+            color: #aaa;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: #2a2a2a;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        /* ==================== SCROLL ANIMATIONS ==================== */
+        .fade-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding: var(--spacing-lg);
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-2xl: 80px;
+                --spacing-xl: 48px;
+            }
+
+            nav {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                background: rgba(10, 10, 10, 0.4);
+                backdrop-filter: blur(12px) saturate(150%);
+                -webkit-backdrop-filter: blur(12px) saturate(150%);
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                box-shadow: none;
+                z-index: 100;
+            }
+
+            .nav-container {
+                height: 70px;
+            }
+
+            .nav-logo img {
+                background: transparent;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger span {
+                background: #fff;
+            }
+
+    
+        /* Services dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-dropdown > a::after {
+            content: "▾";
+            font-size: 10px;
+            opacity: 0.6;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--light-border);
+            border-radius: 12px;
+            padding: 12px 0;
+            min-width: 220px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(8px);
+            transition: all 0.2s ease;
+            z-index: 200;
+        }
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--dark) !important;
+            transition: background 0.15s;
+        }
+        .dropdown-menu a:hover {
+            background: rgba(200, 255, 0, 0.12);
+            color: var(--dark) !important;
+        }
+        .dropdown-menu a .dd-icon {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+        .dropdown-divider {
+            height: 1px;
+            background: var(--light-border);
+            margin: 8px 0;
+        }
+        .nav-cta {
+                display: none;
+            }
+
+            .hero-form-card h3 {
+                font-size: 22px;
+            }
+
+            .hero-form-card {
+                padding: var(--spacing-lg);
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+            }
+
+            .comparison-table {
+                font-size: 15px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+
+            .press-logos {
+                gap: var(--spacing-md);
+            }
+
+            .press-logo {
+                height: 40px;
+            }
+
+            .main-services {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-form {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --spacing-lg: 32px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 60px 16px;
+            }
+
+            .nav-container {
+                height: 70px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: var(--spacing-xl) 16px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr !important;
+                gap: 24px;
+                padding: 24px 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-form-card {
+                padding: 24px 20px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .promise-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .main-services {
+                grid-template-columns: 1fr;
+            }
+
+            .included-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 15px !important;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 8px !important;
+                font-size: 15px !important;
+                word-wrap: break-word !important;
+            }
+
+            .comparison-table td:first-child {
+                max-width: 120px;
+            }
+        }
+
+        /* ==================== FEATURE 1: 4-STEP QUOTE FORM ==================== */
+        .form-progress {
+            display: flex;
+            gap: 8px;
+            margin-bottom: var(--spacing-lg);
+            justify-content: space-between;
+        }
+
+        .progress-dot {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--light-border);
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        .progress-dot.active {
+            background: var(--lime);
+        }
+
+        .progress-step-number {
+            display: none;
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .size-option-card {
+            padding: 16px;
+            border: 2px solid var(--light-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: var(--white);
+        }
+
+        .size-option-card:hover {
+            border-color: var(--lime);
+            background: rgba(200, 255, 0, 0.05);
+        }
+
+        .size-option-card.selected {
+            border-color: var(--lime);
+            background: rgba(200, 255, 0, 0.1);
+        }
+
+        .size-option-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+
+        .size-option-card.span-full {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 16px;
+        }
+        .size-option-card.span-full .size-option-icon {
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+        .size-option-text {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .zip-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .zip-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== FEATURE 2: FAQ ACCORDION ==================== */
+        .faq {
+            background: var(--off-white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq .section-label {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .faq h2 {
+            color: var(--dark);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            background: var(--dark);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-item:hover .accordion-header {
+            background: #1a1a1a;
+        }
+
+        .accordion-header-text {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 16px;
+            text-align: left;
+            flex: 1;
+        }
+
+        .accordion-icon {
+            color: var(--lime);
+            font-size: 24px;
+            margin-left: 16px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-item.open .accordion-content {
+            max-height: 400px;
+        }
+
+        .accordion-body {
+            padding: 0 24px 20px 24px;
+            color: #c0c0c0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .faq {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .accordion-header {
+                padding: 16px 20px;
+            }
+
+            .accordion-header-text {
+                font-size: 15px;
+            }
+
+            .accordion-body {
+                padding: 0 20px 16px 20px;
+                font-size: 15px;
+            }
+        }
+
+        /* ==================== FEATURE 3: MOVING CHECKLIST ==================== */
+        .checklist {
+            background: var(--white);
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .checklist-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .checklist .section-label {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .checklist h2 {
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .checklist-subtitle {
+            color: var(--gray);
+            margin-bottom: var(--spacing-xl);
+            font-size: 16px;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .timeline-phase {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--lime);
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .phase-pill {
+            background: var(--lime);
+            color: var(--dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .phase-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 16px;
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--light-border);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            margin-top: 2px;
+        }
+
+        .checklist-item:hover .custom-checkbox {
+            border-color: var(--lime);
+        }
+
+        .custom-checkbox.checked {
+            background: var(--lime);
+            border-color: var(--lime);
+            color: var(--dark);
+        }
+
+        .custom-checkbox.checked::after {
+            content: "✓";
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .checklist-item-text {
+            color: var(--dark);
+            font-size: 15px;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.checked .checklist-item-text {
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        @media (max-width: 768px) {
+            .checklist {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .timeline-phase {
+                padding: 16px;
+            }
+
+            .phase-title {
+                font-size: 15px;
+            }
+
+            .custom-checkbox {
+                width: 18px;
+                height: 18px;
+            }
+
+            .checklist-item-text {
+                font-size: 15px;
+            }
+        }
+
+        /* Service area tabs */
+        .area-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .area-tab {
+            background: rgba(255,255,255,0.08);
+            color: #aaa;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-secondary);
+        }
+        .area-tab:hover {
+            background: rgba(200,255,0,0.1);
+            color: #ccc;
+        }
+        .area-tab.active {
+            background: var(--lime);
+            color: var(--dark);
+            border-color: var(--lime);
+        }
+        .area-panel {
+            display: none;
+        }
+        .area-panel.active {
+            display: block;
+        }
+
+        /* Mobile hero CTA button (replaces form on mobile) */
+        .mobile-hero-cta {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-hero-cta {
+                display: block;
+                text-align: center;
+                padding: 0 16px;
+                margin-top: 24px;
+            }
+            .mobile-hero-cta-btn {
+                display: block;
+                width: 100%;
+                background: var(--lime);
+                color: var(--dark);
+                padding: 20px 32px;
+                border-radius: 12px;
+                font-family: var(--font-primary);
+                font-size: 20px;
+                font-weight: 800;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 4px 24px rgba(200,255,0,0.3);
+                transition: transform 0.2s, box-shadow 0.2s;
+                text-decoration: none;
+            }
+            .mobile-hero-cta-btn:hover,
+            .mobile-hero-cta-btn:active {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 32px rgba(200,255,0,0.4);
+            }
+            .mobile-hero-cta-sub {
+                color: rgba(255,255,255,0.7);
+                font-size: 15px;
+                margin-top: 12px;
+            }
+            /* Hide the full form card on mobile initially */
+            .hero-form-card {
+                display: none !important;
+            }
+            .hero-form-card.mobile-expanded {
+                display: block !important;
+            }
+        }
+
+        /* Collapsible checklist */
+        .checklist-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+            margin-bottom: 24px;
+        }
+        .checklist-toggle-btn:hover {
+            transform: translateY(-2px);
+        }
+        .checklist-toggle-btn .arrow {
+            transition: transform 0.3s;
+        }
+        .checklist-toggle-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+        .checklist-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .checklist-content.open {
+            max-height: 5000px;
+        }
+        .checklist-phases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .checklist-phases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://coachmovers.com",
+      "name": "Coach Movers",
+      "description": "Long Island's most trusted moving company since 2002. Local, long-distance, packing & storage services.",
+      "url": "https://coachmovers.com",
+      "telephone": "(516) 871-2770",
+      "email": "info@coachmovers.com",
+      "foundingDate": "2002",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Long Island",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 40.7282,
+        "longitude": -73.2309
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "2400",
+        "bestRating": "5"
+      },
+      "areaServed": [
+        {"@type": "State", "name": "New York"},
+        {"@type": "City", "name": "Garden City"},
+        {"@type": "City", "name": "East Meadow"},
+        {"@type": "City", "name": "Manhasset"},
+        {"@type": "City", "name": "Freeport"},
+        {"@type": "City", "name": "Farmingdale"},
+        {"@type": "City", "name": "Massapequa"},
+        {"@type": "City", "name": "Huntington"}
+      ],
+      "serviceType": ["Local Moving", "Long-Distance Moving", "Packing Services", "Storage Solutions", "Junk Removal", "Furniture Assembly"],
+      "priceRange": "$$",
+      "openingHours": "Mo-Su 07:00-21:00",
+      "sameAs": [],
+      "image": "https://coach-movers-website.netlify.app/images/team-photo.jpg"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a local move cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The cost of a local move depends on the size of your home, the distance, and the services you need. Contact us for a free, no-obligation quote."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you licensed and insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Coach Movers is fully licensed by the NY DOT, bonded, and insured. We carry full liability coverage on every move."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide free packing supplies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We deliver free boxes, tape, bubble wrap, and wardrobe boxes right to your door before moving day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We serve all of Long Island (Nassau & Suffolk counties), New York City, the tri-state area, and nationwide for long-distance moves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far in advance should I book?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend booking 2-4 weeks in advance for local moves and 4-6 weeks for long-distance moves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you move specialty items like pianos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We handle pianos, antiques, artwork, wine collections, safes, and other high-value or specialty items with professional care."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="js-loaded">
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        Call Us: <a href="tel:+15168712770">(516) 871-2770</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/"><img src="images/logo.png" alt="Coach Movers"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a class="" href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li class="nav-dropdown">
+                    <a href="#services">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="services/local-moving.html"><span class="dd-icon">🏠</span> Local Moving</a>
+                        <a href="services/long-distance.html"><span class="dd-icon">🚛</span> Long-Distance</a>
+                        <a href="services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
+                        <a href="services/storage.html"><span class="dd-icon">🔒</span> Storage Solutions</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#services"><span class="dd-icon">✨</span> All Services</a>
+                    </div>
+                </li>
+                <li><a href="contact/">Contact</a></li>
+            </ul>
+            <a class="nav-cta" href="#hero-form">Get a Quote</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+        </button>
+        <a href="/">Home</a>
+        <a href="#about">About</a>
+        <a href="services/local-moving.html">🏠 Local Moving</a>
+        <a href="services/long-distance.html">🚛 Long-Distance</a>
+        <a href="services/packing.html">📦 Packing Services</a>
+        <a href="services/storage.html">🔒 Storage Solutions</a>
+        <a href="contact/">Contact</a>
+        <a class="nav-cta" href="#hero-form">Get a Quote</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="main-content">
+        <div class="hero-container">
+            <div class="hero-content fade-up visible">
+                <h1>Built on Trust.<br><span class="lime">Backed by Experience.</span></h1>
+                <p class="hero-subtitle">Since 2002, Coach Movers has been Long Island's most trusted moving company. Over 23 years and 15,000+ successful moves later, we're here to make your transition seamless.</p>
+                <!-- Mobile-only CTA button -->
+                <div class="mobile-hero-cta">
+                    <button class="mobile-hero-cta-btn" onclick="showMobileForm()">Get Your Instant Quote →</button>
+                    <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 2 minutes</p>
+                </div>
+            </div>
+            <div class="hero-form-card fade-up visible" id="hero-form">
+                <h3>Get a Free Quote</h3>
+                <p class="subtitle">Fast. Easy. Free.</p>
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;">
+                    <span>✓ Free estimate</span>
+                    <span>✓ No obligation</span>
+                    <span>✓ Takes 2 min</span>
+                </div>
+
+                <form id="quoteForm" method="POST" action="https://formsubmit.co/eli@reglow.com">
+                    <input type="hidden" name="_subject" value="New Quote Request from Coach Movers">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="Move Size" id="hiddenMoveSize">
+                    <input type="hidden" name="Moving From" id="hiddenMoveFrom">
+                    <input type="hidden" name="Moving To" id="hiddenMoveTo">
+                    <input type="hidden" name="Move Date" id="hiddenMoveDate">
+
+                    <div class="form-progress" id="progressBar">
+                        <div class="progress-dot active" id="dot1"></div>
+                        <div class="progress-dot" id="dot2"></div>
+                        <div class="progress-dot" id="dot3"></div>
+                        <div class="progress-dot" id="dot4"></div>
+                    </div>
+
+                    <!-- STEP 1: Move Size -->
+                    <div class="form-step active" id="step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">What size is your move?</label>
+                        <div class="size-options">
+                            <div class="size-option-card" onclick="selectSize('Studio', this)">
+                                <div class="size-option-icon">📦</div>
+                                <div class="size-option-text">Studio</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSize('1 Bedroom', this)">
+                                <div class="size-option-icon">🏠</div>
+                                <div class="size-option-text">1 Bedroom</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSize('2 Bedrooms', this)">
+                                <div class="size-option-icon">🏡</div>
+                                <div class="size-option-text">2 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSize('3 Bedrooms', this)">
+                                <div class="size-option-icon">🏘️</div>
+                                <div class="size-option-text">3 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card span-full" onclick="selectSize('4+ Bedrooms', this)">
+                                <div class="size-option-icon">🏢</div>
+                                <div class="size-option-text">4+ Bedrooms / Commercial</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Location -->
+                    <div class="form-step" id="step2">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Where are you moving?</label>
+                        <div class="zip-row">
+                            <div class="form-group">
+                                <label>Moving From (ZIP)</label>
+                                <input type="text" id="moveFromZip" placeholder="Enter ZIP code" required="">
+                            </div>
+                            <div class="form-group">
+                                <label>Moving To (ZIP)</label>
+                                <input type="text" id="moveToZip" placeholder="Enter ZIP code" required="">
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Date -->
+                    <div class="form-step" id="step3">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">When is your move?</label>
+                        <div class="form-group">
+                            <label>Move Date</label>
+                            <input type="date" id="moveDate" aria-label="Preferred Move Date" required="">
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Contact Info -->
+                    <div class="form-step" id="step4">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Almost done!</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" required="">
+                        </div>
+                        <div style="display: flex; gap: 12px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
+                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote →</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="23">23+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="15000">15K+</div>
+                <div class="stat-label">Successful Moves</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="4.9">4.9</div>
+                <div class="stat-label">Star Rating</div>
+            </div>
+            <div class="stat-item fade-up">
+                <div class="stat-number" data-count="0">0</div>
+                <div class="stat-label">Hidden Fees</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED IN -->
+    <section class="featured-in">
+        <div class="featured-in-container">
+            <h3>Featured In</h3>
+            <div class="press-logos fade-up">
+                <img src="images/press-1.png" alt="Press Logo" class="press-logo">
+                <img src="images/press-2.png" alt="Press Logo" class="press-logo">
+                <img src="images/press-3.png" alt="Press Logo" class="press-logo">
+                <img src="images/press-4.png" alt="Press Logo" class="press-logo">
+                <img src="images/press-5.png" alt="Press Logo" class="press-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content fade-up">
+                <div class="section-label section-label-accent">WHO WE ARE</div>
+                <h2>Your Dedicated Moving Partner</h2>
+                <p>Coach Movers was founded on a simple principle: every move tells a story, and every story deserves care, respect, and professionalism. For over two decades, we've been part of thousands of Long Island families' biggest transitions—from first apartments to forever homes, business expansions to fresh starts.</p>
+                <p>What sets us apart isn't just our experience. It's our commitment to treating your belongings like our own. Our team is trained, licensed, and insured. We use modern equipment and proven techniques. And we always put your peace of mind first.</p>
+                <p>Whether you're moving across the street or across the country, we're ready to make it happen with integrity, punctuality, and a touch of genuine care.</p>
+                <a href="#hero-form" class="btn-primary" style="display:inline-block; background:var(--lime); color:var(--dark); padding:16px 32px; border-radius:8px; font-weight:700; font-size:16px; margin-top:24px; transition:transform 0.2s;">Get Your Free Quote →</a>
+            </div>
+            <div class="about-image fade-up">
+                <img src="images/team-photo.jpg" alt="Coach Movers Team Photo">
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROMISE SECTION -->
+    <section class="our-promise">
+        <div class="our-promise-container">
+            <div class="section-label section-label-accent">OUR PROMISE</div>
+            <h2>What You Can Expect</h2>
+            <div class="promise-cards">
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">🎯</div>
+                    <h4>Professional &amp; Trained</h4>
+                    <p>Our team is thoroughly trained, licensed, and insured. We handle every move with the expertise it deserves.</p>
+                </div>
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">⏰</div>
+                    <h4>On-Time, Every Time</h4>
+                    <p>We respect your schedule. Punctuality isn't a goal—it's a guarantee. You'll know exactly when we'll arrive.</p>
+                </div>
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">🛡️</div>
+                    <h4>Full Liability Coverage</h4>
+                    <p>Your belongings are protected from start to finish. We stand behind our work with comprehensive insurance.</p>
+                </div>
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">💰</div>
+                    <h4>No Hidden Fees</h4>
+                    <p>What we quote is what you pay. No surprise charges, no pressure tactics. Complete transparency.</p>
+                </div>
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">📞</div>
+                    <h4>Real Support</h4>
+                    <p>Questions? Concerns? We're here. Real people. Real answers. Always available when you need us.</p>
+                </div>
+                <div class="promise-card fade-up">
+                    <div class="promise-card-icon">✨</div>
+                    <h4>Care &amp; Respect</h4>
+                    <p>We treat your space and belongings with the same care we'd give our own. That's the Coach Movers difference.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE SECTION -->
+    <section class="comparison">
+        <div class="comparison-container">
+            <div class="section-label" style="color: var(--lime); text-align: center;">SIDE-BY-SIDE</div>
+            <h2>Coach Movers vs. Industry Average</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="feature">Feature</th>
+                        <th class="coach">Coach Movers</th>
+                        <th class="other">Industry Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature">Licensed &amp; Insured</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Trained Professional Team</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Free In-Home Estimates</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Full Liability Coverage</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">No Hidden Fees</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Dedicated Account Manager</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Real Customer Support</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">On-Time Guarantee</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">23+ Years Experience</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature">4.9★ Rating</td>
+                        <td class="coach"><span class="check">✓</span></td>
+                        <td class="other"><span class="cross">✗</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="comparison-callout fade-up">
+                <p>When it comes to moving, experience and reliability matter. <strong>Choose Coach Movers.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-label section-label-accent">OUR SERVICES</div>
+            <h2>Everything You Need. Under One Roof.</h2>
+
+            <div class="main-services">
+                <div class="service-card fade-up">
+                    <div class="service-badge">Most Popular</div>
+                    <h3>Local Moving</h3>
+                    <p>Whether you're moving down the street or across Long Island, we handle local moves with the care and precision you deserve. Same-day service available.</p>
+                    <a href="services/local-moving.html">Learn More →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-badge">All 50 States</div>
+                    <h3>Long-Distance</h3>
+                    <p>Moving out of state? Our nationwide network means you get the same Coach Movers quality and care, no matter where you're headed.</p>
+                    <a href="services/long-distance.html">Learn More →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-badge">White Glove</div>
+                    <h3>Full Packing</h3>
+                    <p>Forget about it. Our experts will professionally pack everything—from fragile valuables to bulky furniture. We handle every detail.</p>
+                    <a href="services/packing.html">Learn More →</a>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-badge">Flexible Terms</div>
+                    <h3>Secure Storage</h3>
+                    <p>Short-term or long-term, we've got you. Climate-controlled, secure facilities. Your belongings are safe with us.</p>
+                    <a href="services/storage.html">Learn More →</a>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-lg); color: var(--gray);">More Services</h3>
+
+            <div class="secondary-services">
+                <div class="secondary-card fade-up">
+                    <h4>📦 Box Delivery</h4>
+                    <p>We'll drop off boxes and supplies at your convenience.</p>
+                </div>
+                <div class="secondary-card fade-up">
+                    <h4>🗑️ Junk Removal</h4>
+                    <p>Don't move it—remove it. We handle disposal.</p>
+                </div>
+                <div class="secondary-card fade-up">
+                    <h4>🪑 Furniture Assembly</h4>
+                    <p>We'll set up your furniture in your new space.</p>
+                </div>
+                <div class="secondary-card fade-up">
+                    <h4>🏠 Home Protection</h4>
+                    <p>Flooring, doorway, and appliance protection included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED SECTION -->
+    <section class="included">
+        <div class="included-container">
+            <div class="section-label" style="color: var(--lime);">MAXIMUM VALUE</div>
+            <h2>What's Included FREE</h2>
+            <div class="included-subtitle">$1,200+ in Services Included Free</div>
+
+            <div class="included-boxes">
+                <div class="included-box fade-up">
+                    <h4>📦 Furniture Packing</h4>
+                    <ul>
+                        <li>Professional wrapping &amp; padding</li>
+                        <li>Mattress covers included</li>
+                        <li>Furniture sliders &amp; dollies</li>
+                        <li>Protective blankets</li>
+                    </ul>
+                </div>
+                <div class="included-box fade-up">
+                    <h4>🎨 Specialty Items</h4>
+                    <ul>
+                        <li>Art &amp; mirror packing</li>
+                        <li>TV mounting assistance</li>
+                        <li>Plant &amp; pet care</li>
+                        <li>Electronics safe handling</li>
+                    </ul>
+                </div>
+                <div class="included-box fade-up">
+                    <h4>🏠 Home Protection</h4>
+                    <ul>
+                        <li>Floor protection film</li>
+                        <li>Doorway rail protection</li>
+                        <li>Appliance padding</li>
+                        <li>Stair protection</li>
+                    </ul>
+                </div>
+                <div class="included-box fade-up">
+                    <h4>👥 Full-Service Support</h4>
+                    <ul>
+                        <li>Professional moving crew</li>
+                        <li>Dedicated team leads</li>
+                        <li>Real-time communication</li>
+                        <li>Damage protection guarantee</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="included-callout fade-up">
+                💚 $0 Extra Charges — What We Quote Is What You Pay
+            </div>
+            <div style="text-align:center; margin-top:32px;" class="fade-up">
+                <a href="#hero-form" class="btn-primary" style="display:inline-block; background:var(--lime); color:var(--dark); padding:16px 40px; border-radius:8px; font-weight:700; font-size:16px; transition:transform 0.2s;">Start Your Free Quote →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="process">
+        <div class="process-container">
+            <div class="section-label section-label-accent">HOW IT WORKS</div>
+            <h2>Our Proven 6-Step Process</h2>
+            <div class="process-grid">
+                <div class="process-card fade-up">
+                    <div class="step-num">1</div>
+                    <div class="timing-badge">5 minutes</div>
+                    <h4>Get Your Free Quote</h4>
+                    <p>Call or fill out our online form. We'll assess your move and provide a transparent quote.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="step-num">2</div>
+                    <div class="timing-badge">Flexible dates</div>
+                    <h4>Schedule Your Move</h4>
+                    <p>Pick a date and time that works for you. We'll confirm your crew and truck.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="step-num">3</div>
+                    <div class="timing-badge">1 week prior</div>
+                    <h4>Pre-Move Preparation</h4>
+                    <p>We'll deliver free packing supplies and review every detail of your move plan.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="step-num">4</div>
+                    <div class="timing-badge">On-time guarantee</div>
+                    <h4>Moving Day Arrives</h4>
+                    <p>Our uniformed crew arrives on time, wraps and protects everything before loading.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="step-num">5</div>
+                    <div class="timing-badge">Professional handling</div>
+                    <h4>Safe Transport</h4>
+                    <p>Your belongings travel safely in our modern trucks with GPS tracking.</p>
+                </div>
+                <div class="process-card fade-up">
+                    <div class="step-num">6</div>
+                    <div class="timing-badge">Final walkthrough</div>
+                    <h4>Unload & Setup</h4>
+                    <p>We place furniture exactly where you want it and do a final walkthrough together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-label section-label-accent">REAL REVIEWS</div>
+            <h2>What Our Clients Say</h2>
+
+            <div class="testimonials-stats fade-up">
+                <div class="stat-box">
+                    <div class="big-number">4.9</div>
+                    <div class="stat-text">Out of 5 Stars</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-number">2,400+</div>
+                    <div class="stat-text">5-Star Reviews</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-number">98%</div>
+                    <div class="stat-text">Would Recommend</div>
+                </div>
+                <div class="stat-box">
+                    <div class="big-number">15K+</div>
+                    <div class="stat-text">Happy Families</div>
+                </div>
+            </div>
+
+            <div class="testimonial-cards">
+                <div class="testimonial-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Coach Movers made our move stress-free. The team was professional, careful with our belongings, and finished right on time. Highly recommend!"</p>
+                    <p class="testimonial-author">— Sarah M., East Meadow</p>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Been using Coach Movers for three moves now. Every time, same quality service. The crew takes care of everything. No hassle, no surprises."</p>
+                    <p class="testimonial-author">— James T., Garden City</p>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"They arrived on time, worked efficiently, and treated our home with respect. We felt safe leaving them alone. That's the difference with Coach Movers."</p>
+                    <p class="testimonial-author">— Michelle L., Manhasset</p>
+                </div>
+                <div class="testimonial-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Moving companies can be sketchy, but not Coach Movers. Transparent pricing, friendly crew, and they actually care. Worth every penny."</p>
+                    <p class="testimonial-author">— David K., Freeport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="section-label section-label-accent">FREQUENTLY ASKED</div>
+            <h2>Common Questions</h2>
+
+            <div class="accordion">
+                <div class="accordion-item open">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">How much does a local move cost?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">The cost of a local move depends on the size of your home, the distance, and the services you need. A typical 2-bedroom local move on Long Island ranges from $800–$1,500. We provide free in-home estimates with a written, binding price — no surprises.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">Are you licensed and insured?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Yes. Coach Movers is fully licensed by the NY DOT, bonded, and insured. We carry full liability coverage and include our Full Value Protection Plan on every move at no additional cost.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">Do you provide packing materials?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Yes! We deliver free boxes, tape, bubble wrap, and wardrobe boxes right to your door before moving day. Our full packing service is also available — our trained team will professionally pack your entire home.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">What areas do you serve?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">We serve all of Long Island (Nassau &amp; Suffolk counties), New York City, the tri-state area, and long-distance moves to all 50 states. Popular service areas include Farmingdale, Massapequa, Garden City, Huntington, Syosset, and more.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">How far in advance should I book?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">We recommend booking 2–4 weeks in advance for local moves and 4–6 weeks for long-distance moves. However, we do accommodate last-minute moves when available — call us and we'll do our best.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">What's included in the price?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Every Coach Movers move includes over $1,200 in value: furniture wrapping and protection, floor and wall protection at both locations, furniture disassembly/reassembly, free box delivery, a dedicated move coordinator, and our Full Value Protection Plan.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">Do you move specialty items like pianos?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">Yes. We handle pianos, antiques, artwork, wine collections, safes, and other high-value or oversized items. Our team uses specialized equipment and techniques for each item type.</div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span class="accordion-header-text">What if something gets damaged?</span>
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">With our included Full Value Protection Plan, damaged items are covered at full replacement value — not the industry minimum of $0.60 per pound. If a $1,400 TV is damaged, we pay $1,400. Period.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOVING CHECKLIST SECTION -->
+    <section class="checklist">
+        <div class="checklist-container">
+            <div class="section-label section-label-accent">PLANNING TOOLS</div>
+            <h2>Your Moving Checklist</h2>
+            <p class="checklist-subtitle">Stay organized with our step-by-step moving timeline</p>
+            <button class="checklist-toggle-btn" onclick="toggleChecklist(this)">View Full Checklist <span class="arrow">▼</span></button>
+
+            <div class="checklist-content" id="checklistContent">
+            <div class="checklist-phases-grid">
+                <!-- 8 Weeks Before -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">8 WEEKS BEFORE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Research and get quotes from moving companies</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Create a moving budget</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Start decluttering room by room</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Begin collecting packing supplies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 Weeks Before -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">6 WEEKS BEFORE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Book your moving company</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Notify your landlord (if renting)</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Start packing non-essential items</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Update your address with USPS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Weeks Before -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">4 WEEKS BEFORE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Schedule utility transfers</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Pack seasonal items and storage</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Arrange school transfers if needed</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Confirm moving company details</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2 Weeks Before -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">2 WEEKS BEFORE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Pack most rooms, label all boxes</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Arrange childcare/pet care for moving day</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Confirm delivery address access</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Prepare a "moving day essentials" bag</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1 Week Before -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">1 WEEK BEFORE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Finish packing remaining items</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Defrost and clean refrigerator</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Confirm arrival time with movers</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Take photos of electronics setup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moving Day -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">MOVING DAY</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Do final walkthrough of old home</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Check all rooms, closets, and storage</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Supervise loading and review inventory</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Lock up and hand over keys</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- After the Move -->
+                <div class="timeline-phase">
+                    <div class="phase-header">
+                        <span class="phase-pill">AFTER THE MOVE</span>
+                    </div>
+                    <div class="checklist-items">
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Inspect all items during unload</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Unpack essentials first</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Update driver's license and registrations</span>
+                        </div>
+                        <div class="checklist-item" onclick="toggleCheck(this)">
+                            <div class="custom-checkbox"></div>
+                            <span class="checklist-item-text">Leave a review for your movers!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="cta-container fade-up">
+            <h2>Ready To Get Moving?</h2>
+            <p class="cta-subtitle" style="margin-bottom: 32px;">Free quote in 2 minutes. No hidden fees. No surprises.</p>
+
+            <div class="cta-form">
+                <h3 style="font-family: var(--font-primary); font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--dark);">Get a Free Quote</h3>
+                <p style="font-size: 15px; color: var(--gray); margin-bottom: 8px;">Fast. Easy. Free.</p>
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;">
+                    <span>✓ Free estimate</span>
+                    <span>✓ No obligation</span>
+                    <span>✓ Takes 2 min</span>
+                </div>
+
+                <form id="ctaForm2" method="POST" action="https://formsubmit.co/eli@reglow.com">
+                    <input type="hidden" name="_subject" value="CTA Quote Request from Coach Movers">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="Move Size" id="hiddenMoveSize2">
+                    <input type="hidden" name="Moving From" id="hiddenMoveFrom2">
+                    <input type="hidden" name="Moving To" id="hiddenMoveTo2">
+                    <input type="hidden" name="Move Date" id="hiddenMoveDate2">
+
+                    <div class="form-progress" id="progressBar2">
+                        <div class="progress-dot active" id="cta2Dot1"></div>
+                        <div class="progress-dot" id="cta2Dot2"></div>
+                        <div class="progress-dot" id="cta2Dot3"></div>
+                        <div class="progress-dot" id="cta2Dot4"></div>
+                    </div>
+
+                    <!-- STEP 1: Move Size -->
+                    <div class="form-step active" id="cta2Step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">What size is your move?</label>
+                        <div class="size-options">
+                            <div class="size-option-card" onclick="selectSizeCta2('Studio', this)">
+                                <div class="size-option-icon">📦</div>
+                                <div class="size-option-text">Studio</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeCta2('1 Bedroom', this)">
+                                <div class="size-option-icon">🏠</div>
+                                <div class="size-option-text">1 Bedroom</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeCta2('2 Bedrooms', this)">
+                                <div class="size-option-icon">🏡</div>
+                                <div class="size-option-text">2 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeCta2('3 Bedrooms', this)">
+                                <div class="size-option-icon">🏘️</div>
+                                <div class="size-option-text">3 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card span-full" onclick="selectSizeCta2('4+ Bedrooms', this)">
+                                <div class="size-option-icon">🏢</div>
+                                <div class="size-option-text">4+ Bedrooms / Commercial</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Location -->
+                    <div class="form-step" id="cta2Step2">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Where are you moving?</label>
+                        <div class="zip-row">
+                            <div class="form-group">
+                                <label>Moving From (ZIP)</label>
+                                <input type="text" id="moveFromZip2" placeholder="Enter ZIP code" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Moving To (ZIP)</label>
+                                <input type="text" id="moveToZip2" placeholder="Enter ZIP code" required>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Date -->
+                    <div class="form-step" id="cta2Step3">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">When is your move?</label>
+                        <div class="form-group">
+                            <label>Move Date</label>
+                            <input type="date" id="moveDate2" aria-label="Move Date" required>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Contact Info -->
+                    <div class="form-step" id="cta2Step4">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Almost done!</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" placeholder="Full Name" aria-label="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" placeholder="Email" aria-label="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" placeholder="Phone" aria-label="Phone Number" required>
+                        </div>
+                        <div style="display: flex; gap: 12px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
+                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote →</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Coach Movers" style="height: 40px;">
+                </div>
+                <p style="font-size: 15px; color: #aaa; margin-bottom: 12px;">Long Island's most trusted moving company since 2002.</p>
+                <div class="credentials">
+                    <span>✓ Licensed</span>
+                    <span>✓ Insured</span>
+                    <span>✓ Bonded</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Google">G</a>
+                    <a href="#" aria-label="Yelp">Y</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a class="active" href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services/local-moving.html">Local Moving</a></li>
+                    <li><a href="services/long-distance.html">Long-Distance</a></li>
+                    <li><a href="services/packing.html">Packing Services</a></li>
+                    <li><a href="services/storage.html">Storage Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <ul>
+                    <li><a href="tel:+15168712770">(516) 871-2770</a></li>
+                    <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
+                    <li>HQ: Garden City, NY</li>
+                    <li><a href="/contact">Get a Free Quote</a></li>
+                    <li>Hours: Mon–Sun 7AM–9PM</li>
+                    <li>NY DOT License #T-39547</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <div class="area-tabs">
+                    <button class="area-tab active" onclick="switchAreaTab(this, 'nassau')">Nassau</button>
+                    <button class="area-tab" onclick="switchAreaTab(this, 'suffolk')">Suffolk</button>
+                    <button class="area-tab" onclick="switchAreaTab(this, 'nyc')">NYC</button>
+                    <button class="area-tab" onclick="switchAreaTab(this, 'ct')">CT</button>
+                    <button class="area-tab" onclick="switchAreaTab(this, 'nj')">NJ</button>
+                </div>
+                <div class="area-panel active" id="area-nassau">
+                    <div class="service-areas-list">
+                        <span>Garden City</span> <span>East Meadow</span> <span>Massapequa</span>
+                        <span>Farmingdale</span> <span>Levittown</span> <span>Hicksville</span>
+                        <span>Bethpage</span> <span>Wantagh</span> <span>Seaford</span>
+                        <span>Plainview</span> <span>Syosset</span> <span>Manhasset</span>
+                        <span>Freeport</span> <span>Merrick</span> <span>Bellmore</span>
+                        <span>Oceanside</span> <span>Rockville Centre</span> <span>Mineola</span>
+                        <span>Great Neck</span> <span>Glen Cove</span> <span>Long Beach</span>
+                        <span>Valley Stream</span> <span>Hempstead</span> <span>Lynbrook</span>
+                        <span>Floral Park</span> <span>New Hyde Park</span> <span>Williston Park</span>
+                        <span>Roslyn</span> <span>Jericho</span> <span>Oyster Bay</span>
+                        <span>Woodbury</span> <span>Old Westbury</span> <span>Carle Place</span>
+                    </div>
+                </div>
+                <div class="area-panel" id="area-suffolk">
+                    <div class="service-areas-list">
+                        <span>Huntington</span> <span>Babylon</span> <span>Islip</span>
+                        <span>Smithtown</span> <span>Brookhaven</span> <span>Commack</span>
+                        <span>Dix Hills</span> <span>Hauppauge</span> <span>Bay Shore</span>
+                        <span>Patchogue</span> <span>Ronkonkoma</span> <span>Centereach</span>
+                        <span>Lindenhurst</span> <span>West Islip</span> <span>Deer Park</span>
+                        <span>Northport</span> <span>Cold Spring Harbor</span> <span>Stony Brook</span>
+                        <span>Port Jefferson</span> <span>Sayville</span> <span>Riverhead</span>
+                    </div>
+                </div>
+                <div class="area-panel" id="area-nyc">
+                    <div class="service-areas-list">
+                        <span>Manhattan</span> <span>Upper East Side</span> <span>Upper West Side</span>
+                        <span>Midtown</span> <span>Chelsea</span> <span>SoHo</span>
+                        <span>Tribeca</span> <span>Financial District</span> <span>Harlem</span>
+                        <span>Brooklyn</span> <span>Queens</span> <span>Bronx</span>
+                        <span>Staten Island</span>
+                    </div>
+                </div>
+                <div class="area-panel" id="area-ct">
+                    <div class="service-areas-list">
+                        <span>Stamford</span> <span>Greenwich</span> <span>Norwalk</span>
+                        <span>Darien</span> <span>Westport</span> <span>Fairfield</span>
+                        <span>Bridgeport</span> <span>New Haven</span> <span>Milford</span>
+                        <span>Danbury</span> <span>Shelton</span> <span>Stratford</span>
+                    </div>
+                </div>
+                <div class="area-panel" id="area-nj">
+                    <div class="service-areas-list">
+                        <span>Jersey City</span> <span>Hoboken</span> <span>Newark</span>
+                        <span>Fort Lee</span> <span>Weehawken</span> <span>Edgewater</span>
+                        <span>Bayonne</span> <span>Elizabeth</span> <span>Perth Amboy</span>
+                        <span>New Brunswick</span> <span>Princeton</span> <span>Red Bank</span>
+                        <span>Morristown</span> <span>Montclair</span> <span>Paramus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p>© 2025 Coach Movers. All rights reserved. | <a href="#" style="color: var(--lime);">Privacy Policy</a> | <a href="#" style="color: var(--lime);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Chat widget removed -->
+
+    <div class="sticky-cta" id="stickyCta">
+        <a class="btn-quote" href="/contact">Get Free Quote</a>
+        <a href="tel:+15168712770" class="btn-call">📞 Call Now</a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Enable scroll animations only after JS loads
+        document.body.classList.add('js-loaded');
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu with X button
+        document.getElementById('mobileMenuClose').addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+
+        function nextCtaStep() {
+            const step1 = document.getElementById('ctaStep1');
+            const step2 = document.getElementById('ctaStep2');
+            const dot1 = document.getElementById('ctaDot1');
+            const dot2 = document.getElementById('ctaDot2');
+
+            const inputs = step1.querySelectorAll('input[required]');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.value) valid = false;
+            });
+
+            if (valid) {
+                step1.classList.remove('active');
+                step2.classList.add('active');
+                dot1.classList.remove('active');
+                dot2.classList.add('active');
+            }
+        }
+
+        function prevCtaStep() {
+            const step1 = document.getElementById('ctaStep1');
+            const step2 = document.getElementById('ctaStep2');
+            const dot1 = document.getElementById('ctaDot1');
+            const dot2 = document.getElementById('ctaDot2');
+
+            step2.classList.remove('active');
+            step1.classList.add('active');
+            dot2.classList.remove('active');
+            dot1.classList.add('active');
+        }
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation triggered on scroll into view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-number').forEach(el => {
+                        const finalValue = el.getAttribute('data-count');
+                        const numericValue = parseFloat(finalValue);
+
+                        // Start from 0
+                        if (numericValue === 0) { el.textContent = '0'; return; }
+                        el.textContent = numericValue >= 1000 ? '0K+' : numericValue === 4.9 ? '0.0' : '0+';
+
+                        let startTime = null;
+                        const duration = 2000;
+
+                        function animate(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = numericValue * eased;
+
+                            if (numericValue >= 1000) {
+                                el.textContent = Math.floor(current / 1000) + 'K+';
+                            } else if (numericValue === 4.9) {
+                                el.textContent = (Math.round(current * 10) / 10).toFixed(1);
+                            } else if (Number.isInteger(numericValue)) {
+                                el.textContent = Math.floor(current) + '+';
+                            }
+
+                            if (progress < 1) {
+                                requestAnimationFrame(animate);
+                            } else {
+                                if (numericValue >= 1000) el.textContent = Math.floor(numericValue / 1000) + 'K+';
+                                else if (numericValue === 4.9) el.textContent = '4.9';
+                                else if (numericValue === 23) el.textContent = '23+';
+                                else el.textContent = numericValue.toString();
+                            }
+                        }
+                        requestAnimationFrame(animate);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) counterObserver.observe(statsBar);
+
+        // Set active nav link and footer links
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Set active mobile menu link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Set active footer links
+            document.querySelectorAll('.footer-section a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        /* ==================== FEATURE 1: 4-STEP QUOTE FORM JS ==================== */
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function selectSize(size, element) {
+            document.querySelectorAll('.size-option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            document.getElementById('hiddenMoveSize').value = size;
+            setTimeout(() => nextStep(), 300);
+        }
+
+        function nextStep() {
+            // Validate current step
+            if (currentStep === 2) {
+                const fromZip = document.getElementById('moveFromZip').value.trim();
+                const toZip = document.getElementById('moveToZip').value.trim();
+                if (!fromZip || !toZip) {
+                    alert('Please enter both ZIP codes');
+                    return;
+                }
+                document.getElementById('hiddenMoveFrom').value = fromZip;
+                document.getElementById('hiddenMoveTo').value = toZip;
+            } else if (currentStep === 3) {
+                const moveDate = document.getElementById('moveDate').value;
+                if (!moveDate) {
+                    alert('Please select a move date');
+                    return;
+                }
+                document.getElementById('hiddenMoveDate').value = moveDate;
+            }
+
+            if (currentStep < totalSteps) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep++;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updateProgressBar();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById('step' + currentStep).classList.remove('active');
+                currentStep--;
+                document.getElementById('step' + currentStep).classList.add('active');
+                updateProgressBar();
+            }
+        }
+
+        function updateProgressBar() {
+            for (let i = 1; i <= totalSteps; i++) {
+                const dot = document.getElementById('dot' + i);
+                if (i <= currentStep) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            }
+        }
+
+        /* ==================== FEATURE 2: FAQ ACCORDION JS ==================== */
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isOpen = item.classList.contains('open');
+
+                // Close all other items
+                document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('open');
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('open');
+                } else {
+                    item.classList.add('open');
+                }
+            });
+        });
+
+        /* ==================== FEATURE 3: MOVING CHECKLIST JS ==================== */
+
+        // Mobile hero form reveal
+        function showMobileForm() {
+            const formCard = document.getElementById('hero-form');
+            if (formCard) {
+                formCard.classList.add('mobile-expanded');
+                formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Hide the CTA button
+                document.querySelector('.mobile-hero-cta').style.display = 'none';
+            }
+        }
+
+        // Service area tabs
+        function switchAreaTab(btn, areaId) {
+            document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('area-' + areaId).classList.add('active');
+        }
+
+        // Checklist toggle
+        function toggleChecklist(btn) {
+            const content = document.getElementById('checklistContent');
+            content.classList.toggle('open');
+            btn.classList.toggle('open');
+            btn.innerHTML = content.classList.contains('open')
+                ? 'Hide Checklist <span class="arrow">▲</span>'
+                : 'View Full Checklist <span class="arrow">▼</span>';
+        }
+
+        function toggleCheck(element) {
+            const checkbox = element.querySelector('.custom-checkbox');
+            const text = element.querySelector('.checklist-item-text');
+
+            if (element.classList.contains('checked')) {
+                element.classList.remove('checked');
+                checkbox.classList.remove('checked');
+            } else {
+                element.classList.add('checked');
+                checkbox.classList.add('checked');
+            }
+        }
+
+        // Show nav on scroll up, hide on scroll down (from anywhere on page)
+        let lastScrollY = window.scrollY;
+        let navHidden = false;
+        const navEl = document.querySelector('nav');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            const scrollingUp = currentScrollY < lastScrollY;
+            const pastHero = currentScrollY > 300;
+
+            if (!pastHero) {
+                // At top of page — always show, use default sticky
+                navEl.style.position = '';
+                navEl.style.transform = '';
+                navEl.style.transition = '';
+                navHidden = false;
+            } else if (scrollingUp && navHidden) {
+                // Scrolling up from mid-page — slide nav in (fixed at top)
+                navEl.style.position = 'fixed';
+                navEl.style.top = '0';
+                navEl.style.left = '0';
+                navEl.style.right = '0';
+                navEl.style.transform = 'translateY(0)';
+                navEl.style.transition = 'transform 0.3s ease';
+                navHidden = false;
+            } else if (!scrollingUp && !navHidden && pastHero) {
+                // Scrolling down — hide the nav
+                navEl.style.transform = 'translateY(-100%)';
+                navEl.style.transition = 'transform 0.3s ease';
+                navHidden = true;
+            }
+
+            lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+        }, { passive: true });
+
+        // Sticky CTA - show after scrolling 500px
+        const stickyCta = document.getElementById('stickyCta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            });
+        }
+
+        /* ==================== CTA2 FORM (bottom, mirrors hero form) ==================== */
+        let cta2Step = 1;
+        const cta2TotalSteps = 4;
+
+        function selectSizeCta2(size, element) {
+            document.getElementById('hiddenMoveSize2').value = size;
+            document.querySelectorAll('#cta2Step1 .size-option-card').forEach(c => c.classList.remove('selected'));
+            element.classList.add('selected');
+            setTimeout(() => nextCta2Step(), 300);
+        }
+
+        function nextCta2Step() {
+            if (cta2Step === 2) {
+                document.getElementById('hiddenMoveFrom2').value = document.getElementById('moveFromZip2').value;
+                document.getElementById('hiddenMoveTo2').value = document.getElementById('moveToZip2').value;
+            }
+            if (cta2Step === 3) {
+                document.getElementById('hiddenMoveDate2').value = document.getElementById('moveDate2').value;
+            }
+            if (cta2Step < cta2TotalSteps) {
+                document.getElementById('cta2Step' + cta2Step).classList.remove('active');
+                cta2Step++;
+                document.getElementById('cta2Step' + cta2Step).classList.add('active');
+                updateCta2Progress();
+            }
+        }
+
+        function prevCta2Step() {
+            if (cta2Step > 1) {
+                document.getElementById('cta2Step' + cta2Step).classList.remove('active');
+                cta2Step--;
+                document.getElementById('cta2Step' + cta2Step).classList.add('active');
+                updateCta2Progress();
+            }
+        }
+
+        function updateCta2Progress() {
+            for (let i = 1; i <= cta2TotalSteps; i++) {
+                const dot = document.getElementById('cta2Dot' + i);
+                if (dot) {
+                    if (i <= cta2Step) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                }
+            }
+        }
+    </script>
+
+
