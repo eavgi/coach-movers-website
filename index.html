@@ -1797,7 +1797,7 @@
                 display: none;
             }
             #hero-form.modal-open {
-                display: block;
+                display: block !important;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -1821,12 +1821,12 @@
                 display: none;
             }
             #hero-form.modal-open .modal-close-btn {
-                display: flex;
+                display: flex !important;
                 align-items: center;
                 justify-content: center;
-                position: absolute;
-                top: 16px;
-                right: 16px;
+                position: fixed;
+                top: 20px;
+                right: 20px;
                 width: 36px;
                 height: 36px;
                 border-radius: 50%;
@@ -1844,6 +1844,31 @@
             to { opacity: 1; }
         }
 
+
+    
+        /* ==================== MOBILE MENU SAFE AREA FIX ==================== */
+        @media (max-width: 768px) {
+            .mobile-nav-overlay,
+            .site-nav .mobile-menu,
+            [class*="mobile-menu"],
+            [class*="nav-overlay"] {
+                padding-top: max(24px, env(safe-area-inset-top)) !important;
+                padding-bottom: max(80px, env(safe-area-inset-bottom)) !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-nav-overlay a,
+            .site-nav .mobile-menu a,
+            [class*="mobile-menu"] a {
+                font-size: 18px !important;
+                padding: 12px 32px !important;
+            }
+            .mobile-nav-overlay .nav-cta,
+            [class*="mobile-menu"] .nav-cta,
+            [class*="mobile-menu"] [class*="cta"] {
+                margin-bottom: max(20px, env(safe-area-inset-bottom)) !important;
+            }
+        }
 
     </style>
 
