@@ -294,15 +294,33 @@
         /* ==================== HERO SECTION ==================== */
         .hero {
             min-height: min(100vh, 900px);
-            background-color: #0A0A0A;
-            background-image: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url('images/hero-truck.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             display: flex;
             align-items: center;
             overflow: hidden;
             position: relative;
+            background: #0A0A0A;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85));
+            z-index: 1;
+            pointer-events: none;
         }
 
         @keyframes gradientShift {
@@ -325,6 +343,7 @@
                 radial-gradient(circle at 20% 50%, rgba(200, 255, 0, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(200, 255, 0, 0.03) 0%, transparent 50%);
             pointer-events: none;
+            z-index: 2;
         }
 
         .hero-container {
@@ -336,7 +355,7 @@
             gap: var(--spacing-xl);
             align-items: center;
             position: relative;
-            z-index: 1;
+            z-index: 3;
         }
 
         .hero-content h1 {
@@ -435,6 +454,20 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .form-button .arrow {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 1;
+            vertical-align: middle;
+            transform: translateY(-0.5px);
         }
 
         .form-button.primary {
@@ -1812,6 +1845,8 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="main-content">
+        <img src="images/hero-truck.jpg" alt="Coach Movers truck" class="hero-bg-img" loading="eager" fetchpriority="high">
+        <div class="hero-overlay"></div>
         <div class="hero-container">
             <div class="hero-content fade-up visible">
                 <h1>Built on Trust.<br><span class="lime">Backed by Experience.</span></h1>
@@ -1888,8 +1923,8 @@
                             </div>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next <span class="arrow">→</span></button>
                         </div>
                     </div>
 
@@ -1901,8 +1936,8 @@
                             <input type="date" id="moveDate" aria-label="Preferred Move Date" required="">
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next <span class="arrow">→</span></button>
                         </div>
                     </div>
 
@@ -1922,8 +1957,8 @@
                             <input type="tel" name="Phone" required="">
                         </div>
                         <div style="display: flex; gap: 12px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()">← Back</button>
-                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
+                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
                         </div>
                     </div>
                 </form>
@@ -2656,8 +2691,8 @@
                             </div>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
                         </div>
                     </div>
 
@@ -2669,8 +2704,8 @@
                             <input type="date" id="moveDate2" aria-label="Move Date" required>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
                         </div>
                     </div>
 
@@ -2690,8 +2725,8 @@
                             <input type="tel" name="Phone" placeholder="Phone" aria-label="Phone Number" required>
                         </div>
                         <div style="display: flex; gap: 12px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()">← Back</button>
-                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote →</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
+                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
                         </div>
                     </div>
                 </form>
