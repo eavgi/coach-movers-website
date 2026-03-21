@@ -74,4 +74,35 @@
             mobileMenu.classList.remove('active');
         });
     });
+
+    // Active link highlighting based on current URL
+    const currentPath = window.location.pathname;
+    const isServicePage = currentPath.includes('/services/');
+    const isContactPage = currentPath.includes('contact');
+    const isHomePage = currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/');
+
+    // Desktop nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        if (isServicePage && (href.includes('#services') || href.includes('/services'))) {
+            link.classList.add('active');
+        } else if (isContactPage && href.includes('contact')) {
+            link.classList.add('active');
+        } else if (isHomePage && (href === base || href === '/' || href === (base || '/'))) {
+            link.classList.add('active');
+        }
+    });
+
+    // Mobile menu links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        const href = link.getAttribute('href') || '';
+        // Exact match for service subpages
+        if (isServicePage && href.includes(currentPath.split('/').pop())) {
+            link.classList.add('active');
+        } else if (isContactPage && href.includes('contact') && !link.classList.contains('nav-cta')) {
+            link.classList.add('active');
+        } else if (isHomePage && (href === base || href === '/' || href === (base || '/')) && link.textContent.trim() === 'Home') {
+            link.classList.add('active');
+        }
+    });
 })();
