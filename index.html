@@ -460,6 +460,7 @@
             gap: 8px;
             line-height: 1;
             text-align: center;
+            white-space: nowrap;
         }
 
         .form-button .arrow {
@@ -1658,20 +1659,24 @@
                 margin-top: 24px;
             }
             .mobile-hero-cta-btn {
-                display: block;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
                 width: 100%;
                 background: var(--lime);
                 color: var(--dark);
-                padding: 20px 32px;
+                padding: 18px 24px;
                 border-radius: 12px;
                 font-family: var(--font-primary);
-                font-size: 20px;
+                font-size: 17px;
                 font-weight: 800;
                 border: none;
                 cursor: pointer;
                 box-shadow: 0 4px 24px rgba(200,255,0,0.3);
                 transition: transform 0.2s, box-shadow 0.2s;
                 text-decoration: none;
+                white-space: nowrap;
             }
             .mobile-hero-cta-btn:hover,
             .mobile-hero-cta-btn:active {
@@ -1735,6 +1740,34 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* ==================== GLASS BLUR HEADER ==================== */
+        #site-header nav,
+        #site-header .site-nav,
+        #site-header > *:first-child {
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.3) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Hero extends behind the fixed header */
+        .hero {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        /* Push page content below the fixed header (except hero) */
+        #site-header {
+            position: relative;
+            z-index: 1000;
+        }
+
     </style>
 
     <script type="application/ld+json">
@@ -1853,7 +1886,7 @@
                 <p class="hero-subtitle">Since 2002, Coach Movers has been Long Island's most trusted moving company. Over 23 years and 15,000+ successful moves later, we're here to make your transition seamless.</p>
                 <!-- Mobile-only CTA button -->
                 <div class="mobile-hero-cta">
-                    <button class="mobile-hero-cta-btn" onclick="showMobileForm()">Get Your Instant Quote →</button>
+                    <button class="mobile-hero-cta-btn" onclick="showMobileForm()">Get Your Instant Quote <span class="arrow">→</span></button>
                     <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 2 minutes</p>
                 </div>
             </div>
@@ -1993,11 +2026,11 @@
         <div class="featured-in-container">
             <h3>Featured In</h3>
             <div class="press-logos fade-up">
-                <span class="press-logo" style="font-weight:700;font-size:16px;color:#888;letter-spacing:1px;">NEWSDAY</span>
-                <span class="press-logo" style="font-weight:700;font-size:16px;color:#888;letter-spacing:1px;">LONG ISLAND PRESS</span>
-                <span class="press-logo" style="font-weight:700;font-size:16px;color:#888;letter-spacing:1px;">PATCH</span>
-                <span class="press-logo" style="font-weight:700;font-size:16px;color:#888;letter-spacing:1px;">YELP</span>
-                <span class="press-logo" style="font-weight:700;font-size:16px;color:#888;letter-spacing:1px;">GOOGLE</span>
+                <img src="images/press-1.png" alt="Newsday" class="press-logo">
+                <img src="images/press-2.png" alt="Long Island Press" class="press-logo">
+                <img src="images/press-3.png" alt="Patch" class="press-logo">
+                <img src="images/press-4.png" alt="Yelp" class="press-logo">
+                <img src="images/press-5.png" alt="Google" class="press-logo">
             </div>
         </div>
     </section>
