@@ -1741,34 +1741,14 @@
             }
         }
     
-        /* ==================== GLASS BLUR HEADER ==================== */
-        #site-header nav,
-        #site-header .site-nav,
-        #site-header > *:first-child {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
+        /* ==================== HEADER OVERRIDES FOR HOMEPAGE ==================== */
+        #site-header nav {
             background: rgba(255, 255, 255, 0.75) !important;
             backdrop-filter: blur(12px) !important;
             -webkit-backdrop-filter: blur(12px) !important;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
-        /* Hero extends behind the fixed header */
-        .hero {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-
-        /* Push page content below the fixed header (except hero) */
-        #site-header {
-            position: relative;
-            z-index: 1000;
-        }
-
-    
         /* ==================== MOBILE HERO SPACING ==================== */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -1797,25 +1777,38 @@
                 display: none;
             }
             #hero-form.modal-open {
-                display: block !important;
+                display: flex !important;
                 position: fixed;
                 top: 0;
                 left: 0;
                 right: 0;
                 bottom: 0;
-                z-index: 9999;
-                background: rgba(10, 10, 10, 0.6);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
+                z-index: 9500;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
                 overflow-y: auto;
-                padding: 80px 16px 32px;
+                padding: 24px 16px;
+                align-items: center;
+                justify-content: center;
                 animation: fadeInModal 0.3s ease;
             }
             #hero-form.modal-open .hero-form-card {
-                max-width: 400px;
+                max-width: 360px;
+                width: 100%;
                 margin: 0 auto;
                 border-radius: 20px;
-                box-shadow: 0 16px 64px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                padding: 32px 24px;
+                border-top: 4px solid #C8FF00;
+                position: relative;
+            }
+            #hero-form.modal-open .hero-form-card h3 {
+                font-size: 24px;
+                margin-bottom: 4px;
+            }
+            #hero-form.modal-open .hero-form-card .subtitle {
+                margin-bottom: 20px;
             }
             .modal-close-btn {
                 display: none;
@@ -1824,19 +1817,27 @@
                 display: flex !important;
                 align-items: center;
                 justify-content: center;
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                width: 36px;
-                height: 36px;
+                position: absolute;
+                top: -14px;
+                right: -8px;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
-                background: var(--dark);
+                background: #0A0A0A;
                 color: white;
-                font-size: 20px;
-                border: none;
+                font-size: 18px;
+                border: 2px solid rgba(255,255,255,0.2);
                 cursor: pointer;
-                z-index: 10001;
+                z-index: 9600;
                 line-height: 1;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            /* Hide header when modal is open */
+            body.modal-active #site-header {
+                visibility: hidden;
+            }
+            body.modal-active .sticky-cta {
+                display: none !important;
             }
         }
         @keyframes fadeInModal {
@@ -3072,6 +3073,7 @@
         const form = document.getElementById('hero-form');
         if (form) {
             form.classList.add('modal-open');
+            document.body.classList.add('modal-active');
             document.body.style.overflow = 'hidden';
         }
     }
@@ -3079,6 +3081,7 @@
         const form = document.getElementById('hero-form');
         if (form) {
             form.classList.remove('modal-open');
+            document.body.classList.remove('modal-active');
             document.body.style.overflow = '';
         }
     }
