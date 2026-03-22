@@ -31,7 +31,7 @@
                 </li>
                 <li><a href="${base}contact.html">Contact</a></li>
             </ul>
-            <a class="nav-cta" href="${base}contact.html">Get a Quote</a>
+            <a class="nav-cta" href="#quote-form">Get a Quote</a>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -51,7 +51,7 @@
         <a href="${base}services/full-service-packing.html">✨ Full-Service Packing</a>
         <a href="${base}services/storage.html">🔒 Storage Solutions</a>
         <a href="${base}contact.html">Contact</a>
-        <a class="nav-cta" href="${base}contact.html">Get a Quote</a>
+        <a class="nav-cta" href="#quote-form">Get a Quote</a>
     </div>`;
 
     // Mobile menu toggle
@@ -61,6 +61,9 @@
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+        if (mobileMenu.classList.contains('active')) {
+            mobileMenu.scrollTop = 0;
+        }
     });
 
     document.getElementById('mobileMenuClose').addEventListener('click', () => {
