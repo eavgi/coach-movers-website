@@ -9,6 +9,11 @@
     padding: 12px 0;
     font-size: 15px;
     font-weight: 500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
 }
 
 .top-bar a {
@@ -17,16 +22,28 @@
 }
 
 /* ==================== NAVIGATION ==================== */
+/* top-bar is ~48px tall (12px pad + 24px text + 12px pad) */
 nav {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    position: fixed;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* body offset so content clears the fixed header (48px top-bar + 80px nav) */
+body {
+    padding-top: 128px;
+}
+
+nav.scrolled-down {
+    transform: translateY(-100%);
 }
 
 .nav-container {
@@ -232,7 +249,7 @@ nav {
 }
 
 .mobile-menu a.mobile-sub {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 500;
     padding: 10px 32px;
     opacity: 0.85;
@@ -435,18 +452,13 @@ footer {
     font-weight: 600;
 }
 
-/* ==================== HIDE-ON-SCROLL (mobile) ==================== */
-nav {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-@media (max-width: 768px) {
-    nav.scrolled-down {
-        transform: translateY(-100%);
-    }
-}
-
 /* ==================== RESPONSIVE (Header/Footer) ==================== */
 @media (max-width: 768px) {
+    /* mobile nav is 70px; body offset = 48px top-bar + 70px nav */
+    body {
+        padding-top: 118px;
+    }
+
     .hamburger {
         display: flex;
     }
