@@ -1784,28 +1784,39 @@
                 right: 0;
                 bottom: 0;
                 z-index: 9500;
-                background: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
+                background: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
                 overflow-y: auto;
-                padding: 24px 16px;
+                padding: 16px;
                 align-items: center;
                 justify-content: center;
-                animation: fadeInModal 0.3s ease;
+                animation: fadeInModal 0.25s ease;
+                box-sizing: border-box;
             }
             #hero-form.modal-open .hero-form-card {
-                max-width: 360px;
-                width: 100%;
+                max-width: 343px;
+                width: calc(100vw - 32px);
                 margin: 0 auto;
                 border-radius: 20px;
                 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-                padding: 32px 24px;
+                padding: 28px 20px;
                 border-top: 4px solid #C8FF00;
                 position: relative;
+                box-sizing: border-box;
+                overflow: hidden;
             }
             #hero-form.modal-open .hero-form-card h3 {
-                font-size: 24px;
+                font-size: 22px;
                 margin-bottom: 4px;
+            }
+            #hero-form.modal-open .size-grid,
+            #hero-form.modal-open .form-step {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            #hero-form.modal-open .size-option {
+                min-width: 0;
             }
             #hero-form.modal-open .hero-form-card .subtitle {
                 margin-bottom: 20px;
