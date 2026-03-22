@@ -1778,66 +1778,7 @@
             text-transform: uppercase;
         }
 
-        /* ==================== MOBILE QUOTE FORM MODAL ==================== */
-        @media (max-width: 768px) {
-            /* Hide the form card in normal hero view on mobile */
-            #hero-form {
-                display: none !important;
-            }
-            /* When modal is open, card becomes a centered overlay */
-            #hero-form.modal-open {
-                display: block !important;
-                position: fixed !important;
-                top: 50% !important;
-                left: 50% !important;
-                transform: translate(-50%, -50%) !important;
-                width: calc(100vw - 32px) !important;
-                max-width: 360px !important;
-                max-height: 90vh !important;
-                overflow-y: auto !important;
-                z-index: 9500 !important;
-                border-radius: 20px !important;
-                padding: 28px 20px !important;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
-                animation: fadeInModal 0.25s ease;
-                box-sizing: border-box !important;
-            }
-            
-            #hero-form.modal-open h3 {
-                font-size: 22px !important;
-            }
-            .modal-close-btn {
-                display: none !important;
-            }
-            #hero-form.modal-open .modal-close-btn {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: -12px;
-                right: -8px;
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                background: #0A0A0A;
-                color: white;
-                font-size: 18px;
-                border: 2px solid rgba(255,255,255,0.15);
-                cursor: pointer;
-                z-index: 9600;
-                line-height: 1;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            }
-            /* Hide header + sticky CTA when modal is open */
-            body.modal-active #site-header {
-                visibility: hidden !important;
-            }
-            body.modal-active .sticky-cta {
-                display: none !important;
-            }
-        }
-        @keyframes fadeInModal {
-            from { opacity: 0; }
+        
             to { opacity: 1; }
         }
 
@@ -1985,11 +1926,11 @@
                 <p class="hero-subtitle">Since 2002, Coach Movers has been Long Island's most trusted moving company. Over 23 years and 15,000+ successful moves later, we're here to make your transition seamless.</p>
                 <!-- Mobile-only CTA button -->
                 <div class="mobile-hero-cta">
-                    <button class="mobile-hero-cta-btn" onclick="showMobileForm()">Get Your Instant Quote <span class="arrow">→</span></button>
+                    <a class="mobile-hero-cta-btn" href="#quote-form">Get Your Instant Quote <span class="arrow">→</span></a>
                     <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 2 minutes</p>
                 </div>
             </div>
-            <div class="hero-form-card fade-up visible" id="hero-form"><button class="modal-close-btn" onclick="closeMobileForm()">×</button>
+            <div class="hero-form-card fade-up visible" id="hero-form">
                 <h3>Get a Free Quote</h3>
                 <p class="subtitle">Fast. Easy. Free.</p>
                 <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;">
@@ -3065,25 +3006,7 @@
         /* ==================== FEATURE 3: MOVING CHECKLIST JS ==================== */
 
         // Mobile hero form reveal
-        function showMobileForm() {
-        const form = document.getElementById('hero-form');
-        if (form) {
-            // Create backdrop
-            let backdrop = document.getElementById('modal-backdrop');
-            if (!backdrop) {
-                backdrop = document.createElement('div');
-                backdrop.id = 'modal-backdrop';
-                backdrop.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);z-index:9400;';
-                backdrop.onclick = closeMobileForm;
-                document.body.appendChild(backdrop);
-            } else {
-                backdrop.style.display = 'block';
-            }
-            form.classList.add('modal-open');
-            document.body.classList.add('modal-active');
-            document.body.style.overflow = 'hidden';
-        }
-    }
+        
     function closeMobileForm() {
         const form = document.getElementById('hero-form');
         if (form) {
