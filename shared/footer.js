@@ -22,13 +22,12 @@
                 </div>
 
                 <form id="ctaForm3" method="POST" action="https://formsubmit.co/eli@reglow.com">
-                    <input type="hidden" name="_subject" value="CTA Quote Request from Coach Movers">
+                    <input type="hidden" name="_subject" id="footer-subject" value="Complete Quote - (pending)">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="Move Size" id="footer-hiddenMoveSize">
                     <input type="hidden" name="Moving From" id="footer-hiddenMoveFrom">
                     <input type="hidden" name="Moving To" id="footer-hiddenMoveTo">
-                    <input type="hidden" name="Move Date" id="footer-hiddenMoveDate">
 
                     <div class="form-progress" id="footer-progressBar">
                         <div class="progress-dot active" id="footer-dot1"></div>
@@ -37,8 +36,26 @@
                         <div class="progress-dot" id="footer-dot4"></div>
                     </div>
 
-                    <!-- STEP 1: Move Size -->
+                    <!-- STEP 1: Contact Info -->
                     <div class="form-step active" id="footer-step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">Let's get started — who are we quoting?</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" id="footer-name" placeholder="Full Name" aria-label="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" id="footer-email" placeholder="Email" aria-label="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" id="footer-phone" placeholder="Phone" aria-label="Phone Number" required>
+                        </div>
+                        <button type="button" class="form-button success" style="width: 100%;" onclick="nextFooterStep()">Next <span class="arrow">→</span></button>
+                    </div>
+
+                    <!-- STEP 2: Move Size -->
+                    <div class="form-step" id="footer-step2">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">What size is your move?</label>
                         <div class="size-options">
                             <div class="size-option-card" onclick="selectSizeFooter('Studio', this)">
@@ -62,19 +79,20 @@
                                 <div class="size-option-text">4+ Bedrooms / Commercial</div>
                             </div>
                         </div>
+                        <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
                     </div>
 
-                    <!-- STEP 2: Location -->
-                    <div class="form-step" id="footer-step2">
+                    <!-- STEP 3: Location -->
+                    <div class="form-step" id="footer-step3">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">Where are you moving?</label>
                         <div class="zip-row">
                             <div class="form-group">
                                 <label>Moving From (ZIP)</label>
-                                <input type="text" id="footer-moveFromZip" placeholder="Enter ZIP code" required>
+                                <input type="text" id="footer-moveFromZip" placeholder="Enter ZIP code">
                             </div>
                             <div class="form-group">
                                 <label>Moving To (ZIP)</label>
-                                <input type="text" id="footer-moveToZip" placeholder="Enter ZIP code" required>
+                                <input type="text" id="footer-moveToZip" placeholder="Enter ZIP code">
                             </div>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
@@ -83,35 +101,14 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Date -->
-                    <div class="form-step" id="footer-step3">
+                    <!-- STEP 4: Move Date -->
+                    <div class="form-step" id="footer-step4">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">When is your move?</label>
                         <div class="form-group">
                             <label>Move Date</label>
-                            <input type="date" id="footer-moveDate" aria-label="Move Date" required>
+                            <input type="date" name="Move Date" id="footer-moveDate" aria-label="Move Date">
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextFooterStep()">Next <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Contact Info -->
-                    <div class="form-step" id="footer-step4">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">Almost done!</label>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Full Name" placeholder="Full Name" aria-label="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" placeholder="Email" aria-label="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="Phone" placeholder="Phone" aria-label="Phone Number" required>
-                        </div>
-                        <div style="display: flex; gap: 12px;">
                             <button type="button" class="form-button primary" style="flex: 1;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
                             <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
                         </div>
@@ -248,24 +245,69 @@ function switchAreaTab(btn, areaId) {
     document.getElementById('area-' + areaId).classList.add('active');
 }
 
-// Footer multi-step quote form
-let footerStep = 1;
-const footerTotalSteps = 4;
+// ==================== PARTIAL SUBMISSION HELPERS (used by all forms) ====================
 
-function selectSizeFooter(size, element) {
-    document.getElementById('footer-hiddenMoveSize').value = size;
-    document.querySelectorAll('#footer-step1 .size-option-card').forEach(c => c.classList.remove('selected'));
-    element.classList.add('selected');
-    setTimeout(() => nextFooterStep(), 300);
+function sendPartialQuote(name, email, phone, formLabel) {
+    fetch('https://formsubmit.co/ajax/eli@reglow.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+            _subject: 'Partial Quote - ' + name,
+            _captcha: 'false',
+            Name: name,
+            Email: email,
+            Phone: phone,
+            Status: 'PARTIAL — did not complete the form',
+            Form: formLabel
+        })
+    }).catch(function() {});
 }
 
+function sendBeaconPartialQuote(name, email, phone, formLabel) {
+    if (!navigator.sendBeacon) return;
+    var blob = new Blob([JSON.stringify({
+        _subject: 'Partial Quote - ' + name,
+        _captcha: 'false',
+        Name: name,
+        Email: email,
+        Phone: phone,
+        Status: 'PARTIAL — user closed or navigated away',
+        Form: formLabel
+    })], { type: 'application/json' });
+    navigator.sendBeacon('https://formsubmit.co/ajax/eli@reglow.com', blob);
+}
+
+// ==================== FOOTER MULTI-STEP QUOTE FORM ====================
+
+var footerStep = 1;
+var footerTotalSteps = 4;
+var footerPartialTimerId = null;
+var footerFormCompleted = false;
+var footerPartialSent = false;
+var footerContactData = null;
+
 function nextFooterStep() {
-    if (footerStep === 2) {
-        document.getElementById('footer-hiddenMoveFrom').value = document.getElementById('footer-moveFromZip').value;
-        document.getElementById('footer-hiddenMoveTo').value = document.getElementById('footer-moveToZip').value;
+    if (footerStep === 1) {
+        var name = document.getElementById('footer-name').value.trim();
+        var email = document.getElementById('footer-email').value.trim();
+        var phone = document.getElementById('footer-phone').value.trim();
+        if (!name || !email || !phone) {
+            alert('Please fill in your name, email, and phone number.');
+            return;
+        }
+        footerContactData = { name: name, email: email, phone: phone };
+        document.getElementById('footer-subject').value = 'Complete Quote - ' + name;
+        // Schedule partial email 90 seconds after step 1 — cancelled if form completes
+        footerPartialTimerId = setTimeout(function() {
+            if (!footerFormCompleted && !footerPartialSent) {
+                sendPartialQuote(name, email, phone, 'Footer Form');
+                footerPartialSent = true;
+            }
+        }, 90000);
     }
     if (footerStep === 3) {
-        document.getElementById('footer-hiddenMoveDate').value = document.getElementById('footer-moveDate').value;
+        document.getElementById('footer-hiddenMoveFrom').value = document.getElementById('footer-moveFromZip').value;
+        document.getElementById('footer-hiddenMoveTo').value = document.getElementById('footer-moveToZip').value;
     }
     if (footerStep < footerTotalSteps) {
         document.getElementById('footer-step' + footerStep).classList.remove('active');
@@ -273,6 +315,13 @@ function nextFooterStep() {
         document.getElementById('footer-step' + footerStep).classList.add('active');
         updateFooterProgress();
     }
+}
+
+function selectSizeFooter(size, element) {
+    document.getElementById('footer-hiddenMoveSize').value = size;
+    document.querySelectorAll('#footer-step2 .size-option-card').forEach(function(c) { c.classList.remove('selected'); });
+    element.classList.add('selected');
+    setTimeout(function() { nextFooterStep(); }, 300);
 }
 
 function prevFooterStep() {
@@ -285,11 +334,31 @@ function prevFooterStep() {
 }
 
 function updateFooterProgress() {
-    for (let i = 1; i <= footerTotalSteps; i++) {
-        const dot = document.getElementById('footer-dot' + i);
+    for (var i = 1; i <= footerTotalSteps; i++) {
+        var dot = document.getElementById('footer-dot' + i);
         if (dot) {
             if (i <= footerStep) dot.classList.add('active');
             else dot.classList.remove('active');
         }
     }
 }
+
+// Cancel partial timer when footer form is fully submitted
+(function() {
+    var form3 = document.getElementById('ctaForm3');
+    if (form3) {
+        form3.addEventListener('submit', function() {
+            footerFormCompleted = true;
+            clearTimeout(footerPartialTimerId);
+        });
+    }
+})();
+
+// Send via sendBeacon if user closes/navigates away after step 1
+window.addEventListener('beforeunload', function() {
+    if (footerContactData && !footerFormCompleted && !footerPartialSent) {
+        footerPartialSent = true;
+        clearTimeout(footerPartialTimerId);
+        sendBeaconPartialQuote(footerContactData.name, footerContactData.email, footerContactData.phone, 'Footer Form');
+    }
+});

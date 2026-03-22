@@ -1940,13 +1940,12 @@
                 </div>
 
                 <form id="quoteForm" method="POST" action="https://formsubmit.co/eli@reglow.com">
-                    <input type="hidden" name="_subject" value="New Quote Request from Coach Movers">
+                    <input type="hidden" name="_subject" id="heroSubject" value="Complete Quote - (pending)">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="Move Size" id="hiddenMoveSize">
                     <input type="hidden" name="Moving From" id="hiddenMoveFrom">
                     <input type="hidden" name="Moving To" id="hiddenMoveTo">
-                    <input type="hidden" name="Move Date" id="hiddenMoveDate">
 
                     <div class="form-progress" id="progressBar">
                         <div class="progress-dot active" id="dot1"></div>
@@ -1955,8 +1954,26 @@
                         <div class="progress-dot" id="dot4"></div>
                     </div>
 
-                    <!-- STEP 1: Move Size -->
+                    <!-- STEP 1: Contact Info -->
                     <div class="form-step active" id="step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Let's get started — who are we quoting?</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" id="heroName" placeholder="Full Name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" id="heroEmail" placeholder="Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" id="heroPhone" placeholder="Phone" required="">
+                        </div>
+                        <button type="button" class="form-button success" style="width: 100%;" onclick="nextStep()">Next <span class="arrow">→</span></button>
+                    </div>
+
+                    <!-- STEP 2: Move Size -->
+                    <div class="form-step" id="step2">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600;">What size is your move?</label>
                         <div class="size-options">
                             <div class="size-option-card" onclick="selectSize('Studio', this)">
@@ -1980,19 +1997,20 @@
                                 <div class="size-option-text">4+ Bedrooms / Commercial</div>
                             </div>
                         </div>
+                        <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
                     </div>
 
-                    <!-- STEP 2: Location -->
-                    <div class="form-step" id="step2">
+                    <!-- STEP 3: Location -->
+                    <div class="form-step" id="step3">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600;">Where are you moving?</label>
                         <div class="zip-row">
                             <div class="form-group">
                                 <label>Moving From (ZIP)</label>
-                                <input type="text" id="moveFromZip" placeholder="Enter ZIP code" required="">
+                                <input type="text" id="moveFromZip" placeholder="Enter ZIP code">
                             </div>
                             <div class="form-group">
                                 <label>Moving To (ZIP)</label>
-                                <input type="text" id="moveToZip" placeholder="Enter ZIP code" required="">
+                                <input type="text" id="moveToZip" placeholder="Enter ZIP code">
                             </div>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
@@ -2001,35 +2019,14 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Date -->
-                    <div class="form-step" id="step3">
+                    <!-- STEP 4: Move Date -->
+                    <div class="form-step" id="step4">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600;">When is your move?</label>
                         <div class="form-group">
                             <label>Move Date</label>
-                            <input type="date" id="moveDate" aria-label="Preferred Move Date" required="">
+                            <input type="date" name="Move Date" id="moveDate" aria-label="Preferred Move Date">
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Contact Info -->
-                    <div class="form-step" id="step4">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Almost done!</label>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Full Name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="Phone" required="">
-                        </div>
-                        <div style="display: flex; gap: 12px;">
                             <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
                             <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
                         </div>
@@ -2708,13 +2705,12 @@
                 </div>
 
                 <form id="ctaForm2" method="POST" action="https://formsubmit.co/eli@reglow.com">
-                    <input type="hidden" name="_subject" value="CTA Quote Request from Coach Movers">
+                    <input type="hidden" name="_subject" id="cta2Subject" value="Complete Quote - (pending)">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="Move Size" id="hiddenMoveSize2">
                     <input type="hidden" name="Moving From" id="hiddenMoveFrom2">
                     <input type="hidden" name="Moving To" id="hiddenMoveTo2">
-                    <input type="hidden" name="Move Date" id="hiddenMoveDate2">
 
                     <div class="form-progress" id="progressBar2">
                         <div class="progress-dot active" id="cta2Dot1"></div>
@@ -2723,8 +2719,26 @@
                         <div class="progress-dot" id="cta2Dot4"></div>
                     </div>
 
-                    <!-- STEP 1: Move Size -->
+                    <!-- STEP 1: Contact Info -->
                     <div class="form-step active" id="cta2Step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Let's get started — who are we quoting?</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" id="cta2Name" placeholder="Full Name" aria-label="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" id="cta2Email" placeholder="Email" aria-label="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" id="cta2Phone" placeholder="Phone" aria-label="Phone Number" required>
+                        </div>
+                        <button type="button" class="form-button success" style="width: 100%;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
+                    </div>
+
+                    <!-- STEP 2: Move Size -->
+                    <div class="form-step" id="cta2Step2">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">What size is your move?</label>
                         <div class="size-options">
                             <div class="size-option-card" onclick="selectSizeCta2('Studio', this)">
@@ -2748,19 +2762,20 @@
                                 <div class="size-option-text">4+ Bedrooms / Commercial</div>
                             </div>
                         </div>
+                        <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
                     </div>
 
-                    <!-- STEP 2: Location -->
-                    <div class="form-step" id="cta2Step2">
+                    <!-- STEP 3: Location -->
+                    <div class="form-step" id="cta2Step3">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Where are you moving?</label>
                         <div class="zip-row">
                             <div class="form-group">
                                 <label>Moving From (ZIP)</label>
-                                <input type="text" id="moveFromZip2" placeholder="Enter ZIP code" required>
+                                <input type="text" id="moveFromZip2" placeholder="Enter ZIP code">
                             </div>
                             <div class="form-group">
                                 <label>Moving To (ZIP)</label>
-                                <input type="text" id="moveToZip2" placeholder="Enter ZIP code" required>
+                                <input type="text" id="moveToZip2" placeholder="Enter ZIP code">
                             </div>
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
@@ -2769,35 +2784,14 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Date -->
-                    <div class="form-step" id="cta2Step3">
+                    <!-- STEP 4: Move Date -->
+                    <div class="form-step" id="cta2Step4">
                         <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">When is your move?</label>
                         <div class="form-group">
                             <label>Move Date</label>
-                            <input type="date" id="moveDate2" aria-label="Move Date" required>
+                            <input type="date" name="Move Date" id="moveDate2" aria-label="Move Date">
                         </div>
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Contact Info -->
-                    <div class="form-step" id="cta2Step4">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Almost done!</label>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Full Name" placeholder="Full Name" aria-label="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" placeholder="Email" aria-label="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="Phone" placeholder="Phone" aria-label="Phone Number" required>
-                        </div>
-                        <div style="display: flex; gap: 12px;">
                             <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
                             <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
                         </div>
@@ -2821,38 +2815,6 @@
     <script>
         // Enable scroll animations only after JS loads
         document.body.classList.add('js-loaded');
-
-        function nextCtaStep() {
-            const step1 = document.getElementById('ctaStep1');
-            const step2 = document.getElementById('ctaStep2');
-            const dot1 = document.getElementById('ctaDot1');
-            const dot2 = document.getElementById('ctaDot2');
-
-            const inputs = step1.querySelectorAll('input[required]');
-            let valid = true;
-            inputs.forEach(input => {
-                if (!input.value) valid = false;
-            });
-
-            if (valid) {
-                step1.classList.remove('active');
-                step2.classList.add('active');
-                dot1.classList.remove('active');
-                dot2.classList.add('active');
-            }
-        }
-
-        function prevCtaStep() {
-            const step1 = document.getElementById('ctaStep1');
-            const step2 = document.getElementById('ctaStep2');
-            const dot1 = document.getElementById('ctaDot1');
-            const dot2 = document.getElementById('ctaDot2');
-
-            step2.classList.remove('active');
-            step1.classList.add('active');
-            dot2.classList.remove('active');
-            dot1.classList.add('active');
-        }
 
         // Intersection Observer for Scroll Animations
         const observerOptions = {
@@ -2920,39 +2882,56 @@
         const statsBar = document.querySelector('.stats-bar');
         if (statsBar) counterObserver.observe(statsBar);
 
-        /* ==================== FEATURE 1: 4-STEP QUOTE FORM JS ==================== */
-        let currentStep = 1;
-        const totalSteps = 4;
+        /* ==================== FEATURE 1: HERO QUOTE FORM JS ==================== */
+        var currentStep = 1;
+        var totalSteps = 4;
+        var heroPartialTimerId = null;
+        var heroFormCompleted = false;
+        var heroPartialSent = false;
+        var heroContactData = null;
+
+        document.getElementById('quoteForm').addEventListener('submit', function() {
+            heroFormCompleted = true;
+            clearTimeout(heroPartialTimerId);
+        });
 
         function selectSize(size, element) {
-            document.querySelectorAll('.size-option-card').forEach(card => {
+            document.querySelectorAll('#step2 .size-option-card').forEach(function(card) {
                 card.classList.remove('selected');
             });
             element.classList.add('selected');
             document.getElementById('hiddenMoveSize').value = size;
-            setTimeout(() => nextStep(), 300);
+            setTimeout(function() { nextStep(); }, 300);
         }
 
         function nextStep() {
-            // Validate current step
-            if (currentStep === 2) {
-                const fromZip = document.getElementById('moveFromZip').value.trim();
-                const toZip = document.getElementById('moveToZip').value.trim();
+            if (currentStep === 1) {
+                var name = document.getElementById('heroName').value.trim();
+                var email = document.getElementById('heroEmail').value.trim();
+                var phone = document.getElementById('heroPhone').value.trim();
+                if (!name || !email || !phone) {
+                    alert('Please fill in your name, email, and phone number.');
+                    return;
+                }
+                heroContactData = { name: name, email: email, phone: phone };
+                document.getElementById('heroSubject').value = 'Complete Quote - ' + name;
+                heroPartialTimerId = setTimeout(function() {
+                    if (!heroFormCompleted && !heroPartialSent) {
+                        sendPartialQuote(name, email, phone, 'Hero Form');
+                        heroPartialSent = true;
+                    }
+                }, 90000);
+            }
+            if (currentStep === 3) {
+                var fromZip = document.getElementById('moveFromZip').value.trim();
+                var toZip = document.getElementById('moveToZip').value.trim();
                 if (!fromZip || !toZip) {
-                    alert('Please enter both ZIP codes');
+                    alert('Please enter both ZIP codes.');
                     return;
                 }
                 document.getElementById('hiddenMoveFrom').value = fromZip;
                 document.getElementById('hiddenMoveTo').value = toZip;
-            } else if (currentStep === 3) {
-                const moveDate = document.getElementById('moveDate').value;
-                if (!moveDate) {
-                    alert('Please select a move date');
-                    return;
-                }
-                document.getElementById('hiddenMoveDate').value = moveDate;
             }
-
             if (currentStep < totalSteps) {
                 document.getElementById('step' + currentStep).classList.remove('active');
                 currentStep++;
@@ -2971,8 +2950,8 @@
         }
 
         function updateProgressBar() {
-            for (let i = 1; i <= totalSteps; i++) {
-                const dot = document.getElementById('dot' + i);
+            for (var i = 1; i <= totalSteps; i++) {
+                var dot = document.getElementById('dot' + i);
                 if (i <= currentStep) {
                     dot.classList.add('active');
                 } else {
@@ -3042,24 +3021,47 @@
             });
         }
 
-        /* ==================== CTA2 FORM (bottom, mirrors hero form) ==================== */
-        let cta2Step = 1;
-        const cta2TotalSteps = 4;
+        /* ==================== CTA2 FORM (bottom section) ==================== */
+        var cta2Step = 1;
+        var cta2TotalSteps = 4;
+        var cta2PartialTimerId = null;
+        var cta2FormCompleted = false;
+        var cta2PartialSent = false;
+        var cta2ContactData = null;
+
+        document.getElementById('ctaForm2').addEventListener('submit', function() {
+            cta2FormCompleted = true;
+            clearTimeout(cta2PartialTimerId);
+        });
 
         function selectSizeCta2(size, element) {
             document.getElementById('hiddenMoveSize2').value = size;
-            document.querySelectorAll('#cta2Step1 .size-option-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('#cta2Step2 .size-option-card').forEach(function(c) { c.classList.remove('selected'); });
             element.classList.add('selected');
-            setTimeout(() => nextCta2Step(), 300);
+            setTimeout(function() { nextCta2Step(); }, 300);
         }
 
         function nextCta2Step() {
-            if (cta2Step === 2) {
-                document.getElementById('hiddenMoveFrom2').value = document.getElementById('moveFromZip2').value;
-                document.getElementById('hiddenMoveTo2').value = document.getElementById('moveToZip2').value;
+            if (cta2Step === 1) {
+                var name = document.getElementById('cta2Name').value.trim();
+                var email = document.getElementById('cta2Email').value.trim();
+                var phone = document.getElementById('cta2Phone').value.trim();
+                if (!name || !email || !phone) {
+                    alert('Please fill in your name, email, and phone number.');
+                    return;
+                }
+                cta2ContactData = { name: name, email: email, phone: phone };
+                document.getElementById('cta2Subject').value = 'Complete Quote - ' + name;
+                cta2PartialTimerId = setTimeout(function() {
+                    if (!cta2FormCompleted && !cta2PartialSent) {
+                        sendPartialQuote(name, email, phone, 'CTA Form');
+                        cta2PartialSent = true;
+                    }
+                }, 90000);
             }
             if (cta2Step === 3) {
-                document.getElementById('hiddenMoveDate2').value = document.getElementById('moveDate2').value;
+                document.getElementById('hiddenMoveFrom2').value = document.getElementById('moveFromZip2').value;
+                document.getElementById('hiddenMoveTo2').value = document.getElementById('moveToZip2').value;
             }
             if (cta2Step < cta2TotalSteps) {
                 document.getElementById('cta2Step' + cta2Step).classList.remove('active');
@@ -3079,14 +3081,28 @@
         }
 
         function updateCta2Progress() {
-            for (let i = 1; i <= cta2TotalSteps; i++) {
-                const dot = document.getElementById('cta2Dot' + i);
+            for (var i = 1; i <= cta2TotalSteps; i++) {
+                var dot = document.getElementById('cta2Dot' + i);
                 if (dot) {
                     if (i <= cta2Step) dot.classList.add('active');
                     else dot.classList.remove('active');
                 }
             }
         }
+
+        // sendBeacon on page close for both homepage forms
+        window.addEventListener('beforeunload', function() {
+            if (heroContactData && !heroFormCompleted && !heroPartialSent) {
+                heroPartialSent = true;
+                clearTimeout(heroPartialTimerId);
+                sendBeaconPartialQuote(heroContactData.name, heroContactData.email, heroContactData.phone, 'Hero Form');
+            }
+            if (cta2ContactData && !cta2FormCompleted && !cta2PartialSent) {
+                cta2PartialSent = true;
+                clearTimeout(cta2PartialTimerId);
+                sendBeaconPartialQuote(cta2ContactData.name, cta2ContactData.email, cta2ContactData.phone, 'CTA Form');
+            }
+        });
     </script>
 
 
