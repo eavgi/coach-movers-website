@@ -6,6 +6,68 @@
     const base = container.getAttribute('data-base-path') || '';
 
     container.innerHTML = `
+    <!-- QUOTE FORM SECTION -->
+    <section class="quote-form-section" id="quote-form">
+        <div class="quote-form-container">
+            <div class="quote-form-header">
+                <span class="quote-form-label">FREE ESTIMATE</span>
+                <h2>Get Your Free Quote</h2>
+                <p>Fill out the form below and we'll get back to you within 2 hours.</p>
+            </div>
+            <form class="quote-form-card" action="https://formsubmit.co/eli@reglow.com" method="POST">
+                <input type="hidden" name="_subject" value="New Quote Request from Website">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="qf-row">
+                    <div class="qf-field">
+                        <label for="qf-name">Full Name *</label>
+                        <input type="text" id="qf-name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="qf-field">
+                        <label for="qf-phone">Phone *</label>
+                        <input type="tel" id="qf-phone" name="phone" placeholder="(516) 555-1234" required>
+                    </div>
+                </div>
+                <div class="qf-row">
+                    <div class="qf-field">
+                        <label for="qf-email">Email *</label>
+                        <input type="email" id="qf-email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="qf-field">
+                        <label for="qf-date">Move Date</label>
+                        <input type="date" id="qf-date" name="move_date">
+                    </div>
+                </div>
+                <div class="qf-row">
+                    <div class="qf-field">
+                        <label for="qf-from">Moving From (ZIP)</label>
+                        <input type="text" id="qf-from" name="move_from" placeholder="11530" maxlength="10">
+                    </div>
+                    <div class="qf-field">
+                        <label for="qf-to">Moving To (ZIP)</label>
+                        <input type="text" id="qf-to" name="move_to" placeholder="11570" maxlength="10">
+                    </div>
+                </div>
+                <div class="qf-field">
+                    <label for="qf-size">Move Size</label>
+                    <select id="qf-size" name="move_size">
+                        <option value="">Select size...</option>
+                        <option>Studio</option>
+                        <option>1 Bedroom</option>
+                        <option>2 Bedrooms</option>
+                        <option>3 Bedrooms</option>
+                        <option>4+ Bedrooms / Commercial</option>
+                    </select>
+                </div>
+                <div class="qf-field">
+                    <label for="qf-message">Message (optional)</label>
+                    <textarea id="qf-message" name="message" rows="3" placeholder="Any details about your move..."></textarea>
+                </div>
+                <button type="submit" class="qf-submit">Get My Free Quote</button>
+                <p class="qf-disclaimer">Free estimate • No obligation • Response within 2 hours</p>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -50,7 +112,7 @@
                     <li><a href="tel:+15168712770">(516) 871-2770</a></li>
                     <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
                     <li>HQ: Garden City, NY</li>
-                    <li><a href="${base}contact.html">Get a Free Quote</a></li>
+                    <li><a href="#quote-form">Get a Free Quote</a></li>
                     <li>Hours: Mon–Sun 7AM–9PM</li>
                     <li>NY DOT License #T-39547</li>
                 </ul>
