@@ -1927,16 +1927,16 @@
                 <!-- Mobile-only CTA button -->
                 <div class="mobile-hero-cta">
                     <a class="mobile-hero-cta-btn" href="#quote-form">Get Your Instant Quote <span class="arrow">→</span></a>
-                    <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 2 minutes</p>
+                    <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 1 minute</p>
                 </div>
             </div>
             <div class="hero-form-card fade-up visible" id="hero-form">
                 <h3>Get a Free Quote</h3>
                 <p class="subtitle">Fast. Easy. Free.</p>
-                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;">
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;justify-content:center;">
                     <span>✓ Free estimate</span>
                     <span>✓ No obligation</span>
-                    <span>✓ Takes 2 min</span>
+                    <span>✓ Takes 1 min</span>
                 </div>
 
                 <form id="quoteForm" method="POST" action="https://formsubmit.co/eli@reglow.com">
@@ -2693,7 +2693,7 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="cta">
+    <section class="cta" id="quote-form">
         <div class="cta-container fade-up">
             <h2>Ready To Get Moving?</h2>
             <p class="cta-subtitle" style="margin-bottom: 32px;">Free quote in 2 minutes. No hidden fees. No surprises.</p>
@@ -2701,10 +2701,10 @@
             <div class="cta-form">
                 <h3 style="font-family: var(--font-primary); font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--dark);">Get a Free Quote</h3>
                 <p style="font-size: 15px; color: var(--gray); margin-bottom: 8px;">Fast. Easy. Free.</p>
-                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;">
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;justify-content:center;">
                     <span>✓ Free estimate</span>
                     <span>✓ No obligation</span>
-                    <span>✓ Takes 2 min</span>
+                    <span>✓ Takes 1 min</span>
                 </div>
 
                 <form id="ctaForm2" method="POST" action="https://formsubmit.co/eli@reglow.com">
@@ -3007,18 +3007,7 @@
 
         // Mobile hero form reveal
         
-    function closeMobileForm() {
-        const form = document.getElementById('hero-form');
-        if (form) {
-            form.classList.remove('modal-open');
-            document.body.classList.remove('modal-active');
-            document.body.style.overflow = '';
-            const backdrop = document.getElementById('modal-backdrop');
-            if (backdrop) backdrop.style.display = 'none';
-        }
-    }
-
-        // Checklist toggle
+    // Checklist toggle
         function toggleChecklist(btn) {
             const content = document.getElementById('checklistContent');
             content.classList.toggle('open');
