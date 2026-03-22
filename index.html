@@ -347,13 +347,13 @@
         }
 
         .hero-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: var(--spacing-lg);
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
             align-items: center;
+            text-align: center;
             position: relative;
             z-index: 3;
         }
@@ -1164,11 +1164,6 @@
 
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                padding: var(--spacing-lg);
-            }
-
             .hero-subtitle {
                 font-size: 16px;
             }
@@ -1259,22 +1254,12 @@
             }
 
             .hero {
-                min-height: 100vh;
-                padding: 60px 16px 40px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr !important;
-                gap: 24px;
-                padding: 24px 16px;
+                min-height: auto;
+                padding: 40px 16px 60px;
             }
 
             .hero-content h1 {
                 font-size: 36px;
-            }
-
-            .hero-form-card {
-                padding: 24px 20px;
             }
 
             .stats-container {
@@ -1647,50 +1632,46 @@
             }
         }
 
-        /* Mobile hero CTA button (replaces form on mobile) */
+        /* Hero CTA button */
         .mobile-hero-cta {
-            display: none;
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+        }
+        .mobile-hero-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--lime);
+            color: var(--dark);
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-family: var(--font-primary);
+            font-size: 18px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 24px rgba(200,255,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .mobile-hero-cta-btn:hover,
+        .mobile-hero-cta-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(200,255,0,0.4);
+        }
+        .mobile-hero-cta-sub {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin-top: 12px;
         }
         @media (max-width: 768px) {
-            .mobile-hero-cta {
-                display: block;
-                text-align: center;
-                padding: 0 16px;
-                margin-top: 24px;
-            }
             .mobile-hero-cta-btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
                 width: 100%;
-                background: var(--lime);
-                color: var(--dark);
                 padding: 18px 24px;
-                border-radius: 12px;
-                font-family: var(--font-primary);
                 font-size: 17px;
-                font-weight: 800;
-                border: none;
-                cursor: pointer;
-                box-shadow: 0 4px 24px rgba(200,255,0,0.3);
-                transition: transform 0.2s, box-shadow 0.2s;
-                text-decoration: none;
-                white-space: nowrap;
-            }
-            .mobile-hero-cta-btn:hover,
-            .mobile-hero-cta-btn:active {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 32px rgba(200,255,0,0.4);
-            }
-            .mobile-hero-cta-sub {
-                color: rgba(255,255,255,0.7);
-                font-size: 15px;
-                margin-top: 12px;
-            }
-            /* Hide the full form card on mobile initially */
-            .hero-form-card {
-                display: none !important;
             }
             .hero-form-card.mobile-expanded {
                 display: block !important;
@@ -1771,11 +1752,47 @@
             filter: none !important;
             opacity: 1 !important;
             font-family: 'Bricolage Grotesque', sans-serif;
-            font-size: 14px;
             font-weight: 800;
-            letter-spacing: 1.5px;
-            color: #888 !important;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .press-logo[data-brand="newsday"] {
+            color: #C8001A;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 3px;
             text-transform: uppercase;
+        }
+        .press-logo[data-brand="lipress"] {
+            color: #003580;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 2px solid #003580;
+        }
+        .press-logo[data-brand="patch"] {
+            color: #fff;
+            background: #00A84F;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: lowercase;
+        }
+        .press-logo[data-brand="yelp"] {
+            color: #D32323;
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+        .press-logo[data-brand="google"] {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         
@@ -1930,109 +1947,6 @@
                     <p class="mobile-hero-cta-sub">✓ Free &nbsp; ✓ No obligation &nbsp; ✓ 1 minute</p>
                 </div>
             </div>
-            <div class="hero-form-card fade-up visible" id="hero-form">
-                <h3>Get a Free Quote</h3>
-                <p class="subtitle">Fast. Easy. Free.</p>
-                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;justify-content:center;">
-                    <span>✓ Free estimate</span>
-                    <span>✓ No obligation</span>
-                    <span>✓ Takes 1 min</span>
-                </div>
-
-                <form id="quoteForm" method="POST" action="https://formsubmit.co/eli@reglow.com">
-                    <input type="hidden" name="_subject" id="heroSubject" value="Complete Quote - (pending)">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="Move Size" id="hiddenMoveSize">
-                    <input type="hidden" name="Moving From" id="hiddenMoveFrom">
-                    <input type="hidden" name="Moving To" id="hiddenMoveTo">
-
-                    <div class="form-progress" id="progressBar">
-                        <div class="progress-dot active" id="dot1"></div>
-                        <div class="progress-dot" id="dot2"></div>
-                        <div class="progress-dot" id="dot3"></div>
-                        <div class="progress-dot" id="dot4"></div>
-                    </div>
-
-                    <!-- STEP 1: Contact Info -->
-                    <div class="form-step active" id="step1">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Let's get started — who are we quoting?</label>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Full Name" id="heroName" placeholder="Full Name" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" id="heroEmail" placeholder="Email" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="Phone" id="heroPhone" placeholder="Phone" required="">
-                        </div>
-                        <button type="button" class="form-button success" style="width: 100%;" onclick="nextStep()">Next <span class="arrow">→</span></button>
-                    </div>
-
-                    <!-- STEP 2: Move Size -->
-                    <div class="form-step" id="step2">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">What size is your move?</label>
-                        <div class="size-options">
-                            <div class="size-option-card" onclick="selectSize('Studio', this)">
-                                <div class="size-option-icon">📦</div>
-                                <div class="size-option-text">Studio</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSize('1 Bedroom', this)">
-                                <div class="size-option-icon">🏠</div>
-                                <div class="size-option-text">1 Bedroom</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSize('2 Bedrooms', this)">
-                                <div class="size-option-icon">🏡</div>
-                                <div class="size-option-text">2 Bedrooms</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSize('3 Bedrooms', this)">
-                                <div class="size-option-icon">🏘️</div>
-                                <div class="size-option-text">3 Bedrooms</div>
-                            </div>
-                            <div class="size-option-card span-full" onclick="selectSize('4+ Bedrooms', this)">
-                                <div class="size-option-icon">🏢</div>
-                                <div class="size-option-text">4+ Bedrooms / Commercial</div>
-                            </div>
-                        </div>
-                        <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
-                    </div>
-
-                    <!-- STEP 3: Location -->
-                    <div class="form-step" id="step3">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">Where are you moving?</label>
-                        <div class="zip-row">
-                            <div class="form-group">
-                                <label>Moving From (ZIP)</label>
-                                <input type="text" id="moveFromZip" placeholder="Enter ZIP code">
-                            </div>
-                            <div class="form-group">
-                                <label>Moving To (ZIP)</label>
-                                <input type="text" id="moveToZip" placeholder="Enter ZIP code">
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextStep()">Next <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Move Date -->
-                    <div class="form-step" id="step4">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600;">When is your move?</label>
-                        <div class="form-group">
-                            <label>Move Date</label>
-                            <input type="date" name="Move Date" id="moveDate" aria-label="Preferred Move Date">
-                        </div>
-                        <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevStep()"><span class="arrow">←</span> Back</button>
-                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </section>
 
@@ -2063,11 +1977,11 @@
         <div class="featured-in-container">
             <h3>Featured In</h3>
             <div class="press-logos fade-up">
-                <span class="press-logo">NEWSDAY</span>
-                <span class="press-logo">LONG ISLAND PRESS</span>
-                <span class="press-logo">PATCH</span>
-                <span class="press-logo">YELP</span>
-                <span class="press-logo">GOOGLE</span>
+                <span class="press-logo" data-brand="newsday">Newsday</span>
+                <span class="press-logo" data-brand="lipress">Long Island Press</span>
+                <span class="press-logo" data-brand="patch">patch</span>
+                <span class="press-logo" data-brand="yelp">yelp</span>
+                <span class="press-logo" data-brand="google"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
             </div>
         </div>
     </section>
@@ -2689,117 +2603,6 @@
         </div>
     </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta" id="quote-form">
-        <div class="cta-container fade-up">
-            <h2>Ready To Get Moving?</h2>
-            <p class="cta-subtitle" style="margin-bottom: 32px;">Free quote in 2 minutes. No hidden fees. No surprises.</p>
-
-            <div class="cta-form">
-                <h3 style="font-family: var(--font-primary); font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--dark);">Get a Free Quote</h3>
-                <p style="font-size: 15px; color: var(--gray); margin-bottom: 8px;">Fast. Easy. Free.</p>
-                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676;justify-content:center;">
-                    <span>✓ Free estimate</span>
-                    <span>✓ No obligation</span>
-                    <span>✓ Takes 1 min</span>
-                </div>
-
-                <form id="ctaForm2" method="POST" action="https://formsubmit.co/eli@reglow.com">
-                    <input type="hidden" name="_subject" id="cta2Subject" value="Complete Quote - (pending)">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="Move Size" id="hiddenMoveSize2">
-                    <input type="hidden" name="Moving From" id="hiddenMoveFrom2">
-                    <input type="hidden" name="Moving To" id="hiddenMoveTo2">
-
-                    <div class="form-progress" id="progressBar2">
-                        <div class="progress-dot active" id="cta2Dot1"></div>
-                        <div class="progress-dot" id="cta2Dot2"></div>
-                        <div class="progress-dot" id="cta2Dot3"></div>
-                        <div class="progress-dot" id="cta2Dot4"></div>
-                    </div>
-
-                    <!-- STEP 1: Contact Info -->
-                    <div class="form-step active" id="cta2Step1">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Let's get started — who are we quoting?</label>
-                        <div class="form-group">
-                            <label>Full Name</label>
-                            <input type="text" name="Full Name" id="cta2Name" placeholder="Full Name" aria-label="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="Email" id="cta2Email" placeholder="Email" aria-label="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" name="Phone" id="cta2Phone" placeholder="Phone" aria-label="Phone Number" required>
-                        </div>
-                        <button type="button" class="form-button success" style="width: 100%;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
-                    </div>
-
-                    <!-- STEP 2: Move Size -->
-                    <div class="form-step" id="cta2Step2">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">What size is your move?</label>
-                        <div class="size-options">
-                            <div class="size-option-card" onclick="selectSizeCta2('Studio', this)">
-                                <div class="size-option-icon">📦</div>
-                                <div class="size-option-text">Studio</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSizeCta2('1 Bedroom', this)">
-                                <div class="size-option-icon">🏠</div>
-                                <div class="size-option-text">1 Bedroom</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSizeCta2('2 Bedrooms', this)">
-                                <div class="size-option-icon">🏡</div>
-                                <div class="size-option-text">2 Bedrooms</div>
-                            </div>
-                            <div class="size-option-card" onclick="selectSizeCta2('3 Bedrooms', this)">
-                                <div class="size-option-icon">🏘️</div>
-                                <div class="size-option-text">3 Bedrooms</div>
-                            </div>
-                            <div class="size-option-card span-full" onclick="selectSizeCta2('4+ Bedrooms', this)">
-                                <div class="size-option-icon">🏢</div>
-                                <div class="size-option-text">4+ Bedrooms / Commercial</div>
-                            </div>
-                        </div>
-                        <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
-                    </div>
-
-                    <!-- STEP 3: Location -->
-                    <div class="form-step" id="cta2Step3">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">Where are you moving?</label>
-                        <div class="zip-row">
-                            <div class="form-group">
-                                <label>Moving From (ZIP)</label>
-                                <input type="text" id="moveFromZip2" placeholder="Enter ZIP code">
-                            </div>
-                            <div class="form-group">
-                                <label>Moving To (ZIP)</label>
-                                <input type="text" id="moveToZip2" placeholder="Enter ZIP code">
-                            </div>
-                        </div>
-                        <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextCta2Step()">Next <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Move Date -->
-                    <div class="form-step" id="cta2Step4">
-                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: var(--dark);">When is your move?</label>
-                        <div class="form-group">
-                            <label>Move Date</label>
-                            <input type="date" name="Move Date" id="moveDate2" aria-label="Move Date">
-                        </div>
-                        <div style="display: flex; gap: 12px; margin-top: 20px;">
-                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevCta2Step()"><span class="arrow">←</span> Back</button>
-                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <div id="site-footer" data-base-path=""></div>
     <script src="shared/footer.js"></script>
@@ -2882,84 +2685,6 @@
         const statsBar = document.querySelector('.stats-bar');
         if (statsBar) counterObserver.observe(statsBar);
 
-        /* ==================== FEATURE 1: HERO QUOTE FORM JS ==================== */
-        var currentStep = 1;
-        var totalSteps = 4;
-        var heroPartialTimerId = null;
-        var heroFormCompleted = false;
-        var heroPartialSent = false;
-        var heroContactData = null;
-
-        document.getElementById('quoteForm').addEventListener('submit', function() {
-            heroFormCompleted = true;
-            clearTimeout(heroPartialTimerId);
-        });
-
-        function selectSize(size, element) {
-            document.querySelectorAll('#step2 .size-option-card').forEach(function(card) {
-                card.classList.remove('selected');
-            });
-            element.classList.add('selected');
-            document.getElementById('hiddenMoveSize').value = size;
-            setTimeout(function() { nextStep(); }, 300);
-        }
-
-        function nextStep() {
-            if (currentStep === 1) {
-                var name = document.getElementById('heroName').value.trim();
-                var email = document.getElementById('heroEmail').value.trim();
-                var phone = document.getElementById('heroPhone').value.trim();
-                if (!name || !email || !phone) {
-                    alert('Please fill in your name, email, and phone number.');
-                    return;
-                }
-                heroContactData = { name: name, email: email, phone: phone };
-                document.getElementById('heroSubject').value = 'Complete Quote - ' + name;
-                heroPartialTimerId = setTimeout(function() {
-                    if (!heroFormCompleted && !heroPartialSent) {
-                        sendPartialQuote(name, email, phone, 'Hero Form');
-                        heroPartialSent = true;
-                    }
-                }, 90000);
-            }
-            if (currentStep === 3) {
-                var fromZip = document.getElementById('moveFromZip').value.trim();
-                var toZip = document.getElementById('moveToZip').value.trim();
-                if (!fromZip || !toZip) {
-                    alert('Please enter both ZIP codes.');
-                    return;
-                }
-                document.getElementById('hiddenMoveFrom').value = fromZip;
-                document.getElementById('hiddenMoveTo').value = toZip;
-            }
-            if (currentStep < totalSteps) {
-                document.getElementById('step' + currentStep).classList.remove('active');
-                currentStep++;
-                document.getElementById('step' + currentStep).classList.add('active');
-                updateProgressBar();
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                document.getElementById('step' + currentStep).classList.remove('active');
-                currentStep--;
-                document.getElementById('step' + currentStep).classList.add('active');
-                updateProgressBar();
-            }
-        }
-
-        function updateProgressBar() {
-            for (var i = 1; i <= totalSteps; i++) {
-                var dot = document.getElementById('dot' + i);
-                if (i <= currentStep) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            }
-        }
-
         /* ==================== FEATURE 2: FAQ ACCORDION JS ==================== */
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', function() {
@@ -3021,88 +2746,6 @@
             });
         }
 
-        /* ==================== CTA2 FORM (bottom section) ==================== */
-        var cta2Step = 1;
-        var cta2TotalSteps = 4;
-        var cta2PartialTimerId = null;
-        var cta2FormCompleted = false;
-        var cta2PartialSent = false;
-        var cta2ContactData = null;
-
-        document.getElementById('ctaForm2').addEventListener('submit', function() {
-            cta2FormCompleted = true;
-            clearTimeout(cta2PartialTimerId);
-        });
-
-        function selectSizeCta2(size, element) {
-            document.getElementById('hiddenMoveSize2').value = size;
-            document.querySelectorAll('#cta2Step2 .size-option-card').forEach(function(c) { c.classList.remove('selected'); });
-            element.classList.add('selected');
-            setTimeout(function() { nextCta2Step(); }, 300);
-        }
-
-        function nextCta2Step() {
-            if (cta2Step === 1) {
-                var name = document.getElementById('cta2Name').value.trim();
-                var email = document.getElementById('cta2Email').value.trim();
-                var phone = document.getElementById('cta2Phone').value.trim();
-                if (!name || !email || !phone) {
-                    alert('Please fill in your name, email, and phone number.');
-                    return;
-                }
-                cta2ContactData = { name: name, email: email, phone: phone };
-                document.getElementById('cta2Subject').value = 'Complete Quote - ' + name;
-                cta2PartialTimerId = setTimeout(function() {
-                    if (!cta2FormCompleted && !cta2PartialSent) {
-                        sendPartialQuote(name, email, phone, 'CTA Form');
-                        cta2PartialSent = true;
-                    }
-                }, 90000);
-            }
-            if (cta2Step === 3) {
-                document.getElementById('hiddenMoveFrom2').value = document.getElementById('moveFromZip2').value;
-                document.getElementById('hiddenMoveTo2').value = document.getElementById('moveToZip2').value;
-            }
-            if (cta2Step < cta2TotalSteps) {
-                document.getElementById('cta2Step' + cta2Step).classList.remove('active');
-                cta2Step++;
-                document.getElementById('cta2Step' + cta2Step).classList.add('active');
-                updateCta2Progress();
-            }
-        }
-
-        function prevCta2Step() {
-            if (cta2Step > 1) {
-                document.getElementById('cta2Step' + cta2Step).classList.remove('active');
-                cta2Step--;
-                document.getElementById('cta2Step' + cta2Step).classList.add('active');
-                updateCta2Progress();
-            }
-        }
-
-        function updateCta2Progress() {
-            for (var i = 1; i <= cta2TotalSteps; i++) {
-                var dot = document.getElementById('cta2Dot' + i);
-                if (dot) {
-                    if (i <= cta2Step) dot.classList.add('active');
-                    else dot.classList.remove('active');
-                }
-            }
-        }
-
-        // sendBeacon on page close for both homepage forms
-        window.addEventListener('beforeunload', function() {
-            if (heroContactData && !heroFormCompleted && !heroPartialSent) {
-                heroPartialSent = true;
-                clearTimeout(heroPartialTimerId);
-                sendBeaconPartialQuote(heroContactData.name, heroContactData.email, heroContactData.phone, 'Hero Form');
-            }
-            if (cta2ContactData && !cta2FormCompleted && !cta2PartialSent) {
-                cta2PartialSent = true;
-                clearTimeout(cta2PartialTimerId);
-                sendBeaconPartialQuote(cta2ContactData.name, cta2ContactData.email, cta2ContactData.phone, 'CTA Form');
-            }
-        });
     </script>
 
 

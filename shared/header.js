@@ -138,3 +138,27 @@
         });
     }
 })();
+
+// Hide nav on scroll down, show on scroll up (mobile)
+(function() {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var lastScrollY = window.scrollY;
+    var ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                var currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY + 8 && currentScrollY > 80) {
+                    nav.classList.add('scrolled-down');
+                } else if (currentScrollY < lastScrollY - 8) {
+                    nav.classList.remove('scrolled-down');
+                }
+                lastScrollY = currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+})();

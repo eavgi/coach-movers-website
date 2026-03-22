@@ -223,18 +223,18 @@ nav {
 
 .mobile-menu a {
     color: #ffffff;
-    font-size: 15px;
+    font-size: 21px;
     font-weight: 600;
     text-decoration: none;
-    padding: 10px 24px;
+    padding: 12px 32px;
     border-radius: 8px;
     transition: background 0.2s;
 }
 
 .mobile-menu a.mobile-sub {
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 500;
-    padding: 8px 24px;
+    padding: 10px 32px;
     opacity: 0.85;
 }
 
@@ -427,6 +427,22 @@ footer {
     background: rgba(255,255,255,0.05);
     padding: 4px 8px;
     border-radius: 4px;
+}
+
+/* ==================== FOOTER ACTIVE LINK ==================== */
+.footer-section a.active {
+    color: #C8FF00;
+    font-weight: 600;
+}
+
+/* ==================== HIDE-ON-SCROLL (mobile) ==================== */
+nav {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 768px) {
+    nav.scrolled-down {
+        transform: translateY(-100%);
+    }
 }
 
 /* ==================== RESPONSIVE (Header/Footer) ==================== */
