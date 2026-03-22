@@ -81,27 +81,27 @@
     const isContactPage = currentPath.includes('contact');
     const isHomePage = currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/');
 
-    // Desktop nav links
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    // Desktop nav links - only highlight parent category
+    const currentFile = currentPath.split('/').pop();
+    document.querySelectorAll('.nav-links > li > a').forEach(link => {
         const href = link.getAttribute('href') || '';
-        if (isServicePage && (href.includes('#services') || href.includes('/services'))) {
+        if (isServicePage && href.includes('#services')) {
             link.classList.add('active');
         } else if (isContactPage && href.includes('contact')) {
             link.classList.add('active');
-        } else if (isHomePage && (href === base || href === '/' || href === (base || '/'))) {
+        } else if (isHomePage && !href.includes('#') && !href.includes('contact') && (href.endsWith('/') || href === base || href === (base || '/'))) {
             link.classList.add('active');
         }
     });
 
-    // Mobile menu links
+    // Mobile menu links - highlight only the exact current page
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         const href = link.getAttribute('href') || '';
-        // Exact match for service subpages
-        if (isServicePage && href.includes(currentPath.split('/').pop())) {
+        if (isServicePage && href.endsWith(currentFile)) {
             link.classList.add('active');
         } else if (isContactPage && href.includes('contact') && !link.classList.contains('nav-cta')) {
             link.classList.add('active');
-        } else if (isHomePage && (href === base || href === '/' || href === (base || '/')) && link.textContent.trim() === 'Home') {
+        } else if (isHomePage && link.textContent.trim() === 'Home') {
             link.classList.add('active');
         }
     });
