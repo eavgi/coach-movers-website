@@ -78,34 +78,63 @@
         });
     });
 
-    // Active link highlighting based on current URL
-    const currentPath = window.location.pathname;
-    const isServicePage = currentPath.includes('/services/');
-    const isContactPage = currentPath.includes('contact');
-    const isHomePage = currentPath === '/' || currentPath.endsWith('index.html') || currentPath.endsWith('/');
+    // Active link highlighting using data-page attribute on <body>
+    const currentPage = document.body.dataset.page || '';
 
-    // Desktop nav links - only highlight parent category
-    const currentFile = currentPath.split('/').pop();
-    document.querySelectorAll('.nav-links > li > a').forEach(link => {
-        const href = link.getAttribute('href') || '';
-        if (isServicePage && href.includes('#services')) {
-            link.classList.add('active');
-        } else if (isContactPage && href.includes('contact')) {
-            link.classList.add('active');
-        } else if (isHomePage && !href.includes('#') && !href.includes('contact') && (href.endsWith('/') || href === base || href === (base || '/'))) {
-            link.classList.add('active');
-        }
-    });
+    // Map data-page values to nav link text
+    const navMap = {
+        'home': 'Home',
+        'about': 'About',
+        'services': 'Services',
+        'contact': 'Contact',
+        'local-moving': 'Services',
+        'long-distance': 'Services',
+        'packing': 'Services',
+        'full-service-packing': 'Services',
+        'storage': 'Services'
+    };
 
-    // Mobile menu links - highlight only the exact current page
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-        const href = link.getAttribute('href') || '';
-        if (isServicePage && href.endsWith(currentFile)) {
-            link.classList.add('active');
-        } else if (isContactPage && href.includes('contact') && !link.classList.contains('nav-cta')) {
-            link.classList.add('active');
-        } else if (isHomePage && link.textContent.trim() === 'Home') {
-            link.classList.add('active');
-        }
-    });
+    // Map data-page values to mobile menu link text (exact page)
+    const mobileMap = {
+        'home': 'Home',
+        'about': 'About',
+        'contact': 'Contact',
+        'local-moving': 'Local Moving',
+        'long-distance': 'Long-Distance',
+        'packing': 'Packing Services',
+        'full-service-packing': 'Full-Service Packing',
+        'storage': 'Storage Solutions'
+    };
+
+    const navTarget = navMap[currentPage];
+    const mobileTarget = mobileMap[currentPage];
+
+    // Highlight desktop nav
+    if (navTarget) {
+        document.querySelectorAll('.nav-links > li > a').forEach(link => {
+            if (link.textContent.trim() === navTarget) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Highlight mobile menu (exact page match)
+    if (mobileTarget) {
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            const text = link.textContent.replace(/[^a-zA-Z\s-]/g, '').trim();
+            if (text === mobileTarget) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Highlight footer links too
+    if (navTarget) {
+        document.querySelectorAll('.footer-section a').forEach(link => {
+            const text = link.textContent.trim();
+            if (text === navTarget || text === mobileTarget) {
+                link.classList.add('active');
+            }
+        });
+    }
 })();
