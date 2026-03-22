@@ -212,6 +212,13 @@ nav {
     visibility: visible;
 }
 
+.mobile-menu {
+    overflow-y: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    justify-content: flex-start;
+}
+
 .mobile-menu a {
     color: #ffffff;
     font-size: 22px;
@@ -429,4 +436,177 @@ footer {
     .nav-container {
         height: 70px;
     }
+}
+
+
+/* ==================== QUOTE FORM SECTION ==================== */
+.quote-form-section {
+    background: #0A0A0A;
+    padding: 80px 24px;
+}
+
+.quote-form-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.quote-form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.quote-form-label {
+    display: inline-block;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #C8FF00;
+    margin-bottom: 16px;
+}
+
+.quote-form-header h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.quote-form-header p {
+    color: #999;
+    font-size: 16px;
+}
+
+.quote-form-card {
+    background: #1A1A1A;
+    border-radius: 16px;
+    padding: 36px 28px;
+    border-top: 4px solid #C8FF00;
+}
+
+.qf-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.qf-field {
+    margin-bottom: 16px;
+}
+
+.qf-row .qf-field {
+    margin-bottom: 0;
+}
+
+.qf-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 6px;
+}
+
+.qf-field input,
+.qf-field select,
+.qf-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #0A0A0A;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Figtree', sans-serif;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.qf-field input::placeholder,
+.qf-field textarea::placeholder {
+    color: #555;
+}
+
+.qf-field input:focus,
+.qf-field select:focus,
+.qf-field textarea:focus {
+    outline: none;
+    border-color: #C8FF00;
+}
+
+.qf-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.qf-field select option {
+    background: #1A1A1A;
+    color: #fff;
+}
+
+.qf-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.qf-submit {
+    width: 100%;
+    padding: 16px;
+    background: #C8FF00;
+    color: #0A0A0A;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+}
+
+.qf-submit:hover {
+    background: #b8ee00;
+}
+
+.qf-submit:active {
+    transform: scale(0.98);
+}
+
+.qf-disclaimer {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    margin-top: 16px;
+}
+
+/* Responsive quote form */
+@media (max-width: 600px) {
+    .quote-form-section {
+        padding: 60px 16px;
+    }
+    .qf-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .qf-row .qf-field {
+        margin-bottom: 16px;
+    }
+    .quote-form-card {
+        padding: 24px 16px;
+    }
+    .quote-form-header h2 {
+        font-size: 28px;
+    }
+}
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth;
 }
