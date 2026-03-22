@@ -1,5 +1,14 @@
 // Shared header component for Coach Movers website
 // Usage: <div id="site-header" data-base-path=""></div> (or data-base-path="../" for subdirectories)
+
+// Inject Font Awesome once
+if (!document.querySelector('link[href*="font-awesome"]')) {
+    var fa = document.createElement('link');
+    fa.rel = 'stylesheet';
+    fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';
+    document.head.appendChild(fa);
+}
+
 (function() {
     const container = document.getElementById('site-header');
     if (!container) return;
