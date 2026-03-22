@@ -45,11 +45,11 @@
         </button>
         <a href="${base || '/'}">Home</a>
         <a href="${base}index.html#about">About</a>
-        <a href="${base}services/local-moving.html">🏠 Local Moving</a>
-        <a href="${base}services/long-distance.html">🚛 Long-Distance</a>
-        <a href="${base}services/packing.html">📦 Packing Services</a>
-        <a href="${base}services/full-service-packing.html">✨ Full-Service Packing</a>
-        <a href="${base}services/storage.html">🔒 Storage Solutions</a>
+        <a class="mobile-sub" href="${base}services/local-moving.html">🏠 Local Moving</a>
+        <a class="mobile-sub" href="${base}services/long-distance.html">🚛 Long-Distance</a>
+        <a class="mobile-sub" href="${base}services/packing.html">📦 Packing Services</a>
+        <a class="mobile-sub" href="${base}services/full-service-packing.html">✨ Full-Service Packing</a>
+        <a class="mobile-sub" href="${base}services/storage.html">🔒 Storage Solutions</a>
         <a href="${base}contact.html">Contact</a>
         <a class="nav-cta" href="#quote-form">Get a Quote</a>
     </div>`;

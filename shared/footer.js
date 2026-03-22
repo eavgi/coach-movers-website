@@ -7,64 +7,117 @@
 
     container.innerHTML = `
     <!-- QUOTE FORM SECTION -->
-    <section class="quote-form-section" id="quote-form">
-        <div class="quote-form-container">
-            <div class="quote-form-header">
-                <span class="quote-form-label">FREE ESTIMATE</span>
-                <h2>Get Your Free Quote</h2>
-                <p>Fill out the form below and we'll get back to you within 2 hours.</p>
+    <section class="cta" id="quote-form">
+        <div class="cta-container">
+            <h2>Ready To Get Moving?</h2>
+            <p class="cta-subtitle">Free quote in 2 minutes. No hidden fees. No surprises.</p>
+
+            <div class="cta-form">
+                <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #0A0A0A;">Get a Free Quote</h3>
+                <p style="font-size: 15px; color: #767676; margin-bottom: 8px;">Fast. Easy. Free.</p>
+                <div style="display: flex; gap: 16px; margin-bottom: 24px; font-size: 15px; color: #767676; justify-content: center;">
+                    <span>✓ Free estimate</span>
+                    <span>✓ No obligation</span>
+                    <span>✓ Takes 1 min</span>
+                </div>
+
+                <form id="ctaForm3" method="POST" action="https://formsubmit.co/eli@reglow.com">
+                    <input type="hidden" name="_subject" value="CTA Quote Request from Coach Movers">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="Move Size" id="footer-hiddenMoveSize">
+                    <input type="hidden" name="Moving From" id="footer-hiddenMoveFrom">
+                    <input type="hidden" name="Moving To" id="footer-hiddenMoveTo">
+                    <input type="hidden" name="Move Date" id="footer-hiddenMoveDate">
+
+                    <div class="form-progress" id="footer-progressBar">
+                        <div class="progress-dot active" id="footer-dot1"></div>
+                        <div class="progress-dot" id="footer-dot2"></div>
+                        <div class="progress-dot" id="footer-dot3"></div>
+                        <div class="progress-dot" id="footer-dot4"></div>
+                    </div>
+
+                    <!-- STEP 1: Move Size -->
+                    <div class="form-step active" id="footer-step1">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">What size is your move?</label>
+                        <div class="size-options">
+                            <div class="size-option-card" onclick="selectSizeFooter('Studio', this)">
+                                <div class="size-option-icon">📦</div>
+                                <div class="size-option-text">Studio</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeFooter('1 Bedroom', this)">
+                                <div class="size-option-icon">🏠</div>
+                                <div class="size-option-text">1 Bedroom</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeFooter('2 Bedrooms', this)">
+                                <div class="size-option-icon">🏡</div>
+                                <div class="size-option-text">2 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card" onclick="selectSizeFooter('3 Bedrooms', this)">
+                                <div class="size-option-icon">🏘️</div>
+                                <div class="size-option-text">3 Bedrooms</div>
+                            </div>
+                            <div class="size-option-card span-full" onclick="selectSizeFooter('4+ Bedrooms', this)">
+                                <div class="size-option-icon">🏢</div>
+                                <div class="size-option-text">4+ Bedrooms / Commercial</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Location -->
+                    <div class="form-step" id="footer-step2">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">Where are you moving?</label>
+                        <div class="zip-row">
+                            <div class="form-group">
+                                <label>Moving From (ZIP)</label>
+                                <input type="text" id="footer-moveFromZip" placeholder="Enter ZIP code" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Moving To (ZIP)</label>
+                                <input type="text" id="footer-moveToZip" placeholder="Enter ZIP code" required>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextFooterStep()">Next <span class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Date -->
+                    <div class="form-step" id="footer-step3">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">When is your move?</label>
+                        <div class="form-group">
+                            <label>Move Date</label>
+                            <input type="date" id="footer-moveDate" aria-label="Move Date" required>
+                        </div>
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="nextFooterStep()">Next <span class="arrow">→</span></button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Contact Info -->
+                    <div class="form-step" id="footer-step4">
+                        <label style="display: block; margin-bottom: 16px; font-weight: 600; color: #0A0A0A;">Almost done!</label>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="Full Name" placeholder="Full Name" aria-label="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="Email" placeholder="Email" aria-label="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="Phone" placeholder="Phone" aria-label="Phone Number" required>
+                        </div>
+                        <div style="display: flex; gap: 12px;">
+                            <button type="button" class="form-button primary" style="flex: 1;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
+                            <button type="submit" class="form-button success" style="flex: 1;">Get My Free Quote <span class="arrow">→</span></button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <form class="quote-form-card" action="https://formsubmit.co/eli@reglow.com" method="POST">
-                <input type="hidden" name="_subject" value="New Quote Request from Website">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="qf-row">
-                    <div class="qf-field">
-                        <label for="qf-name">Full Name *</label>
-                        <input type="text" id="qf-name" name="name" placeholder="John Smith" required>
-                    </div>
-                    <div class="qf-field">
-                        <label for="qf-phone">Phone *</label>
-                        <input type="tel" id="qf-phone" name="phone" placeholder="(516) 555-1234" required>
-                    </div>
-                </div>
-                <div class="qf-row">
-                    <div class="qf-field">
-                        <label for="qf-email">Email *</label>
-                        <input type="email" id="qf-email" name="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="qf-field">
-                        <label for="qf-date">Move Date</label>
-                        <input type="date" id="qf-date" name="move_date">
-                    </div>
-                </div>
-                <div class="qf-row">
-                    <div class="qf-field">
-                        <label for="qf-from">Moving From (ZIP)</label>
-                        <input type="text" id="qf-from" name="move_from" placeholder="11530" maxlength="10">
-                    </div>
-                    <div class="qf-field">
-                        <label for="qf-to">Moving To (ZIP)</label>
-                        <input type="text" id="qf-to" name="move_to" placeholder="11570" maxlength="10">
-                    </div>
-                </div>
-                <div class="qf-field">
-                    <label for="qf-size">Move Size</label>
-                    <select id="qf-size" name="move_size">
-                        <option value="">Select size...</option>
-                        <option>Studio</option>
-                        <option>1 Bedroom</option>
-                        <option>2 Bedrooms</option>
-                        <option>3 Bedrooms</option>
-                        <option>4+ Bedrooms / Commercial</option>
-                    </select>
-                </div>
-                <div class="qf-field">
-                    <label for="qf-message">Message (optional)</label>
-                    <textarea id="qf-message" name="message" rows="3" placeholder="Any details about your move..."></textarea>
-                </div>
-                <button type="submit" class="qf-submit">Get My Free Quote</button>
-                <p class="qf-disclaimer">Free estimate • No obligation • Response within 2 hours</p>
-            </form>
         </div>
     </section>
 
@@ -193,4 +246,50 @@ function switchAreaTab(btn, areaId) {
     document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('area-' + areaId).classList.add('active');
+}
+
+// Footer multi-step quote form
+let footerStep = 1;
+const footerTotalSteps = 4;
+
+function selectSizeFooter(size, element) {
+    document.getElementById('footer-hiddenMoveSize').value = size;
+    document.querySelectorAll('#footer-step1 .size-option-card').forEach(c => c.classList.remove('selected'));
+    element.classList.add('selected');
+    setTimeout(() => nextFooterStep(), 300);
+}
+
+function nextFooterStep() {
+    if (footerStep === 2) {
+        document.getElementById('footer-hiddenMoveFrom').value = document.getElementById('footer-moveFromZip').value;
+        document.getElementById('footer-hiddenMoveTo').value = document.getElementById('footer-moveToZip').value;
+    }
+    if (footerStep === 3) {
+        document.getElementById('footer-hiddenMoveDate').value = document.getElementById('footer-moveDate').value;
+    }
+    if (footerStep < footerTotalSteps) {
+        document.getElementById('footer-step' + footerStep).classList.remove('active');
+        footerStep++;
+        document.getElementById('footer-step' + footerStep).classList.add('active');
+        updateFooterProgress();
+    }
+}
+
+function prevFooterStep() {
+    if (footerStep > 1) {
+        document.getElementById('footer-step' + footerStep).classList.remove('active');
+        footerStep--;
+        document.getElementById('footer-step' + footerStep).classList.add('active');
+        updateFooterProgress();
+    }
+}
+
+function updateFooterProgress() {
+    for (let i = 1; i <= footerTotalSteps; i++) {
+        const dot = document.getElementById('footer-dot' + i);
+        if (dot) {
+            if (i <= footerStep) dot.classList.add('active');
+            else dot.classList.remove('active');
+        }
+    }
 }
