@@ -159,7 +159,7 @@
                 <ul>
                     <li><a href="tel:+15168712770">(516) 871-2770</a></li>
                     <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
-                    <li>HQ: Garden City, NY</li>
+                    <li>HQ: Melville, NY</li>
                     <li><a href="#quote-form">Get a Free Quote</a></li>
                     <li>Hours: Mon–Sun 7AM–9PM</li>
                 </ul>
