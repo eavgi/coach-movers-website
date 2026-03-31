@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Coach Movers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ==================== STICKY CTA ==================== */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0A0A0A;
+            padding: 12px 16px;
+            display: none;
+            gap: 10px;
+            z-index: 300;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+        .sticky-cta .btn-quote {
+            flex: 1;
+            background: #C8FF00;
+            color: #0A0A0A;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .sticky-cta .btn-call {
+            flex: 1;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .sticky-cta { display: flex; }
+            body { padding-bottom: 72px; }
+        }
+
+        /* ==================== CHAT WIDGET ==================== */
+        .chat-widget {
+            position: fixed;
+            bottom: 90px;
+            right: 16px;
+            z-index: 299;
+        }
+        .chat-bubble {
+            width: 56px;
+            height: 56px;
+            background: #C8FF00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+        .chat-bubble:hover {
+            transform: scale(1.1);
+        }
+        .chat-popup {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 300px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 24px;
+            display: none;
+        }
+        .chat-popup.active {
+            display: block;
+        }
+        .chat-popup h4 {
+            font-family: var(--font-primary, 'Bricolage Grotesque', sans-serif);
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: #0A0A0A;
+        }
+        .chat-popup p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+        .chat-popup input, .chat-popup textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .chat-popup button {
+            width: 100%;
+            padding: 12px;
+            background: #0A0A0A;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .chat-widget { bottom: 80px; }
+            .chat-popup { width: 280px; right: -8px; }
+        }
+
+        /* ==================== SERVICE AREAS FOOTER ==================== */
+        .service-areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .service-areas-list span {
+            font-size: 12px;
+            color: #999;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: #ccc;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .social-links a:hover {
+            background: #C8FF00;
+            color: #0A0A0A;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-banner {
+            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url('images/mover-3.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        /* ===== TOP BAR & NAV ===== */
+        .top-bar {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 12px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .top-bar a {
+            color: #C8FF00;
+            font-weight: 600;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+            background: #FFFFFF;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            color: #0A0A0A;
+        }
+
+        .nav-links a:hover {
+            color: #C8FF00;
+        }
+
+        .nav-links a.active {
+            color: #C8FF00;
+            border-bottom: 3px solid #C8FF00;
+        }
+
+        .nav-cta {
+            background: #C8FF00;
+            color: #0A0A0A;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background: #FFFFFF;
+            color: #C8FF00;
+            border: 2px solid #C8FF00;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 250;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background: #0A0A0A;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-menu a:hover,
+        .mobile-menu a:active {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu a:visited {
+            color: #ffffff;
+        }
+
+        .mobile-menu a.active {
+            color: #C8FF00;
+        }
+
+        .mobile-menu .nav-cta {
+            background: #C8FF00;
+            color: #0A0A0A;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .mobile-menu .nav-cta:visited {
+            color: #0A0A0A;
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            background-color: #fff;
+            padding: 120px 20px;
+        }
+
+        .form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .form-left h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .form-left p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .lime-line {
+            width: 80px;
+            height: 4px;
+            background-color: #C8FF00;
+            margin-bottom: 20px;
+        }
+
+        /* ===== FORM STYLING ===== */
+        .form-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+            border-top: 5px solid var(--lime);
+            position: relative;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #C8FF00;
+            box-shadow: 0 0 0 3px rgba(200, 255, 0, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-next {
+            background-color: #000;
+            color: #fff;
+            flex: 1;
+        }
+
+        .btn-next:hover {
+            background-color: #333;
+        }
+
+        .btn-submit {
+            background-color: #C8FF00;
+            color: #000;
+            flex: 1;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #b3e600;
+        }
+
+        .btn-back {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-back:hover {
+            background-color: #d0d0d0;
+        }
+
+        .form-step-indicator {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* ===== ESTIMATE TYPES SECTION ===== */
+        .estimate-section {
+            background-color: #000;
+            color: #fff;
+            padding: 120px 20px;
+        }
+
+        .estimate-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .estimate-heading {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 60px;
+            color: #C8FF00;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .estimate-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .estimate-card {
+            background-color: #fff;
+            color: #333;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .estimate-card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .estimate-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .estimate-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .estimate-card .btn {
+            background-color: #000;
+            color: #C8FF00;
+            padding: 12px 24px;
+            font-size: 12px;
+        }
+
+        .estimate-card .btn:hover {
+            background-color: #333;
+        }
+
+        /* ===== CONTACT US SECTION ===== */
+        .contact-us-section {
+            background-color: #fff;
+            padding: 120px 20px;
+        }
+
+        .contact-us-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-us-left h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .contact-us-left p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .hq-card {
+            background-color: #f0f0f0;
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 4px solid #C8FF00;
+        }
+
+        .hq-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hq-card-item {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .hq-card-item strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 5px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            padding: 64px 24px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 64px;
+            margin-bottom: 64px;
+        }
+
+        .footer-section h4 {
+            color: #C8FF00;
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #C8FF00;
+        }
+
+        .footer-section a.active {
+            color: #C8FF00 !important;
+            font-weight: 600;
+        }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 12px;
+        }
+
+        .credentials {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: #2a2a2a;
+            margin: 48px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 13px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .form-container,
+            .contact-us-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .form-left h2,
+            .contact-us-left h2,
+            .estimate-heading {
+                font-size: 32px;
+            }
+
+            .estimate-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .form-section,
+            .estimate-section,
+            .contact-us-section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+            h2 { font-size: 26px; }
+            h3 { font-size: 20px; }
+
+            .form-section,
+            .estimate-section,
+            .contact-us-section,
+            section {
+                padding: 60px 16px;
+            }
+
+            .form-container,
+            .contact-us-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .form-left h2,
+            .contact-us-left h2,
+            .estimate-heading,
+            .hero-banner h1 {
+                font-size: 26px;
+            }
+
+            .estimate-cards,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-banner {
+                min-height: 300px;
+                padding: 60px 16px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        Call Us: <a href="tel:+15168712770">(516) 871-2770</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="Coach Movers">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="nav-cta">Get a Quote</a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div></nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="contact.html" class="nav-cta">Get a Quote</a>
+        </div>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <div>
+            <h1>GET IN TOUCH</h1>
+            <p style="font-size: 18px; color: #ddd; margin-top: 10px;">Let's help you with your next move</p>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="form-section">
+        <div class="form-container">
+            <div class="form-left">
+                <h2>LET'S GET YOUR MOVE STARTED</h2>
+                <p>Whether you're moving across town or across the country, our expert team is ready to handle every detail of your move with care and professionalism.</p>
+                <div class="lime-line"></div>
+            </div>
+
+            <div class="form-wrapper">
+                <h2 style="font-size: 32px; font-weight: 800; color: #0A0A0A; margin-bottom: 8px;">Get a Free Quote</h2>
+                <p style="color: #666; font-size: 15px; margin-bottom: 8px;">Fill out the form and get a personalized estimate within 24 hours.</p>
+                <div style="display: flex; gap: 16px; margin-bottom: 32px; font-size: 13px; color: #999; flex-wrap: wrap;">
+                    <span>✓ Free estimate</span>
+                    <span>✓ No obligation</span>
+                    <span>✓ Response in 24hrs</span>
+                </div>
+                <form id="moveForm" action="https://formsubmit.co/eli@reglow.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Quote Request from CoachMovers.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+
+                    <!-- STEP 1 -->
+                    <div class="form-step active" id="step1">
+                        <div class="form-step-indicator">STEP 1 OF 2</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="First Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="Phone" required>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-next" onclick="nextStep()">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="form-step" id="step2">
+                        <div class="form-step-indicator">STEP 2 OF 2</div>
+                        <div class="form-group">
+                            <label for="movingFrom">Moving From *</label>
+                            <input type="text" id="movingFrom" name="Moving From" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="movingTo">Moving To *</label>
+                            <input type="text" id="movingTo" name="Moving To" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="moveDate">Move Date *</label>
+                                <input type="date" id="moveDate" name="Move Date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="moveSize">Move Size *</label>
+                                <select id="moveSize" name="Move Size" required>
+                                    <option value="">Select size...</option>
+                                    <option value="Studio">Studio</option>
+                                    <option value="1BR">1 Bedroom</option>
+                                    <option value="2BR">2 Bedroom</option>
+                                    <option value="3BR">3 Bedroom</option>
+                                    <option value="4+">4+ Bedroom</option>
+                                    <option value="Office">Office</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Additional Notes</label>
+                            <textarea id="notes" name="Additional Notes" placeholder="Tell us anything else we should know..."></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-back" onclick="prevStep()">← Back</button>
+                            <button type="submit" class="btn btn-submit">Get My Quote →</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTIMATE TYPES SECTION -->
+    <section class="estimate-section">
+        <div class="estimate-container">
+            <h2 class="estimate-heading">Want To Talk? Schedule A Time To Get Your Free Estimate</h2>
+
+            <div class="estimate-cards">
+                <div class="estimate-card">
+                    <div class="estimate-card-icon">🏠</div>
+                    <h3>In-Person</h3>
+                    <p>Our team visits your location to assess your move and provide an accurate on-site estimate.</p>
+                    <button class="btn">BOOK NOW</button>
+                </div>
+
+                <div class="estimate-card">
+                    <div class="estimate-card-icon">☎️</div>
+                    <h3>Phone</h3>
+                    <p>Quick and convenient phone consultation for a fast estimate. Perfect for those on the go.</p>
+                    <button class="btn">BOOK NOW</button>
+                </div>
+
+                <div class="estimate-card">
+                    <div class="estimate-card-icon">💻</div>
+                    <h3>Video Chat</h3>
+                    <p>Virtual estimate via video call. Show us your space and get a detailed quote in real-time.</p>
+                    <button class="btn">BOOK NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section class="contact-us-section">
+        <div class="contact-us-container">
+            <div class="contact-us-left">
+                <h2>Get In Touch</h2>
+                <p>Have questions about your move? Our dedicated team is here to help. Reach out with any inquiries, and we'll get back to you as quickly as possible.</p>
+            </div>
+
+            <div class="hq-card">
+                <h3>Our Headquarters</h3>
+                <div class="hq-card-item">
+                    <strong>Address</strong>
+                    555 Broadhollow Road Suite 305<br>Farmingdale, NY 11735
+                </div>
+                <div class="hq-card-item">
+                    <strong>Phone</strong>
+                    (516) 555-MOVE
+                </div>
+                <div class="hq-card-item">
+                    <strong>Email</strong>
+                    info@coachmovers.com
+                </div>
+                <div class="hq-card-item">
+                    <strong>Hours</strong>
+                    Monday - Friday: 8:00 AM - 6:00 PM<br>
+                    Saturday: 9:00 AM - 4:00 PM<br>
+                    Sunday: Closed
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE AREAS SECTION -->
+    <section style="padding: 80px 16px; background: var(--off-white, #F7F7F5);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: inline-block; color: #0A0A0A; padding-left: 12px; border-left: 4px solid #C8FF00; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;">WHERE WE SERVE</div>
+            <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px; font-weight: 800; color: #0A0A0A; margin-bottom: 48px;">Proudly Serving Long Island & Beyond</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                <div style="background: white; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5;">
+                    <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0A0A0A;">Nassau County</h3>
+                    <p style="color: #555; font-size: 14px; line-height: 1.8;">Farmingdale · Massapequa · Garden City · Levittown · Hicksville · Bethpage · Wantagh · Seaford · East Meadow · Plainview · Syosset · Jericho · Old Bethpage · Freeport · Rockville Centre</p>
+                </div>
+                <div style="background: white; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5;">
+                    <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0A0A0A;">Suffolk County</h3>
+                    <p style="color: #555; font-size: 14px; line-height: 1.8;">Huntington · Babylon · Islip · Smithtown · Brookhaven · Commack · Dix Hills · Deer Park · Bay Shore · Patchogue · Riverhead · Centereach · Hauppauge</p>
+                </div>
+                <div style="background: white; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5;">
+                    <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0A0A0A;">New York City</h3>
+                    <p style="color: #555; font-size: 14px; line-height: 1.8;">Manhattan · Brooklyn · Queens · The Bronx · Staten Island · All five boroughs and surrounding areas</p>
+                </div>
+                <div style="background: white; padding: 28px; border-radius: 12px; border: 1px solid #e5e5e5;">
+                    <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #0A0A0A;">Long-Distance</h3>
+                    <p style="color: #555; font-size: 14px; line-height: 1.8;">All 50 states · Coast-to-coast relocations · Dedicated trucks with GPS tracking · Corporate relocations nationwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Coach Movers" style="height: 40px;">
+                </div>
+                <p style="font-size: 14px; color: #aaa; margin-bottom: 12px;">Long Island's most trusted moving company since 2002.</p>
+                <div class="credentials">
+                    <span>✓ Licensed</span>
+                    <span>✓ Insured</span>
+                    <span>✓ Bonded</span>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Google">G</a>
+                    <a href="#" aria-label="Yelp">Y</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Local Moving</a></li>
+                    <li><a href="services.html">Long-Distance</a></li>
+                    <li><a href="services.html">Packing & Storage</a></li>
+                    <li><a href="services.html">Specialty Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Get In Touch</h4>
+                <ul>
+                    <li><a href="tel:+15168712770">(516) 871-2770</a></li>
+                    <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
+                    <li>HQ: 200 Broadhollow Rd, Suite 201, Melville, NY 11747</li>
+                    <li><a href="contact.html">Get a Free Quote</a></li>
+                    <li>Hours: Mon–Sun 7AM–9PM</li>
+                    <li>NY DOT License #T-39547</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <div class="service-areas-list">
+                    <span>Farmingdale</span> <span>Massapequa</span> <span>Garden City</span>
+                    <span>Huntington</span> <span>Syosset</span> <span>Levittown</span>
+                    <span>Hicksville</span> <span>Bethpage</span> <span>Wantagh</span>
+                    <span>Seaford</span> <span>East Meadow</span> <span>Plainview</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <p>© 2025 Coach Movers. All rights reserved. | <a href="#" style="color: var(--lime);">Privacy Policy</a> | <a href="#" style="color: var(--lime);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- FORM STEP LOGIC -->
+    <script>
+        function nextStep() {
+            // Validate Step 1
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Move to Step 2
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep() {
+            // Move back to Step 1
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('step1').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form submission
+        document.getElementById('moveForm').addEventListener('submit', function (e) {
+            const moveDate = document.getElementById('moveDate').value.trim();
+            const moveSize = document.getElementById('moveSize').value.trim();
+            const movingFrom = document.getElementById('movingFrom').value.trim();
+            const movingTo = document.getElementById('movingTo').value.trim();
+
+            if (!moveDate || !moveSize || !movingFrom || !movingTo) {
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        // Set active nav link and footer links
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Set active mobile menu link
+            document.querySelectorAll('.mobile-menu a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Set active footer links
+            document.querySelectorAll('.footer-section a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Hide header on scroll down, show on scroll up
+        let lastScrollTop = 0;
+        const nav = document.querySelector('nav');
+        const topBar = document.querySelector('.top-bar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down — hide nav
+                nav.style.transform = 'translateY(-100%)';
+                nav.style.transition = 'transform 0.3s ease';
+                if (topBar) topBar.style.transform = 'translateY(-100%)';
+                if (topBar) topBar.style.transition = 'transform 0.3s ease';
+            } else {
+                // Scrolling up — show nav
+                nav.style.transform = 'translateY(0)';
+                if (topBar) topBar.style.transform = 'translateY(0)';
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+
+        // Sticky CTA - show after scrolling 500px
+        const stickyCta = document.getElementById('stickyCta');
+        if (stickyCta) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            });
+        }
+    </script>
+
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-bubble" onclick="document.getElementById('chatPopup').classList.toggle('active')">💬</div>
+        <div class="chat-popup" id="chatPopup">
+            <h4>Need help?</h4>
+            <p>Send us a quick message and we'll get back to you ASAP.</p>
+            <form action="https://formsubmit.co/eli@reglow.com" method="POST">
+                <input type="hidden" name="_subject" value="Chat Message from CoachMovers.com">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="Name" placeholder="Your name" required>
+                <input type="email" name="Email" placeholder="Your email" required>
+                <textarea name="Message" placeholder="How can we help?" rows="3" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="sticky-cta" id="stickyCta">
+        <a href="contact.html" class="btn-quote">Get Free Quote</a>
+        <a href="tel:+15168712770" class="btn-call">📞 Call Now</a>
+    </div>
+</body>
+</html>
