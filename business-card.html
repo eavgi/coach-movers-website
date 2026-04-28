@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coach Movers — Business Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 3.5in 2in; margin: 0; }
+
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  :root {
+    --lime: #C8F23C;
+    --ink: #0a0a0a;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #d8d8d8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a1a;
+  }
+
+  .viewer {
+    padding: 0.5in 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4in;
+  }
+
+  .label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5a5a5a;
+  }
+
+  .card {
+    width: 3.5in;
+    height: 2in;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    background: #fff;
+  }
+
+  /* ============== FRONT ============== */
+  .front {
+    display: grid;
+    grid-template-columns: 1.55in 1.95in;
+  }
+
+  .front-left {
+    background: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .front-left-stripe {
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 0.07in;
+    background: var(--lime);
+  }
+
+  .front-logo {
+    width: 1.1in;
+    height: auto;
+  }
+
+  .front-right {
+    background: var(--ink);
+    position: relative;
+    padding: 0.18in 0.2in;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .front-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 6pt;
+    letter-spacing: 0.1em;
+    color: var(--lime);
+    text-transform: uppercase;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .front-name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.04in;
+  }
+
+  .front-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+
+  .front-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 7pt;
+    color: #b0b0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+
+  .front-phone {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13pt;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .front-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.32in;
+    height: 0.32in;
+    background: var(--lime);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============== BACK ============== */
+  .back {
+    background: var(--ink);
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05in 1.95in;
+    padding: 0.18in 0.18in 0.16in 0.18in;
+    gap: 0.14in;
+  }
+
+  .back-top-stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0.07in;
+    background: var(--lime);
+  }
+
+  .back-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.32in;
+    height: 0.32in;
+    background: var(--lime);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+
+  .back-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .back-logo-tile {
+    width: 1.05in;
+    height: 0.95in;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.08in;
+  }
+
+  .back-logo-tile img {
+    width: 0.8in;
+    height: auto;
+  }
+
+  .back-est {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    color: var(--lime);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.04in;
+  }
+
+  .back-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 7pt;
+    color: #9a9a9a;
+    line-height: 1.2;
+  }
+
+  .back-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.02in;
+  }
+
+  .back-row {
+    padding-bottom: 0.06in;
+    border-bottom: 1px solid #3a3a3a;
+  }
+
+  .back-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .back-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 6.5pt;
+    color: var(--lime);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.04in;
+  }
+
+  .back-value {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .back-value.address {
+    font-weight: 500;
+    font-size: 7.5pt;
+    line-height: 1.3;
+    white-space: normal;
+  }
+</style>
+</head>
+<body>
+
+<div class="viewer">
+
+  <!-- FRONT -->
+  <div class="card front">
+    <div class="front-left">
+      <div class="front-left-stripe"></div>
+      <img src="images/logo.png" class="front-logo" alt="Coach Movers">
+    </div>
+    <div class="front-right">
+      <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
+      <div class="front-name-block">
+        <div class="front-name">John Smith</div>
+        <div class="front-title">Moving Consultant</div>
+      </div>
+      <div class="front-phone">(800) 917-4446</div>
+      <div class="front-corner"></div>
+    </div>
+  </div>
+
+  <div class="label">Back</div>
+
+  <!-- BACK -->
+  <div class="card back">
+    <div class="back-top-stripe"></div>
+    <div class="back-left">
+      <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
+      <div class="back-est">Est. 2002</div>
+      <div class="back-tag">Moving Made Easy.</div>
+    </div>
+    <div class="back-right">
+      <div class="back-row">
+        <div class="back-label">Phone</div>
+        <div class="back-value">(800) 917-4446</div>
+      </div>
+      <div class="back-row">
+        <div class="back-label">Email</div>
+        <div class="back-value">contact@coachmovers.com</div>
+      </div>
+      <div class="back-row">
+        <div class="back-label">Web</div>
+        <div class="back-value">CoachMovers.com</div>
+      </div>
+      <div class="back-row">
+        <div class="back-label">Address</div>
+        <div class="back-value address">355 Broadhollow Rd, Suite 305<br>Farmingdale, NY 11735</div>
+      </div>
+    </div>
+    <div class="back-corner"></div>
+  </div>
+
+</div>
+
+</body>
+</html>
