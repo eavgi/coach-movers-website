@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coach Movers — Flyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #d8d8d8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a1a;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 5.85in;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    background: url('images/mover-shot-scaled.jpg') center / cover no-repeat;
+  }
+
+  .hero-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1.4in;
+    background: linear-gradient(to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.25) 40%,
+        rgba(255,255,255,0.85) 82%,
+        #ffffff 100%);
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 0.4in;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.85in;
+    height: auto;
+    z-index: 2;
+  }
+
+  /* ---------- SERVICE BUTTONS ---------- */
+  .nav-buttons {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.5in;
+    right: 0.5in;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.18in;
+    z-index: 3;
+  }
+
+  .nav-btn {
+    background: #C8F23C;
+    height: 0.4in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 9.5pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* ---------- CONTENT ---------- */
+  .content {
+    padding: 0.5in 0.65in 0.45in;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 0.22in;
+  }
+
+  .headline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.4in;
+  }
+
+  .headline-left {
+    position: relative;
+    flex: 1;
+  }
+
+  .headline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 54pt;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    color: #111;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .headline-underline {
+    width: 1.1in;
+    height: 5px;
+    background: #C8F23C;
+    margin-top: 0.12in;
+  }
+
+  .est-block {
+    text-align: right;
+    padding-bottom: 0.18in;
+    flex-shrink: 0;
+  }
+
+  .est-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 10pt;
+    letter-spacing: 0.18em;
+    color: #B5B5B5;
+    text-transform: uppercase;
+    margin-bottom: 0in;
+  }
+
+  .est-year {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 42pt;
+    color: #BCBCBC;
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #E6E6E6;
+    margin: 0.32in 0 0;
+  }
+
+  /* ---------- THREE COLUMNS ---------- */
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    margin-top: 0.32in;
+  }
+
+  .feature {
+    border: 1px solid #EFEFEF;
+    border-right: none;
+    padding: 0.26in 0.22in;
+  }
+
+  .feature:last-child { border-right: 1px solid #EFEFEF; }
+
+  .feature-tick {
+    width: 0.32in;
+    height: 3px;
+    background: #C8F23C;
+    margin-bottom: 0.14in;
+  }
+
+  .feature-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 9.5pt;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 0.1in;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .feature-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: #6e6e6e;
+    margin: 0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    position: relative;
+    flex-shrink: 0;
+    height: 0.9in;
+    background: #F3F3F3;
+    display: flex;
+    align-items: center;
+    padding: 0 0.65in;
+    overflow: hidden;
+  }
+
+  .footer-logo {
+    width: 0.85in;
+    height: auto;
+    margin-right: 0.35in;
+    flex-shrink: 0;
+  }
+
+  .footer-cols {
+    display: flex;
+    align-items: center;
+    gap: 0.3in;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .footer-item {
+    border-left: 1px solid #D8D8D8;
+    padding-left: 0.28in;
+    white-space: nowrap;
+  }
+
+  .footer-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 8.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.06in;
+  }
+
+  .footer-value {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    color: #1a1a1a;
+    letter-spacing: 0.005em;
+  }
+
+  .footer-accent {
+    position: absolute;
+    right: 0;
+    top: 0.2in;
+    bottom: 0.2in;
+    width: 0.07in;
+    background: #C8F23C;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-fade"></div>
+    <img src="images/logo.png" class="hero-logo" alt="Coach Movers">
+    <div class="nav-buttons">
+      <div class="nav-btn">Local Moving</div>
+      <div class="nav-btn">Long Distance Moving</div>
+      <div class="nav-btn">Commercial Moving</div>
+      <div class="nav-btn">Storage Solutions</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="eyebrow">New York &amp; Connecticut's Most Trusted Moving Company</div>
+    <div class="headline-row">
+      <div class="headline-left">
+        <h1 class="headline">Moving Made<br>Easy.</h1>
+        <div class="headline-underline"></div>
+      </div>
+      <div class="est-block">
+        <div class="est-label">Est.</div>
+        <div class="est-year">2002</div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="features">
+      <div class="feature">
+        <div class="feature-tick"></div>
+        <div class="feature-title">Licensed &amp; Fully Insured</div>
+        <p class="feature-body">Full state licensing and complete coverage for total peace of mind.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-tick"></div>
+        <div class="feature-title">23+ Years Experience</div>
+        <p class="feature-body">Trusted by Long Island families since 2002 — thousands of moves completed.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-tick"></div>
+        <div class="feature-title">Free In-Home Estimates</div>
+        <p class="feature-body">Transparent, no-surprise pricing before we ever touch a single box.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <img src="images/logo.png" class="footer-logo" alt="Coach Movers">
+    <div class="footer-cols">
+      <div class="footer-item">
+        <div class="footer-label">Call</div>
+        <div class="footer-value">(800) 917-4446</div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-label">Email</div>
+        <div class="footer-value">contact@coachmovers.com</div>
+      </div>
+      <div class="footer-item">
+        <div class="footer-label">Web</div>
+        <div class="footer-value">CoachMovers.com</div>
+      </div>
+    </div>
+    <div class="footer-accent"></div>
+  </div>
+
+</div>
+</body>
+</html>
