@@ -1,6 +1,6 @@
 # Coach Movers Website
 
-Long Island's Most Trusted Moving Company Since 2002.
+New York & Connecticut's Most Trusted Moving Company Since 2002.
 
 **Live site:** https://coach-movers-website.netlify.app
 

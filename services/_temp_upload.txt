@@ -1181,7 +1181,7 @@
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar">★ Rated 4.9/5 — Over 15,000 Moves Completed | <a href="tel:+15168712770">(516) 871-2770</a></div>
+    <div class="top-bar">★ Rated 4.9/5 — Over 15,000 Moves Completed | <a href="tel:+18009174446">(800) 917-4446</a></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1240,7 +1240,7 @@
             <p>Let us handle the entire process from wrapping your first item to arranging your furniture in your new home. Premium care, zero stress.</p>
             <div class="hero-ctas">
                 <a href="/contact" class="btn btn-primary">Get Your Free Quote</a>
-                <a href="tel:+15168712770" class="btn btn-secondary">Call (516) 871-2770</a>
+                <a href="tel:+18009174446" class="btn btn-secondary">Call (800) 917-4446</a>
             </div>
         </div>
     </section>
@@ -1538,7 +1538,7 @@
         <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.2fr 0.8fr 0.8fr 1fr; gap:40px; margin-bottom:40px;">
             <div>
                 <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:22px; color:#fff; margin-bottom:12px;">Coach Movers</h4>
-                <p style="font-size:15px; color:#999; margin-bottom:8px;">Long Island's most trusted moving company since 2002.</p>
+                <p style="font-size:15px; color:#999; margin-bottom:8px;">New York & Connecticut's most trusted moving company since 2002.</p>
                 <p style="font-size:15px; color:#999;">✓ Licensed &nbsp; ✓ Insured &nbsp; ✓ Bonded</p>
             </div>
             <div>
@@ -1563,8 +1563,8 @@
             <div>
                 <h4 style="font-family:var(--font-primary,'Bricolage Grotesque',sans-serif); font-size:16px; color:#fff; margin-bottom:16px;">Get In Touch</h4>
                 <ul style="list-style:none; margin:0; padding:0;">
-                    <li style="margin-bottom:8px; font-size:15px; color:#999;">📞 (516) 871-2770</li>
-                    <li style="margin-bottom:8px;"><a href="mailto:info@coachmovers.com" style="font-size:15px; color:#999; text-decoration:none;">✉️ info@coachmovers.com</a></li>
+                    <li style="margin-bottom:8px; font-size:15px; color:#999;">📞 (800) 917-4446</li>
+                    <li style="margin-bottom:8px;"><a href="mailto:contact@coachmovers.com" style="font-size:15px; color:#999; text-decoration:none;">✉️ contact@coachmovers.com</a></li>
                     <li style="margin-bottom:8px; font-size:15px; color:#999;">📍 Garden City, NY</li>
                     <li><a href="/contact" style="font-size:15px; color:#C8FF00; text-decoration:none;">Get a Free Quote →</a></li>
                 </ul>

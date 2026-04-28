@@ -124,7 +124,7 @@
                 <div class="footer-logo">
                     <img src="${base}images/logo.png" alt="Coach Movers" style="height: 46px;">
                 </div>
-                <p style="font-size: 15px; color: #aaa; margin-bottom: 12px;">Long Island's most trusted moving company since 2002.</p>
+                <p style="font-size: 15px; color: #aaa; margin-bottom: 12px;">New York & Connecticut's most trusted moving company since 2002.</p>
                 <div class="credentials">
                     <span>✓ Licensed</span>
                     <span>✓ Insured</span>
@@ -157,8 +157,8 @@
             <div class="footer-section">
                 <h4>Get In Touch</h4>
                 <ul>
-                    <li><a href="tel:+15168712770">(516) 871-2770</a></li>
-                    <li><a href="mailto:info@coachmovers.com">info@coachmovers.com</a></li>
+                    <li><a href="tel:+18009174446">(800) 917-4446</a></li>
+                    <li><a href="mailto:contact@coachmovers.com">contact@coachmovers.com</a></li>
                     <li>HQ: Melville, NY 11747</li>
                     <li><a href="#quote-form">Get a Free Quote</a></li>
                     <li>Hours: Mon–Sun 7AM–9PM</li>

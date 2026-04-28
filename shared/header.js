@@ -16,7 +16,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
 
     container.innerHTML = `
     <div class="top-bar">
-        Call Us: <a href="tel:+15168712770">(516) 871-2770</a>
+        Call Us: <a href="tel:+18009174446">(800) 917-4446</a>
     </div>
     <nav>
         <div class="nav-container">
