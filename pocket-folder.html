@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coach Movers — Pocket Folder Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #C8F23C;
+    --ink: #1a1a1a;
+    --muted: #6e6e6e;
+    --line: #00A859;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  .toolbar {
+    padding: 1rem 2rem;
+    background: #000;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .toolbar h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .toolbar h1 span { color: var(--lime); }
+
+  .meta {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+  }
+
+  .meta a {
+    color: var(--lime);
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+
+  .workspace {
+    padding: 3rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .spread {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .spread-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .spread-label small {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #666;
+    font-size: 0.7rem;
+  }
+
+  /* Dieline canvas — shows the template PDF as background, design layers on top.
+     Folder flat dimensions (typical 9x12 two-pocket): ~18.25" wide x ~14.5" tall.
+     We render at responsive width with that aspect ratio. */
+  .canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 18.25 / 14.5;
+    background: #fff;
+    box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  .canvas-template {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+  }
+
+  .canvas-design {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Visual fold guide — a faint center vertical line so we can see the spine */
+  .fold-guide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(0,168,89,0.15);
+    pointer-events: none;
+  }
+
+  .legend {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: #888;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend span::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: var(--line);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+
+  .footer-note {
+    color: #666;
+    font-size: 0.78rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+    padding: 0 2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Coach Movers <span>Pocket Folder</span></h1>
+  <div class="meta">
+    9&quot; &times; 12&quot; Two-Pocket &middot; Flat ~18.25&quot; &times; 14.5&quot;
+    <a href="pocket-folder-template.pdf" target="_blank">Download Template PDF</a>
+  </div>
+</div>
+
+<div class="workspace">
+
+  <div class="spread">
+    <div class="spread-label">
+      <span>Outside Spread &mdash; Back Cover &middot; Spine &middot; Front Cover</span>
+      <small>Page 1 of template</small>
+    </div>
+    <div class="canvas">
+      <iframe class="canvas-template" src="pocket-folder-template.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0&view=Fit" title="Outside dieline"></iframe>
+      <div class="fold-guide"></div>
+      <div class="canvas-design" id="design-outside">
+        <!-- Outside design layers go here -->
+      </div>
+    </div>
+    <div class="legend">
+      <span>Dieline / cut &amp; fold guides (do not print)</span>
+    </div>
+  </div>
+
+  <div class="spread">
+    <div class="spread-label">
+      <span>Inside Spread &mdash; Left Pocket &middot; Right Pocket</span>
+      <small>Page 2 of template</small>
+    </div>
+    <div class="canvas">
+      <iframe class="canvas-template" src="pocket-folder-template.pdf#page=2&toolbar=0&navpanes=0&scrollbar=0&view=Fit" title="Inside dieline"></iframe>
+      <div class="fold-guide"></div>
+      <div class="canvas-design" id="design-inside">
+        <!-- Inside design layers go here -->
+      </div>
+    </div>
+    <div class="legend">
+      <span>Pocket flap area sits below the horizontal fold; angled cuts at bottom corners</span>
+    </div>
+  </div>
+
+  <p class="footer-note">
+    Working canvas for the Coach Movers two-pocket folder. The green dieline shows trim, fold,
+    and pocket-cut lines &mdash; design content goes on top. We&rsquo;ll iterate the cover, back,
+    and inside artwork from here.
+  </p>
+
+</div>
+
+</body>
+</html>
