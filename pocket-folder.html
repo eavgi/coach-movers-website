@@ -192,8 +192,8 @@
   .va .front-photo {
     position: absolute;
     inset: 0 0 33% 0;
-    background: url('images/mover-shot-scaled.jpg') center 30% / cover no-repeat;
-    filter: grayscale(1) contrast(1.05);
+    background: url('images/folder/front-hero.png') center 35% / cover no-repeat;
+    filter: contrast(1.05);
   }
   .va .front-photo::after {
     content: '';
@@ -204,7 +204,7 @@
   .va .front-bar {
     position: absolute;
     left: 0; right: 0;
-    top: 67%;
+    top: 52%;
     height: 1.2cqw;
     background: var(--lime);
     z-index: 2;
@@ -212,20 +212,35 @@
   .va .front-logo {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 32%;
     transform: translate(-50%, -50%);
-    width: 60%;
     z-index: 3;
-    filter: brightness(0) invert(1);
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 4cqw;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .va .front-logo::before {
+    content: '';
+    display: block;
+    width: 22%;
+    height: 0.35cqw;
+    background: var(--lime);
+    margin: 0 auto 1.2cqw;
   }
   .va .front-headline {
     position: absolute;
     left: 8%; right: 8%;
-    top: 73%;
+    top: 56%;
     text-align: center;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 7.5cqw;
+    font-size: 6.6cqw;
     line-height: 0.95;
     letter-spacing: -0.005em;
     text-transform: uppercase;
@@ -235,7 +250,7 @@
   .va .front-eyebrow {
     position: absolute;
     left: 0; right: 0;
-    top: 84%;
+    top: 76%;
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -276,7 +291,6 @@
   }
   .va .spine-text {
     writing-mode: vertical-rl;
-    transform: rotate(180deg);
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
     font-size: 0.7cqw;
@@ -314,7 +328,7 @@
     width: 22%;
     height: 0.4cqw;
     background: var(--lime);
-    margin-bottom: 2.5cqw;
+    margin-bottom: 1.6cqw;
   }
   .va .back-reviews {
     display: grid;
@@ -334,7 +348,7 @@
   .va .review-body {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 1.05cqw;
+    font-size: 0.95cqw;
     line-height: 1.5;
     color: #d6d6d6;
   }
@@ -464,8 +478,8 @@
     position: absolute;
     left: 0; right: 0; bottom: 0;
     height: 32%;
-    background: url('images/mover-shot-2-scaled.jpg') center / cover no-repeat;
-    filter: grayscale(0.3) contrast(1.05);
+    background: url('images/folder/inside-hands.png') center / cover no-repeat;
+    filter: contrast(1.03);
   }
   .va.inside .il-photo::after {
     content: '';
@@ -591,23 +605,380 @@
     border-top: 1px solid #ddd;
   }
 
-  /* ---------- VARIATION B placeholder ---------- */
+  /* ---------- VARIATION B — ARCHITECTURAL CLEAN ---------- */
   .vb .panel-back,
   .vb .panel-front,
   .vb .panel-spine,
-  .vb .panel-pocket { background: #fafafa; color: #111; }
-  .vb-placeholder {
+  .vb .panel-pocket { background: #fff; color: #111; }
+
+  /* Hide Variation A imagery + ornaments not used in B */
+  .vb .front-photo,
+  .vb .front-bar,
+  .vb .back-quote-mark,
+  .vb .badge-icon,
+  .vb.inside .il-photo,
+  .vb.inside .il-tag,
+  .vb.inside .step .num::before { display: none; }
+
+  /* FRONT COVER (B) */
+  .vb .panel-front { padding: 0; position: relative; }
+  .vb .panel-front::before {
+    content: '';
     position: absolute;
-    inset: 0;
+    left: 8%; right: 8%; top: 6%;
+    height: 0.25cqw;
+    background: var(--lime);
+  }
+  .vb .front-eyebrow {
+    position: absolute;
+    left: 8%; right: 8%;
+    top: 8.5%;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.05cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #111;
+    z-index: 3;
+  }
+  .vb .front-logo { display: none; }
+  .vb .front-headline {
+    position: absolute;
+    left: 8%; right: 8%;
+    top: 32%;
+    text-align: left;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 9.2cqw;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #111;
+    z-index: 3;
+  }
+  .vb .front-headline::after {
+    content: '';
+    display: block;
+    width: 16%;
+    height: 0.6cqw;
+    background: var(--lime);
+    margin-top: 2.4cqw;
+  }
+  .vb .front-foot {
+    position: absolute;
+    left: 8%; right: 8%;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1cqw;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #111;
+    border-top: 1px solid #111;
+    padding-top: 1.4cqw;
+    z-index: 3;
+  }
+
+  /* SPINE (B) */
+  .vb .panel-spine {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4% 0;
+  }
+  .vb .spine-tick {
+    width: 70%;
+    height: 0.18cqw;
+    background: var(--lime);
+  }
+  .vb .spine-text {
+    writing-mode: vertical-rl;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.62cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #111;
+    white-space: nowrap;
+  }
+
+  /* BACK COVER (B) */
+  .vb .panel-back {
+    color: #111;
+    padding: 9% 8%;
+  }
+  .vb .back-quote {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 2.4cqw;
+    line-height: 1.18;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    color: #111;
+    max-width: 95%;
+    margin: 0 0 2.4cqw;
+    padding-bottom: 2.4cqw;
+    border-bottom: 1px solid #111;
+  }
+  .vb .back-divider { display: none; }
+  .vb .back-reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6cqw 3cqw;
+    margin-bottom: 3cqw;
+  }
+  .vb .review-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.85cqw;
+    letter-spacing: 0.22em;
+    color: #111;
+    text-transform: uppercase;
+    margin-bottom: 0.6cqw;
+  }
+  .vb .review-body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 1.2cqw;
+    line-height: 1.35;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+  }
+  .vb .back-badges {
+    position: absolute;
+    left: 8%; right: 8%;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #111;
+    padding-top: 1.6cqw;
+  }
+  .vb .badge { display: block; }
+  .vb .badge-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.85cqw;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #111;
+  }
+
+  /* POCKET FLAP (outside, B) */
+  .vb .panel-pocket {
+    background: #fff;
+    border-top: 1px solid var(--lime);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
+    padding: 0 8%;
+  }
+  .vb .pocket-cta {
+    display: flex;
+    align-items: baseline;
+    gap: 2.4cqw;
+    color: #111;
+  }
+  .vb .pocket-cta .lets-move {
     font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 2.6cqw;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .vb .pocket-cta .phone {
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 2.5cqw;
+    font-size: 1cqw;
+    color: #111;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* INSIDE LEFT (B) */
+  .vb.inside .panel-back { padding: 0; }
+  .vb.inside .il-band {
+    position: absolute;
+    left: 8%; right: 8%; top: 7%;
+    height: auto;
+    background: transparent;
+    padding: 0 0 1.4cqw;
+    border-bottom: 1px solid #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95cqw;
     letter-spacing: 0.32em;
     text-transform: uppercase;
+    color: #111;
+    display: block;
+  }
+  .vb.inside .il-grid {
+    position: absolute;
+    left: 8%; right: 8%; top: 14%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .vb.inside .il-item {
+    display: grid;
+    grid-template-columns: 4cqw 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 1.5cqw;
+    padding: 1.6cqw 0;
+    border-bottom: 1px solid #ECECEC;
+  }
+  .vb.inside .il-item:last-child { border-bottom: 0; }
+  .vb.inside .il-item .tick {
+    grid-row: 1 / 3;
+    width: auto; height: auto; background: transparent;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.4cqw;
+    color: var(--lime);
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+  .vb.inside .il-item h3 { grid-column: 2; grid-row: 1; }
+  .vb.inside .il-item p  { grid-column: 2; grid-row: 2; }
+  .vb.inside .il-item .tick::before {
+    content: counter(il-num, decimal-leading-zero);
+    counter-increment: il-num;
+  }
+  .vb.inside .il-grid { counter-reset: il-num; }
+  .vb.inside .il-item h3 {
+    margin: 0 0 0.4cqw;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.3cqw;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .vb.inside .il-item p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95cqw;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  /* INSIDE RIGHT (B) */
+  .vb.inside .panel-front { padding: 0; }
+  .vb.inside .ir-band {
+    position: absolute;
+    left: 8%; right: 8%; top: 7%;
+    height: auto;
+    background: transparent;
+    color: #111;
+    padding: 0 0 1.4cqw;
+    border-bottom: 1px solid #111;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    display: block;
+  }
+  .vb.inside .ir-steps {
+    position: absolute;
+    left: 8%; right: 8%; top: 14%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .vb.inside .step {
+    display: grid;
+    grid-template-columns: 5cqw 1fr;
+    gap: 1.6cqw;
+    align-items: baseline;
+    padding: 1.6cqw 0;
+    border-bottom: 1px solid #ECECEC;
+  }
+  .vb.inside .step:last-child { border-bottom: 0; }
+  .vb.inside .step .num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 4cqw;
+    color: #111;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+  .vb.inside .step h3 {
+    margin: 0 0 0.4cqw;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.3cqw;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .vb.inside .step p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 0.95cqw;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .vb.inside .ir-card-slot {
+    position: absolute;
+    left: 8%; right: 8%; bottom: 6%;
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+    padding: 1.6cqw 2cqw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+  }
+  .vb.inside .ir-card-slot .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.85cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 0.6cqw;
+  }
+  .vb.inside .ir-card-slot .stack {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 1.1cqw;
+    line-height: 1.5;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .vb.inside .card-rect {
+    width: 28%;
+    aspect-ratio: 3.5 / 2;
+    border: 1px dashed #111;
+    color: #111;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.7cqw;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Inside pocket flap (B) */
+  .vb.inside .panel-pocket {
+    background: #fff;
+    border-top: 1px solid #ECECEC;
   }
 
   .footer-note {
@@ -655,14 +1026,6 @@
             <div class="review-name">&mdash; Marcus B., Stamford</div>
             <div class="review-body">&ldquo;Quoted flat, charged flat. The crew was respectful, fast, and careful with every box.&rdquo;</div>
           </div>
-          <div>
-            <div class="review-name">&mdash; Linda P., Melville</div>
-            <div class="review-body">&ldquo;Coach handled my mother&rsquo;s downsizing with patience and kindness. Worth every penny.&rdquo;</div>
-          </div>
-          <div>
-            <div class="review-name">&mdash; David R., Greenwich</div>
-            <div class="review-body">&ldquo;Five moves in fifteen years. They&rsquo;re the only company I&rsquo;ll call.&rdquo;</div>
-          </div>
         </div>
         <div class="back-badges">
           <div class="badge"><div class="badge-icon">&#10003;</div><div class="badge-text">Licensed &amp; Insured</div></div>
@@ -682,7 +1045,7 @@
       <div class="panel panel-front">
         <div class="front-photo"></div>
         <div class="front-bar"></div>
-        <img class="front-logo" src="images/logo.png" alt="Coach Movers">
+        <div class="front-logo">Coach<br>Movers</div>
         <div class="front-headline">Moving<br>Made Easy.</div>
         <div class="front-eyebrow">Est. 2002 &middot; New York &amp; Connecticut</div>
         <div class="front-foot">
