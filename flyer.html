@@ -40,7 +40,28 @@
     align-items: center;
     flex-shrink: 0;
     position: relative;
+    overflow: hidden;
   }
+
+  .header-photo {
+    position: absolute;
+    inset: 0;
+    background: url('images/mover-shot-scaled.jpg') center 30% / cover no-repeat;
+    opacity: 0.55;
+    z-index: 0;
+  }
+
+  .header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.35) 45%,
+        rgba(0,0,0,0.75) 100%);
+    z-index: 1;
+  }
+
+  .header > * { position: relative; z-index: 2; }
 
   .header::after {
     content: '';
@@ -48,6 +69,7 @@
     left: 0; right: 0; bottom: 0;
     height: 0.18in;
     background: #C8F23C;
+    z-index: 3;
   }
 
   .header-logo {
@@ -214,6 +236,8 @@
 
   <!-- HEADER -->
   <div class="header">
+    <div class="header-photo"></div>
+    <div class="header-overlay"></div>
     <img src="images/logo.png" class="header-logo" alt="Coach Movers">
     <h1 class="welcome">Welcome</h1>
     <div class="welcome-sub">Coach Movers Headquarters</div>
