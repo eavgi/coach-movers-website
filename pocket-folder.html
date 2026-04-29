@@ -291,10 +291,10 @@
     white-space: nowrap;
   }
 
-  /* BACK COVER */
+  /* BACK COVER (outside, now: features) */
   .va .panel-back {
     color: #fff;
-    padding: 7% 8%;
+    /* no padding — il-* uses absolute positioning */
   }
   .va .back-quote-mark {
     font-family: 'Oswald', sans-serif;
@@ -311,7 +311,7 @@
     line-height: 1.15;
     text-transform: uppercase;
     letter-spacing: 0.005em;
-    color: #fff;
+    color: #111;
     max-width: 90%;
     margin-bottom: 2cqw;
   }
@@ -332,7 +332,7 @@
     font-weight: 700;
     font-size: 1.05cqw;
     letter-spacing: 0.16em;
-    color: var(--lime);
+    color: #111;
     text-transform: uppercase;
     margin-bottom: 0.4cqw;
   }
@@ -341,7 +341,7 @@
     font-weight: 400;
     font-size: 0.95cqw;
     line-height: 1.5;
-    color: #d6d6d6;
+    color: var(--muted);
   }
   .va .back-badges {
     position: absolute;
@@ -350,7 +350,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(200,242,60,0.35);
+    border-top: 1px solid var(--grey-line);
     padding-top: 2cqw;
   }
   .va .badge {
@@ -361,12 +361,12 @@
   .va .badge-icon {
     width: 1.6cqw;
     height: 1.6cqw;
-    border: 0.18cqw solid var(--lime);
+    border: 0.18cqw solid #111;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--lime);
+    color: #111;
     font-family: 'Oswald', sans-serif;
     font-size: 0.95cqw;
     font-weight: 700;
@@ -377,7 +377,7 @@
     font-size: 1.05cqw;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #fff;
+    color: #111;
   }
 
   /* POCKET FLAP (outside) */
@@ -428,9 +428,10 @@
     color: #111;
   }
   .va.inside .panel-pocket { background: #fff; }
+  .va.inside .panel-back { padding: 7% 8%; }
 
-  /* Inside left */
-  .va.inside .il-band {
+  /* Outside back (features) — il-* on dark */
+  .va .il-band {
     position: absolute;
     left: 0; right: 0; top: 0;
     height: 11%;
@@ -445,49 +446,49 @@
     text-transform: uppercase;
     color: #111;
   }
-  .va.inside .il-grid {
+  .va .il-grid {
     position: absolute;
-    left: 8%; right: 8%; top: 16%;
+    left: 8%; right: 8%; top: 14%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5cqw 3cqw;
+    gap: 1.6cqw 3cqw;
   }
-  .va.inside .il-item .tick {
+  .va .il-item .tick {
     width: 1.4cqw;
     height: 1.4cqw;
     background: var(--lime);
     margin-bottom: 0.8cqw;
   }
-  .va.inside .il-item h3 {
+  .va .il-item h3 {
     margin: 0 0 0.5cqw;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     font-size: 1.45cqw;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #111;
+    color: #fff;
   }
-  .va.inside .il-item p {
+  .va .il-item p {
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 1.05cqw;
     line-height: 1.5;
-    color: var(--muted);
+    color: #c4c4c4;
   }
-  .va.inside .il-photo {
+  .va .il-photo {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 32%;
+    height: 44%;
     background: url('images/folder/inside-hands.png') center / cover no-repeat;
-    filter: contrast(1.03);
+    filter: contrast(1.05);
   }
-  .va.inside .il-photo::after {
+  .va .il-photo::after {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.85));
   }
-  .va.inside .il-tag {
+  .va .il-tag {
     position: absolute;
     left: 6%; bottom: 6%;
     background: var(--lime);
@@ -603,14 +604,12 @@
     color: rgba(200,242,60,0.7);
   }
 
-  /* Inside pocket flaps (visible top edge of pocket inside the folder) */
+  /* Inside pocket flap — white to flow with the panels above */
   .va.inside .panel-pocket {
-    background: linear-gradient(to bottom, #f3f3f3 0%, #ececec 100%);
-    border-top: 1px solid #ddd;
+    background: #fff;
+    border-top: 1px solid var(--grey-line);
   }
 
-  /* Inside-spread logo (default hidden, shown per-variation) */
-  .inside-logo { display: none; }
 
   /* ---------- VARIATION B — ARCHITECTURAL CLEAN ---------- */
   .vb .panel-back,
@@ -623,8 +622,8 @@
   .vb .front-bar,
   .vb .back-quote-mark,
   .vb .badge-icon,
-  .vb.inside .il-photo,
-  .vb.inside .il-tag,
+  .vb .il-photo,
+  .vb .il-tag,
   .vb.inside .step .num::before { display: none; }
 
   /* FRONT COVER (B) */
@@ -725,8 +724,8 @@
     white-space: nowrap;
   }
 
-  /* BACK COVER (B) */
-  .vb .panel-back {
+  /* BACK COVER (B) — quote/reviews live INSIDE-left after swap */
+  .vb.inside .panel-back {
     color: #111;
     padding: 9% 8%;
   }
@@ -829,20 +828,11 @@
     text-transform: uppercase;
   }
 
-  /* INSIDE LEFT (B) */
-  .vb.inside .panel-back { padding: 0; }
-  .vb.inside .inside-logo {
-    display: block;
+  /* OUTSIDE BACK (B) — features panel */
+  .vb .panel-back { padding: 0; }
+  .vb .il-band {
     position: absolute;
-    left: 8%;
-    top: 6%;
-    width: 14%;
-    height: auto;
-    z-index: 2;
-  }
-  .vb.inside .il-band {
-    position: absolute;
-    left: 8%; right: 8%; top: 18%;
+    left: 8%; right: 8%; top: 7%;
     height: auto;
     background: transparent;
     padding: 0 0 1.4cqw;
@@ -855,14 +845,14 @@
     color: #111;
     display: block;
   }
-  .vb.inside .il-grid {
+  .vb .il-grid {
     position: absolute;
-    left: 8%; right: 8%; top: 25%;
+    left: 8%; right: 8%; top: 14%;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
-  .vb.inside .il-item {
+  .vb .il-item {
     display: grid;
     grid-template-columns: 4cqw 1fr;
     grid-template-rows: auto auto;
@@ -870,8 +860,8 @@
     padding: 1.6cqw 0;
     border-bottom: 1px solid #ECECEC;
   }
-  .vb.inside .il-item:last-child { border-bottom: 0; }
-  .vb.inside .il-item .tick {
+  .vb .il-item:last-child { border-bottom: 0; }
+  .vb .il-item .tick {
     grid-row: 1 / 3;
     width: auto; height: auto; background: transparent;
     margin: 0;
@@ -882,14 +872,14 @@
     line-height: 1;
     letter-spacing: 0.04em;
   }
-  .vb.inside .il-item h3 { grid-column: 2; grid-row: 1; }
-  .vb.inside .il-item p  { grid-column: 2; grid-row: 2; }
-  .vb.inside .il-item .tick::before {
+  .vb .il-item h3 { grid-column: 2; grid-row: 1; }
+  .vb .il-item p  { grid-column: 2; grid-row: 2; }
+  .vb .il-item .tick::before {
     content: counter(il-num, decimal-leading-zero);
     counter-increment: il-num;
   }
-  .vb.inside .il-grid { counter-reset: il-num; }
-  .vb.inside .il-item h3 {
+  .vb .il-grid { counter-reset: il-num; }
+  .vb .il-item h3 {
     margin: 0 0 0.4cqw;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
@@ -898,7 +888,7 @@
     text-transform: uppercase;
     color: #111;
   }
-  .vb.inside .il-item p {
+  .vb .il-item p {
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -911,7 +901,7 @@
   .vb.inside .panel-front { padding: 0; }
   .vb.inside .ir-band {
     position: absolute;
-    left: 8%; right: 8%; top: 18%;
+    left: 8%; right: 8%; top: 7%;
     height: auto;
     background: transparent;
     color: #111;
@@ -926,7 +916,7 @@
   }
   .vb.inside .ir-steps {
     position: absolute;
-    left: 8%; right: 8%; top: 25%;
+    left: 8%; right: 8%; top: 14%;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -1048,26 +1038,19 @@
     </div>
     <div class="canvas va" id="outside">
 
-      <!-- BACK COVER -->
+      <!-- BACK COVER (now: features) -->
       <div class="panel panel-back">
-        <div class="back-quote-mark">&ldquo;</div>
-        <div class="back-quote">Twenty&#8209;three years of moves, thousands of happy families, one promise: we treat your stuff like it&rsquo;s ours.</div>
-        <div class="back-divider"></div>
-        <div class="back-reviews">
-          <div>
-            <div class="review-name">&mdash; Sarah K., Huntington</div>
-            <div class="review-body">&ldquo;Showed up early, wrapped everything, finished ahead of schedule. Genuinely the easiest move we&rsquo;ve ever had.&rdquo;</div>
-          </div>
-          <div>
-            <div class="review-name">&mdash; Marcus B., Stamford</div>
-            <div class="review-body">&ldquo;Quoted flat, charged flat. The crew was respectful, fast, and careful with every box.&rdquo;</div>
-          </div>
+        <div class="il-band">What You Get With Coach</div>
+        <div class="il-grid">
+          <div class="il-item"><div class="tick"></div><h3>Licensed &amp; Insured</h3><p>Full state licensing and complete coverage for total peace of mind.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Free In-Home Estimates</h3><p>Transparent, no-surprise pricing before we ever touch a box.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Flat-Rate Pricing</h3><p>What you&rsquo;re quoted is what you pay. No hidden fees, ever.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Professional Crews</h3><p>Trained, uniformed, background-checked movers on every job.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Climate-Controlled Storage</h3><p>Short or long-term storage in our secure Melville facility.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Local &middot; Long Distance &middot; Commercial</h3><p>Apartments, estates, and offices &mdash; we move it all.</p></div>
         </div>
-        <div class="back-badges">
-          <div class="badge"><div class="badge-icon">&#10003;</div><div class="badge-text">Licensed &amp; Insured</div></div>
-          <div class="badge"><div class="badge-icon">&#9733;</div><div class="badge-text">BBB Accredited</div></div>
-          <div class="badge"><div class="badge-icon">23+</div><div class="badge-text">Years Trusted</div></div>
-        </div>
+        <div class="il-photo"></div>
+        <div class="il-tag">Insured Moves</div>
       </div>
 
       <!-- SPINE -->
@@ -1127,20 +1110,26 @@
     </div>
     <div class="canvas va inside" id="inside">
 
-      <!-- INSIDE LEFT -->
+      <!-- INSIDE LEFT (now: testimonial / trust) -->
       <div class="panel panel-back">
-        <img class="inside-logo" src="images/logo.png" alt="Coach Movers">
-        <div class="il-band">What You Get With Coach</div>
-        <div class="il-grid">
-          <div class="il-item"><div class="tick"></div><h3>Licensed &amp; Insured</h3><p>Full state licensing and complete coverage for total peace of mind.</p></div>
-          <div class="il-item"><div class="tick"></div><h3>Free In-Home Estimates</h3><p>Transparent, no-surprise pricing before we ever touch a box.</p></div>
-          <div class="il-item"><div class="tick"></div><h3>Flat-Rate Pricing</h3><p>What you&rsquo;re quoted is what you pay. No hidden fees, ever.</p></div>
-          <div class="il-item"><div class="tick"></div><h3>Professional Crews</h3><p>Trained, uniformed, background-checked movers on every job.</p></div>
-          <div class="il-item"><div class="tick"></div><h3>Climate-Controlled Storage</h3><p>Short or long-term storage in our secure Melville facility.</p></div>
-          <div class="il-item"><div class="tick"></div><h3>Local &middot; Long Distance &middot; Commercial</h3><p>Apartments, estates, and offices &mdash; we move it all.</p></div>
+        <div class="back-quote-mark">&ldquo;</div>
+        <div class="back-quote">Twenty&#8209;three years of moves, thousands of happy families, one promise: we treat your stuff like it&rsquo;s ours.</div>
+        <div class="back-divider"></div>
+        <div class="back-reviews">
+          <div>
+            <div class="review-name">&mdash; Sarah K., Huntington</div>
+            <div class="review-body">&ldquo;Showed up early, wrapped everything, finished ahead of schedule. Genuinely the easiest move we&rsquo;ve ever had.&rdquo;</div>
+          </div>
+          <div>
+            <div class="review-name">&mdash; Marcus B., Stamford</div>
+            <div class="review-body">&ldquo;Quoted flat, charged flat. The crew was respectful, fast, and careful with every box.&rdquo;</div>
+          </div>
         </div>
-        <div class="il-photo"></div>
-        <div class="il-tag">Insured Moves</div>
+        <div class="back-badges">
+          <div class="badge"><div class="badge-icon">&#10003;</div><div class="badge-text">Licensed &amp; Insured</div></div>
+          <div class="badge"><div class="badge-icon">&#9733;</div><div class="badge-text">BBB Accredited</div></div>
+          <div class="badge"><div class="badge-icon">23+</div><div class="badge-text">Years Trusted</div></div>
+        </div>
       </div>
 
       <!-- SPINE (inside) -->
