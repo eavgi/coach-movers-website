@@ -5,16 +5,18 @@
 <title>Coach Movers — Pocket Folder Mockup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --lime: #C8F23C;
-    --ink: #1a1a1a;
+    --ink: #111;
+    --paper: #ffffff;
     --muted: #6e6e6e;
-    --line: #00A859;
+    --grey-line: #ECECEC;
+    --die: #00A859;
   }
 
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   html, body {
     margin: 0;
@@ -25,10 +27,11 @@
     min-height: 100vh;
   }
 
+  /* ---------- TOOLBAR ---------- */
   .toolbar {
     padding: 1rem 2rem;
     background: #000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #2a2a2a;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +39,7 @@
     gap: 1rem;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 50;
   }
 
   .toolbar h1 {
@@ -47,22 +50,53 @@
     text-transform: uppercase;
     margin: 0;
   }
-
   .toolbar h1 span { color: var(--lime); }
 
-  .meta {
-    font-size: 0.78rem;
+  .toolbar .meta {
+    font-size: 0.75rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #999;
+    color: #888;
   }
 
-  .meta a {
+  .switcher {
+    display: flex;
+    background: #1a1a1a;
+    border-radius: 999px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .switcher button {
+    background: transparent;
+    border: 0;
+    padding: 0.5rem 1.1rem;
+    color: #888;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .switcher button.active {
+    background: var(--lime);
+    color: #111;
+  }
+
+  .toolbar a.dl {
     color: var(--lime);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     text-decoration: none;
-    margin-left: 1rem;
+    border: 1px solid #333;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
   }
 
+  /* ---------- WORKSPACE ---------- */
   .workspace {
     padding: 3rem 2rem 5rem;
     display: flex;
@@ -82,13 +116,12 @@
     font-size: 0.95rem;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: #999;
+    color: #aaa;
     margin-bottom: 0.6rem;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
-
   .spread-label small {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -97,69 +130,492 @@
     font-size: 0.7rem;
   }
 
-  /* Dieline canvas — shows the template PDF as background, design layers on top.
-     Folder flat dimensions (typical 9x12 two-pocket): ~18.25" wide x ~14.5" tall.
-     We render at responsive width with that aspect ratio. */
+  /* Spread canvas — the flat sheet at proportional scale.
+     Ratio 18.25 (W) : 14.5 (H). Top 12" = panels, bottom 2.5" = pocket flap. */
   .canvas {
+    --w: 18.25;
+    --h: 14.5;
+    --panel-w: 9;
+    --spine: 0.25;
+    --panel-h: 12;
+    --pocket-h: 2.5;
+
     position: relative;
     width: 100%;
-    aspect-ratio: 18.25 / 14.5;
-    background: #fff;
-    box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+    aspect-ratio: var(--w) / var(--h);
+    background: var(--paper);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.65);
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  /* Use container queries / cqw to scale type with the spread */
+  .panel {
+    position: absolute;
     overflow: hidden;
   }
 
-  .canvas-template {
-    position: absolute;
-    inset: 0;
+  .panel-back  { left: 0;                                     top: 0; width: calc(var(--panel-w) / var(--w) * 100%); height: calc(var(--panel-h) / var(--h) * 100%); }
+  .panel-spine { left: calc(var(--panel-w) / var(--w) * 100%); top: 0; width: calc(var(--spine)   / var(--w) * 100%); height: calc(var(--panel-h) / var(--h) * 100%); }
+  .panel-front { left: calc((var(--panel-w) + var(--spine)) / var(--w) * 100%); top: 0; width: calc(var(--panel-w) / var(--w) * 100%); height: calc(var(--panel-h) / var(--h) * 100%); }
+
+  .panel-pocket {
+    left: 0;
+    top: calc(var(--panel-h) / var(--h) * 100%);
     width: 100%;
-    height: 100%;
-    border: 0;
-    pointer-events: none;
+    height: calc(var(--pocket-h) / var(--h) * 100%);
   }
 
-  .canvas-design {
+  /* Dieline overlay — faint cut/fold guides */
+  .dieline {
     position: absolute;
     inset: 0;
-  }
-
-  /* Visual fold guide — a faint center vertical line so we can see the spine */
-  .fold-guide {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: rgba(0,168,89,0.15);
     pointer-events: none;
+    z-index: 20;
+  }
+  .dieline svg { width: 100%; height: 100%; display: block; }
+  .dieline path, .dieline line, .dieline rect { stroke: rgba(0,168,89,0.55); stroke-width: 1; fill: none; }
+  .dieline .fold { stroke-dasharray: 4 4; stroke: rgba(0,168,89,0.45); }
+
+  /* ---------- VARIATION A — EDITORIAL HERO ---------- */
+  .va .panel-back,
+  .va .panel-spine,
+  .va .panel-pocket {
+    background: #111;
+  }
+  .va .panel-front {
+    background: #111;
+    color: #fff;
   }
 
-  .legend {
-    margin-top: 1rem;
-    font-size: 0.78rem;
-    color: #888;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+  /* FRONT COVER */
+  .va .front-photo {
+    position: absolute;
+    inset: 0 0 33% 0;
+    background: url('images/mover-shot-scaled.jpg') center 30% / cover no-repeat;
+    filter: grayscale(1) contrast(1.05);
   }
-
-  .legend span::before {
+  .va .front-photo::after {
     content: '';
-    display: inline-block;
-    width: 18px;
-    height: 2px;
-    background: var(--line);
-    margin-right: 0.5rem;
-    vertical-align: middle;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 100%);
+  }
+  .va .front-bar {
+    position: absolute;
+    left: 0; right: 0;
+    top: 67%;
+    height: 1.2cqw;
+    background: var(--lime);
+    z-index: 2;
+  }
+  .va .front-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    z-index: 3;
+    filter: brightness(0) invert(1);
+  }
+  .va .front-headline {
+    position: absolute;
+    left: 8%; right: 8%;
+    top: 73%;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 7.5cqw;
+    line-height: 0.95;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 3;
+  }
+  .va .front-eyebrow {
+    position: absolute;
+    left: 0; right: 0;
+    top: 84%;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.2cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--lime);
+    z-index: 3;
+  }
+  .va .front-foot {
+    position: absolute;
+    left: 6%; right: 6%;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.05cqw;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    z-index: 3;
+  }
+
+  /* SPINE */
+  .va .panel-spine {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2% 0;
+  }
+  .va .spine-tick {
+    width: 60%;
+    height: 0.6cqw;
+    background: var(--lime);
+  }
+  .va .spine-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.7cqw;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  /* BACK COVER */
+  .va .panel-back {
+    color: #fff;
+    padding: 7% 8%;
+  }
+  .va .back-quote-mark {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 22cqw;
+    line-height: 0.7;
+    color: var(--lime);
+    margin-bottom: 1cqw;
+  }
+  .va .back-quote {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 2.7cqw;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+    color: #fff;
+    max-width: 90%;
+    margin-bottom: 2cqw;
+  }
+  .va .back-divider {
+    width: 22%;
+    height: 0.4cqw;
+    background: var(--lime);
+    margin-bottom: 2.5cqw;
+  }
+  .va .back-reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4cqw 2.4cqw;
+    margin-bottom: 3cqw;
+  }
+  .va .review-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.05cqw;
+    letter-spacing: 0.16em;
+    color: var(--lime);
+    text-transform: uppercase;
+    margin-bottom: 0.4cqw;
+  }
+  .va .review-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.05cqw;
+    line-height: 1.5;
+    color: #d6d6d6;
+  }
+  .va .back-badges {
+    position: absolute;
+    left: 8%; right: 8%;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(200,242,60,0.35);
+    padding-top: 2cqw;
+  }
+  .va .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.6cqw;
+  }
+  .va .badge-icon {
+    width: 1.6cqw;
+    height: 1.6cqw;
+    border: 0.18cqw solid var(--lime);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--lime);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95cqw;
+    font-weight: 700;
+  }
+  .va .badge-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.05cqw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  /* POCKET FLAP (outside) */
+  .va .panel-pocket {
+    background: #111;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8%;
+  }
+  .va .pocket-cta {
+    display: flex;
+    align-items: baseline;
+    gap: 2cqw;
+    color: #fff;
+  }
+  .va .pocket-cta .lets-move {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 4.2cqw;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+  }
+  .va .pocket-cta .phone {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 2cqw;
+    color: var(--lime);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- INSIDE — VARIATION A ---------- */
+  .va.inside .panel-back,
+  .va.inside .panel-spine,
+  .va.inside .panel-front {
+    background: #fff;
+    color: #111;
+  }
+  .va.inside .panel-pocket { background: #fff; }
+
+  /* Inside left */
+  .va.inside .il-band {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 11%;
+    background: var(--lime);
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.6cqw;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .va.inside .il-grid {
+    position: absolute;
+    left: 8%; right: 8%; top: 16%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5cqw 3cqw;
+  }
+  .va.inside .il-item .tick {
+    width: 1.4cqw;
+    height: 1.4cqw;
+    background: var(--lime);
+    margin-bottom: 0.8cqw;
+  }
+  .va.inside .il-item h3 {
+    margin: 0 0 0.5cqw;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.45cqw;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .va.inside .il-item p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.05cqw;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .va.inside .il-photo {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 32%;
+    background: url('images/mover-shot-2-scaled.jpg') center / cover no-repeat;
+    filter: grayscale(0.3) contrast(1.05);
+  }
+  .va.inside .il-photo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+  }
+  .va.inside .il-tag {
+    position: absolute;
+    left: 6%; bottom: 6%;
+    background: var(--lime);
+    color: #111;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.2cqw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.7cqw 1.2cqw;
+    z-index: 2;
+  }
+
+  /* Inside right */
+  .va.inside .ir-band {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 11%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.6cqw;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .va.inside .ir-steps {
+    position: absolute;
+    left: 8%; right: 8%; top: 16%;
+    display: flex;
+    flex-direction: column;
+    gap: 2cqw;
+  }
+  .va.inside .step {
+    display: grid;
+    grid-template-columns: 4cqw 1fr;
+    gap: 1.5cqw;
+    align-items: start;
+    padding-bottom: 1.6cqw;
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .va.inside .step:last-child { border-bottom: 0; }
+  .va.inside .step .num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 5cqw;
+    color: var(--lime);
+    line-height: 0.9;
+  }
+  .va.inside .step h3 {
+    margin: 0 0 0.4cqw;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.45cqw;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .va.inside .step p {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.05cqw;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .va.inside .ir-card-slot {
+    position: absolute;
+    left: 8%; right: 8%; bottom: 6%;
+    background: #111;
+    color: #fff;
+    padding: 2cqw 2.5cqw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 22%;
+  }
+  .va.inside .ir-card-slot .label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.2cqw;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 0.6cqw;
+  }
+  .va.inside .ir-card-slot .stack {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.2cqw;
+    line-height: 1.6;
+    color: #fff;
+  }
+  .va.inside .card-rect {
+    width: 30%;
+    aspect-ratio: 3.5 / 2;
+    border: 0.18cqw dashed var(--lime);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.85cqw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(200,242,60,0.7);
+  }
+
+  /* Inside pocket flaps (visible top edge of pocket inside the folder) */
+  .va.inside .panel-pocket {
+    background: linear-gradient(to bottom, #f3f3f3 0%, #ececec 100%);
+    border-top: 1px solid #ddd;
+  }
+
+  /* ---------- VARIATION B placeholder ---------- */
+  .vb .panel-back,
+  .vb .panel-front,
+  .vb .panel-spine,
+  .vb .panel-pocket { background: #fafafa; color: #111; }
+  .vb-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 2.5cqw;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
   }
 
   .footer-note {
     color: #666;
     font-size: 0.78rem;
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     line-height: 1.6;
-    padding: 0 2rem;
   }
 </style>
 </head>
@@ -167,55 +623,189 @@
 
 <div class="toolbar">
   <h1>Coach Movers <span>Pocket Folder</span></h1>
-  <div class="meta">
-    9&quot; &times; 12&quot; Two-Pocket &middot; Flat ~18.25&quot; &times; 14.5&quot;
-    <a href="pocket-folder-template.pdf" target="_blank">Download Template PDF</a>
+  <div class="switcher" role="tablist">
+    <button class="active" data-variant="a">Variation A — Editorial Hero</button>
+    <button data-variant="b">Variation B — Architectural</button>
   </div>
+  <div class="meta">9&quot;&times;12&quot; Two-Pocket</div>
+  <a class="dl" href="pocket-folder-template.pdf" target="_blank">Template PDF</a>
 </div>
 
 <div class="workspace">
 
+  <!-- ============ OUTSIDE SPREAD ============ -->
   <div class="spread">
     <div class="spread-label">
-      <span>Outside Spread &mdash; Back Cover &middot; Spine &middot; Front Cover</span>
-      <small>Page 1 of template</small>
+      <span>Outside &mdash; Back &middot; Spine &middot; Front</span>
+      <small>Folded flat, viewed from outside</small>
     </div>
-    <div class="canvas">
-      <iframe class="canvas-template" src="pocket-folder-template.pdf#page=1&toolbar=0&navpanes=0&scrollbar=0&view=Fit" title="Outside dieline"></iframe>
-      <div class="fold-guide"></div>
-      <div class="canvas-design" id="design-outside">
-        <!-- Outside design layers go here -->
+    <div class="canvas va" id="outside">
+
+      <!-- BACK COVER -->
+      <div class="panel panel-back">
+        <div class="back-quote-mark">&ldquo;</div>
+        <div class="back-quote">Twenty&#8209;three years of moves, thousands of happy families, one promise: we treat your stuff like it&rsquo;s ours.</div>
+        <div class="back-divider"></div>
+        <div class="back-reviews">
+          <div>
+            <div class="review-name">&mdash; Sarah K., Huntington</div>
+            <div class="review-body">&ldquo;Showed up early, wrapped everything, finished ahead of schedule. Genuinely the easiest move we&rsquo;ve ever had.&rdquo;</div>
+          </div>
+          <div>
+            <div class="review-name">&mdash; Marcus B., Stamford</div>
+            <div class="review-body">&ldquo;Quoted flat, charged flat. The crew was respectful, fast, and careful with every box.&rdquo;</div>
+          </div>
+          <div>
+            <div class="review-name">&mdash; Linda P., Melville</div>
+            <div class="review-body">&ldquo;Coach handled my mother&rsquo;s downsizing with patience and kindness. Worth every penny.&rdquo;</div>
+          </div>
+          <div>
+            <div class="review-name">&mdash; David R., Greenwich</div>
+            <div class="review-body">&ldquo;Five moves in fifteen years. They&rsquo;re the only company I&rsquo;ll call.&rdquo;</div>
+          </div>
+        </div>
+        <div class="back-badges">
+          <div class="badge"><div class="badge-icon">&#10003;</div><div class="badge-text">Licensed &amp; Insured</div></div>
+          <div class="badge"><div class="badge-icon">&#9733;</div><div class="badge-text">BBB Accredited</div></div>
+          <div class="badge"><div class="badge-icon">23+</div><div class="badge-text">Years Trusted</div></div>
+        </div>
       </div>
-    </div>
-    <div class="legend">
-      <span>Dieline / cut &amp; fold guides (do not print)</span>
+
+      <!-- SPINE -->
+      <div class="panel panel-spine">
+        <div class="spine-tick"></div>
+        <div class="spine-text">Coach Movers &middot; Licensed &amp; Insured</div>
+        <div class="spine-tick"></div>
+      </div>
+
+      <!-- FRONT COVER -->
+      <div class="panel panel-front">
+        <div class="front-photo"></div>
+        <div class="front-bar"></div>
+        <img class="front-logo" src="images/logo.png" alt="Coach Movers">
+        <div class="front-headline">Moving<br>Made Easy.</div>
+        <div class="front-eyebrow">Est. 2002 &middot; New York &amp; Connecticut</div>
+        <div class="front-foot">
+          <span>(800) 917-4446</span>
+          <span>CoachMovers.com</span>
+        </div>
+      </div>
+
+      <!-- POCKET FLAP -->
+      <div class="panel panel-pocket">
+        <div class="pocket-cta">
+          <span class="lets-move">Let&rsquo;s Move.</span>
+          <span class="phone">(800) 917-4446 &middot; CoachMovers.com</span>
+        </div>
+      </div>
+
+      <!-- DIELINE -->
+      <div class="dieline">
+        <svg viewBox="0 0 1825 1450" preserveAspectRatio="none">
+          <!-- outer trim -->
+          <rect x="1" y="1" width="1823" height="1448" />
+          <!-- spine fold -->
+          <line class="fold" x1="900" y1="0" x2="900" y2="1200"/>
+          <line class="fold" x1="925" y1="0" x2="925" y2="1200"/>
+          <!-- pocket fold -->
+          <line class="fold" x1="0" y1="1200" x2="1825" y2="1200"/>
+          <!-- pocket V-notch in center -->
+          <path d="M 880 1200 L 912.5 1300 L 945 1200" />
+          <!-- corner angled cuts -->
+          <line x1="0" y1="1300" x2="120" y2="1450" />
+          <line x1="1825" y1="1300" x2="1705" y2="1450" />
+        </svg>
+      </div>
     </div>
   </div>
 
+  <!-- ============ INSIDE SPREAD ============ -->
   <div class="spread">
     <div class="spread-label">
-      <span>Inside Spread &mdash; Left Pocket &middot; Right Pocket</span>
-      <small>Page 2 of template</small>
+      <span>Inside &mdash; Left Panel &middot; Right Panel</span>
+      <small>Folder open, contents inside</small>
     </div>
-    <div class="canvas">
-      <iframe class="canvas-template" src="pocket-folder-template.pdf#page=2&toolbar=0&navpanes=0&scrollbar=0&view=Fit" title="Inside dieline"></iframe>
-      <div class="fold-guide"></div>
-      <div class="canvas-design" id="design-inside">
-        <!-- Inside design layers go here -->
+    <div class="canvas va inside" id="inside">
+
+      <!-- INSIDE LEFT -->
+      <div class="panel panel-back">
+        <div class="il-band">What You Get With Coach</div>
+        <div class="il-grid">
+          <div class="il-item"><div class="tick"></div><h3>Licensed &amp; Insured</h3><p>Full state licensing and complete coverage for total peace of mind.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Free In-Home Estimates</h3><p>Transparent, no-surprise pricing before we ever touch a box.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Flat-Rate Pricing</h3><p>What you&rsquo;re quoted is what you pay. No hidden fees, ever.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Professional Crews</h3><p>Trained, uniformed, background-checked movers on every job.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Climate-Controlled Storage</h3><p>Short or long-term storage in our secure Melville facility.</p></div>
+          <div class="il-item"><div class="tick"></div><h3>Local &middot; Long Distance &middot; Commercial</h3><p>Apartments, estates, and offices &mdash; we move it all.</p></div>
+        </div>
+        <div class="il-photo"></div>
+        <div class="il-tag">Insured Moves</div>
       </div>
-    </div>
-    <div class="legend">
-      <span>Pocket flap area sits below the horizontal fold; angled cuts at bottom corners</span>
+
+      <!-- SPINE (inside) -->
+      <div class="panel panel-spine"></div>
+
+      <!-- INSIDE RIGHT -->
+      <div class="panel panel-front">
+        <div class="ir-band">Your Move, Step by Step</div>
+        <div class="ir-steps">
+          <div class="step"><div class="num">01</div><div><h3>Book a Free Estimate</h3><p>Call or request online &mdash; we&rsquo;ll come walk through your home.</p></div></div>
+          <div class="step"><div class="num">02</div><div><h3>We Plan &amp; Quote</h3><p>Flat-rate pricing, packing plan, and exact crew size.</p></div></div>
+          <div class="step"><div class="num">03</div><div><h3>Pack, Load, Move</h3><p>Pads, wraps, and care &mdash; we treat every item like it&rsquo;s ours.</p></div></div>
+          <div class="step"><div class="num">04</div><div><h3>Unpack &amp; Settle In</h3><p>We place, position, and clean up. You&rsquo;re home.</p></div></div>
+        </div>
+        <div class="ir-card-slot">
+          <div>
+            <div class="label">Keep This Handy</div>
+            <div class="stack">
+              (800) 917-4446<br>
+              contact@coachmovers.com<br>
+              CoachMovers.com
+            </div>
+          </div>
+          <div class="card-rect">Business Card</div>
+        </div>
+      </div>
+
+      <!-- POCKET FLAP -->
+      <div class="panel panel-pocket"></div>
+
+      <!-- DIELINE -->
+      <div class="dieline">
+        <svg viewBox="0 0 1825 1450" preserveAspectRatio="none">
+          <rect x="1" y="1" width="1823" height="1448" />
+          <line class="fold" x1="900" y1="0" x2="900" y2="1200"/>
+          <line class="fold" x1="925" y1="0" x2="925" y2="1200"/>
+          <line class="fold" x1="0" y1="1200" x2="1825" y2="1200"/>
+          <path d="M 880 1200 L 912.5 1300 L 945 1200" />
+          <line x1="0" y1="1300" x2="120" y2="1450" />
+          <line x1="1825" y1="1300" x2="1705" y2="1450" />
+        </svg>
+      </div>
     </div>
   </div>
 
   <p class="footer-note">
-    Working canvas for the Coach Movers two-pocket folder. The green dieline shows trim, fold,
-    and pocket-cut lines &mdash; design content goes on top. We&rsquo;ll iterate the cover, back,
-    and inside artwork from here.
+    Live mockup of the Coach Movers two-pocket folder, drawn to scale on the supplied 9&quot;&times;12&quot; dieline.
+    Toggle between variations at the top. Variation B coming next.
   </p>
 
 </div>
+
+<script>
+  const buttons = document.querySelectorAll('.switcher button');
+  const canvases = document.querySelectorAll('.canvas');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const v = btn.dataset.variant;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      canvases.forEach(c => {
+        c.classList.toggle('va', v === 'a');
+        c.classList.toggle('vb', v === 'b');
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
