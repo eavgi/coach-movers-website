@@ -40,60 +40,53 @@
 
   /* ==================== HEADER ==================== */
   .header {
-    background: var(--ink);
-    color: #fff;
-    height: 2.6in;
+    background: #ffffff;
+    color: var(--ink);
+    height: 2.7in;
     flex-shrink: 0;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    border-bottom: 1px solid #ececec;
   }
 
-  .header-stripe-bottom {
+  .header-stripe-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0.18in;
+    background: var(--ink);
+  }
+
+  .header-stripe-top::after {
+    content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 0.12in;
+    height: 0.04in;
     background: var(--lime);
-  }
-
-  .header-corner-tl {
-    position: absolute;
-    top: 0; left: 0;
-    width: 0.55in;
-    height: 0.55in;
-    background: var(--lime);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-  }
-
-  .header-corner-br {
-    position: absolute;
-    bottom: 0.12in; right: 0;
-    width: 0.45in;
-    height: 0.45in;
-    border-right: 3px solid var(--lime);
-    border-bottom: 3px solid var(--lime);
   }
 
   .header-est-pill {
     position: absolute;
-    top: 0.6in;
+    top: 0.5in;
     right: 0.85in;
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
-    font-size: 11pt;
+    font-size: 10.5pt;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--lime);
-    border: 1px solid rgba(200,242,60,0.5);
+    color: #999;
+    border: 1px solid #d8d8d8;
     padding: 0.08in 0.22in;
     line-height: 1;
+    background: #fff;
   }
 
   .header-est-pill .num {
-    color: #fff;
+    color: var(--ink);
     margin-left: 0.08in;
+    font-weight: 700;
   }
 
   .header-logo-wrap {
@@ -101,21 +94,22 @@
     flex-direction: column;
     align-items: center;
     gap: 0.18in;
+    margin-top: 0.25in;
   }
 
   .header-logo {
-    width: 4.2in;
+    width: 4.5in;
     height: auto;
-    filter: brightness(0) invert(1);
+    display: block;
   }
 
   .header-tag {
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 11pt;
     letter-spacing: 0.45em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
+    color: #999;
   }
 
   /* ==================== WELCOME WORDMARK ==================== */
@@ -394,14 +388,12 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-corner-tl"></div>
-    <div class="header-corner-br"></div>
+    <div class="header-stripe-top"></div>
     <div class="header-est-pill">EST<span class="num">2002</span></div>
     <div class="header-logo-wrap">
       <img src="images/logo.png" class="header-logo" alt="Coach Movers">
       <div class="header-tag">Moving Made Easy</div>
     </div>
-    <div class="header-stripe-bottom"></div>
   </div>
 
   <!-- WELCOME -->
