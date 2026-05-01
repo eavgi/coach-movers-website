@@ -5,11 +5,18 @@
 <title>Coach Movers — Welcome Sign</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
   @page { size: 12in 18in; margin: 0; }
 
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  :root {
+    --lime: #C8F23C;
+    --ink: #0a0a0a;
+    --rule: #1a1a1a;
+    --muted: #8a8a8a;
+  }
 
   html, body {
     margin: 0;
@@ -23,7 +30,7 @@
     width: 12in;
     height: 18in;
     margin: 0 auto;
-    background: #fff;
+    background: #ffffff;
     overflow: hidden;
     position: relative;
     box-shadow: 0 8px 40px rgba(0,0,0,0.15);
@@ -31,195 +38,301 @@
     flex-direction: column;
   }
 
-  /* ---------- HERO ---------- */
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 6.5in;
-    overflow: hidden;
+  /* ==================== HEADER ==================== */
+  .header {
+    background: var(--ink);
+    color: #fff;
+    height: 2.6in;
     flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .hero-photo {
-    position: absolute;
-    inset: 0;
-    background: url('images/mover-shot-scaled.jpg') center / cover no-repeat;
-  }
-
-  .hero-fade {
+  .header-stripe-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 2.6in;
-    background: linear-gradient(to bottom,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.25) 35%,
-        rgba(255,255,255,0.85) 78%,
-        #ffffff 100%);
+    height: 0.12in;
+    background: var(--lime);
   }
 
-  .hero-logo {
+  .header-corner-tl {
+    position: absolute;
+    top: 0; left: 0;
+    width: 0.55in;
+    height: 0.55in;
+    background: var(--lime);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .header-corner-br {
+    position: absolute;
+    bottom: 0.12in; right: 0;
+    width: 0.45in;
+    height: 0.45in;
+    border-right: 3px solid var(--lime);
+    border-bottom: 3px solid var(--lime);
+  }
+
+  .header-est-pill {
     position: absolute;
     top: 0.6in;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4in;
-    height: auto;
-    z-index: 2;
+    right: 0.85in;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--lime);
+    border: 1px solid rgba(200,242,60,0.5);
+    padding: 0.08in 0.22in;
+    line-height: 1;
   }
 
-  .welcome-badge {
-    position: absolute;
-    bottom: 0.7in;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+  .header-est-pill .num {
+    color: #fff;
+    margin-left: 0.08in;
+  }
+
+  .header-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.18in;
+  }
+
+  .header-logo {
+    width: 4.2in;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+
+  .header-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11pt;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ==================== WELCOME WORDMARK ==================== */
+  .welcome-section {
+    padding: 0.65in 0 0.4in;
     text-align: center;
+    flex-shrink: 0;
+    position: relative;
   }
 
   .welcome-eyebrow {
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 13pt;
-    letter-spacing: 0.32em;
+    font-weight: 600;
+    font-size: 12pt;
+    letter-spacing: 0.42em;
     text-transform: uppercase;
-    color: #1a1a1a;
-    margin-bottom: 0.18in;
+    color: #999;
+    margin-bottom: 0.15in;
   }
 
   .welcome-word {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 88pt;
-    letter-spacing: 0.02em;
-    color: #111;
-    text-transform: uppercase;
-    line-height: 0.9;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 102pt;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
     margin: 0;
-    position: relative;
-    display: inline-block;
   }
 
-  .welcome-underline {
-    width: 2.5in;
-    height: 8px;
-    background: #C8F23C;
-    margin: 0.18in auto 0;
+  .welcome-rule {
+    width: 0.9in;
+    height: 3px;
+    background: var(--lime);
+    margin: 0.32in auto 0;
   }
 
-  /* ---------- CONTENT ---------- */
+  /* ==================== INFO SECTIONS ==================== */
   .content {
-    padding: 0.7in 0.92in 0.55in;
-    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 0 0.92in;
+    position: relative;
   }
 
-  .info-block {
+  .info {
+    padding: 0.45in 0;
     text-align: center;
-    padding: 0.32in 0;
+    position: relative;
+  }
+
+  .info + .info {
+    border-top: 1px solid #eee;
+  }
+
+  .info-icon {
+    width: 0.55in;
+    height: 0.55in;
+    margin: 0 auto 0.18in;
+    display: block;
+    color: var(--ink);
   }
 
   .info-label {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 16pt;
-    letter-spacing: 0.32em;
+    font-size: 11pt;
+    letter-spacing: 0.42em;
     text-transform: uppercase;
     color: #999;
-    margin-bottom: 0.22in;
+    margin-bottom: 0.2in;
   }
 
-  .info-block.hours .info-label-tick {
-    width: 0.7in;
-    height: 5px;
-    background: #C8F23C;
-    margin: 0 auto 0.22in;
-  }
-
+  /* HOURS */
   .hours-value {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 96pt;
+    font-size: 78pt;
     line-height: 0.95;
-    letter-spacing: 0.01em;
-    color: #111;
+    letter-spacing: 0.005em;
+    color: var(--ink);
     margin: 0;
   }
 
-  .hours-sub {
-    font-family: 'Oswald', sans-serif;
+  .hours-value .ampm {
+    font-size: 36pt;
     font-weight: 500;
-    font-size: 28pt;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #1a1a1a;
-    margin-top: 0.12in;
+    color: #444;
+    margin: 0 0.05in;
+    vertical-align: 0.18in;
   }
 
-  .divider {
-    border: none;
-    border-top: 1px solid #E6E6E6;
-    margin: 0.1in 0;
+  .hours-value .dash {
+    color: var(--lime);
+    font-weight: 600;
+    margin: 0 0.12in;
   }
 
-  .phone-value {
+  .days {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.14in;
+    margin-top: 0.28in;
+    padding: 0.12in 0.3in;
+    background: var(--ink);
+    border-radius: 999px;
+  }
+
+  .day-pill {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 70pt;
-    line-height: 1;
-    letter-spacing: 0.005em;
-    color: #111;
-    margin: 0;
-  }
-
-  .address-value {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    font-size: 26pt;
-    line-height: 1.18;
-    letter-spacing: 0.01em;
-    color: #1a1a1a;
-    margin: 0;
-  }
-
-  /* ---------- FOOTER ---------- */
-  .footer {
-    position: relative;
-    flex-shrink: 0;
-    height: 1.05in;
-    background: #0a0a0a;
+    font-size: 12pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    width: 0.28in;
+    height: 0.28in;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0.92in;
-    overflow: hidden;
+    line-height: 1;
   }
 
-  .footer-tagline {
+  .day-pill.accent {
+    background: var(--lime);
+    color: var(--ink);
+    border-radius: 50%;
+  }
+
+  .days-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    margin-top: 0.18in;
+  }
+
+  /* PHONE */
+  .phone-value {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 18pt;
-    letter-spacing: 0.18em;
-    color: #C8F23C;
-    text-transform: uppercase;
+    font-size: 64pt;
+    line-height: 1;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin: 0;
   }
 
-  .footer-tagline .web {
-    color: #fff;
-    margin-left: 0.5in;
+  .phone-value .area {
+    color: #aaa;
+    font-weight: 500;
+  }
+
+  /* ADDRESS */
+  .address-value {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 22pt;
+    line-height: 1.25;
+    letter-spacing: 0.025em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .address-city {
+    color: #999;
+    font-weight: 500;
     letter-spacing: 0.06em;
+  }
+
+  /* ==================== FOOTER ==================== */
+  .footer {
+    flex-shrink: 0;
+    height: 1in;
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.92in;
+    position: relative;
+    overflow: hidden;
   }
 
   .footer-stripe-top {
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 0.1in;
-    background: #C8F23C;
+    background: var(--lime);
   }
 
-  /* ---------- DOWNLOAD BUTTON (screen only) ---------- */
+  .footer-tag {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 22pt;
+    color: #fff;
+    letter-spacing: 0.005em;
+  }
+
+  .footer-tag .accent { color: var(--lime); }
+
+  .footer-web {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 16pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lime);
+  }
+
+  /* ==================== DOWNLOAD BUTTON ==================== */
   .download-bar {
     position: fixed;
     top: 20px;
@@ -279,40 +392,70 @@
 
 <div class="page">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-photo"></div>
-    <div class="hero-fade"></div>
-    <img src="images/logo.png" class="hero-logo" alt="Coach Movers">
-    <div class="welcome-badge">
-      <div class="welcome-eyebrow">Coach Movers</div>
-      <h1 class="welcome-word">Welcome</h1>
-      <div class="welcome-underline"></div>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-corner-tl"></div>
+    <div class="header-corner-br"></div>
+    <div class="header-est-pill">EST<span class="num">2002</span></div>
+    <div class="header-logo-wrap">
+      <img src="images/logo.png" class="header-logo" alt="Coach Movers">
+      <div class="header-tag">Moving Made Easy</div>
     </div>
+    <div class="header-stripe-bottom"></div>
   </div>
 
-  <!-- CONTENT -->
+  <!-- WELCOME -->
+  <div class="welcome-section">
+    <div class="welcome-eyebrow">Please come in</div>
+    <h1 class="welcome-word">Welcome.</h1>
+    <div class="welcome-rule"></div>
+  </div>
+
+  <!-- INFO SECTIONS -->
   <div class="content">
 
-    <div class="info-block hours">
+    <!-- HOURS -->
+    <div class="info">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
       <div class="info-label">Open Hours</div>
-      <div class="info-label-tick"></div>
-      <div class="hours-value">9 – 5</div>
-      <div class="hours-sub">7 Days a Week</div>
+      <div class="hours-value">
+        9<span class="ampm">AM</span><span class="dash">–</span>5<span class="ampm">PM</span>
+      </div>
+      <div class="days">
+        <div class="day-pill">M</div>
+        <div class="day-pill">T</div>
+        <div class="day-pill">W</div>
+        <div class="day-pill">T</div>
+        <div class="day-pill">F</div>
+        <div class="day-pill">S</div>
+        <div class="day-pill">S</div>
+      </div>
+      <div class="days-text">Open 7 Days a Week</div>
     </div>
 
-    <hr class="divider">
-
-    <div class="info-block">
+    <!-- PHONE -->
+    <div class="info">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
       <div class="info-label">Call Us</div>
-      <div class="phone-value">(800) 917-4446</div>
+      <div class="phone-value"><span class="area">(800)</span> 917-4446</div>
     </div>
 
-    <hr class="divider">
-
-    <div class="info-block">
+    <!-- ADDRESS -->
+    <div class="info">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
       <div class="info-label">Visit Us</div>
-      <div class="address-value">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div>
+      <div class="address-value">
+        200 Broadhollow Rd, Suite 207<br>
+        <span class="address-city">Melville, NY 11747</span>
+      </div>
     </div>
 
   </div>
@@ -320,10 +463,8 @@
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-stripe-top"></div>
-    <div class="footer-tagline">
-      Moving Made Easy.
-      <span class="web">CoachMovers.com</span>
-    </div>
+    <div class="footer-tag">Moving Made <span class="accent">Easy.</span></div>
+    <div class="footer-web">CoachMovers.com</div>
   </div>
 
 </div>
