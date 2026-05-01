@@ -7,13 +7,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  @page { size: 3.5in 2in; margin: 0; }
+  @page { size: 3.75in 2.25in; margin: 0; }
 
   * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   :root {
     --lime: #C8F23C;
     --ink: #0a0a0a;
+    --safe-margin: 0.25in;
   }
 
   html, body {
@@ -117,18 +118,30 @@
   }
 
   .card {
-    width: 3.5in;
-    height: 2in;
+    width: 3.75in;
+    height: 2.25in;
     position: relative;
     overflow: hidden;
     box-shadow: 0 6px 24px rgba(0,0,0,0.18);
     background: #fff;
   }
 
+  /* Safe-area dashed guide (screen only) */
+  .safe-guide {
+    position: absolute;
+    top: var(--safe-margin);
+    left: var(--safe-margin);
+    right: var(--safe-margin);
+    bottom: var(--safe-margin);
+    border: 1px dashed rgba(220, 38, 38, 0.55);
+    pointer-events: none;
+    z-index: 50;
+  }
+
   /* ============== FRONT (standard dark) ============== */
   .front {
     display: grid;
-    grid-template-columns: 1.55in 1.95in;
+    grid-template-columns: 1.66in 2.09in;
   }
 
   .front-left {
@@ -142,19 +155,19 @@
   .front-left-stripe {
     position: absolute;
     top: 0; bottom: 0; left: 0;
-    width: 0.07in;
+    width: 0.08in;
     background: var(--lime);
   }
 
   .front-logo {
-    width: 1.1in;
+    width: 1.18in;
     height: auto;
   }
 
   .front-right {
     background: var(--ink);
     position: relative;
-    padding: 0.18in 0.2in;
+    padding: 0.27in 0.27in;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -163,7 +176,7 @@
   .front-tagline {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 6pt;
+    font-size: 6.6pt;
     letter-spacing: 0.1em;
     color: var(--lime);
     text-transform: uppercase;
@@ -174,13 +187,13 @@
   .front-name-block {
     display: flex;
     flex-direction: column;
-    gap: 0.04in;
+    gap: 0.045in;
   }
 
   .front-name {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 16pt;
+    font-size: 17pt;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.01em;
@@ -190,7 +203,7 @@
   .front-title {
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
-    font-size: 7pt;
+    font-size: 7.5pt;
     color: #b0b0b0;
     text-transform: uppercase;
     letter-spacing: 0.18em;
@@ -200,7 +213,7 @@
   .front-phone {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 13pt;
+    font-size: 14pt;
     color: #fff;
     letter-spacing: 0.02em;
     line-height: 1;
@@ -210,8 +223,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 0.32in;
-    height: 0.32in;
+    width: 0.36in;
+    height: 0.36in;
     background: var(--lime);
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
   }
@@ -248,15 +261,15 @@
     background: var(--ink);
     position: relative;
     display: grid;
-    grid-template-columns: 1.05in 1.95in;
-    padding: 0.18in 0.18in 0.16in 0.18in;
-    gap: 0.14in;
+    grid-template-columns: 1.18in 2.09in;
+    padding: 0.27in 0.27in 0.25in 0.27in;
+    gap: 0.16in;
   }
 
   .back-top-stripe {
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 0.07in;
+    height: 0.08in;
     background: var(--lime);
   }
 
@@ -264,8 +277,8 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 0.32in;
-    height: 0.32in;
+    width: 0.36in;
+    height: 0.36in;
     background: var(--lime);
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
   }
@@ -278,35 +291,35 @@
   }
 
   .back-logo-tile {
-    width: 1.05in;
-    height: 0.95in;
+    width: 1.18in;
+    height: 1.07in;
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.08in;
+    margin-bottom: 0.09in;
   }
 
   .back-logo-tile img {
-    width: 0.8in;
+    width: 0.88in;
     height: auto;
   }
 
   .back-est {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 8pt;
+    font-size: 8.5pt;
     color: var(--lime);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     line-height: 1;
-    margin-bottom: 0.04in;
+    margin-bottom: 0.045in;
   }
 
   .back-tag {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 7pt;
+    font-size: 7.5pt;
     color: #9a9a9a;
     line-height: 1.2;
   }
@@ -319,7 +332,7 @@
   }
 
   .back-row {
-    padding-bottom: 0.06in;
+    padding-bottom: 0.067in;
     border-bottom: 1px solid #3a3a3a;
   }
 
@@ -331,18 +344,18 @@
   .back-label {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 6.5pt;
+    font-size: 7pt;
     color: var(--lime);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     line-height: 1;
-    margin-bottom: 0.04in;
+    margin-bottom: 0.045in;
   }
 
   .back-value {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 8.5pt;
+    font-size: 9pt;
     color: #fff;
     line-height: 1.15;
     letter-spacing: 0;
@@ -351,7 +364,7 @@
 
   .back-value.address {
     font-weight: 500;
-    font-size: 7.5pt;
+    font-size: 8pt;
     line-height: 1.3;
     white-space: normal;
   }
@@ -411,6 +424,11 @@
     box-shadow: none;
   }
 
+  body[data-print] .safe-guide,
+  body.hide-safe .safe-guide {
+    display: none !important;
+  }
+
   @media print {
     .download-hint { display: none !important; }
     .page-title, .page-subtitle, .variant-header, .label { display: none !important; }
@@ -418,13 +436,16 @@
     .variants { gap: 0; padding: 0; }
     .variant { box-shadow: none; padding: 0; border-radius: 0; background: transparent; gap: 0; }
     .card { box-shadow: none; }
+    .safe-guide { display: none !important; }
   }
 </style>
 </head>
 <body>
 
 <div class="download-hint">
-  In the print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → 3.5 × 2 in</b>.
+  <div><b>Card size:</b> 3.75 × 2.25 in (full bleed). Trim 3.5 × 2 in. Safe area inset 0.25 in (red dashed).</div>
+  <div style="margin-top:6px">Print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → Custom 3.75 × 2.25 in</b>.</div>
+  <div style="margin-top:8px"><label style="cursor:pointer"><input type="checkbox" checked onchange="document.body.classList.toggle('hide-safe', !this.checked)"> Show safe-area guide</label></div>
 </div>
 
 <h1 class="page-title">Coach Movers — Business Cards</h1>
@@ -459,6 +480,7 @@
         <div class="front-phone">(800) 917-4446</div>
         <div class="front-corner"></div>
       </div>
+      <div class="safe-guide"></div>
     </div>
 
     <div class="label">Back</div>
@@ -476,6 +498,7 @@
         <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
       </div>
       <div class="back-corner"></div>
+      <div class="safe-guide"></div>
     </div>
   </div>
 
@@ -506,6 +529,7 @@
         <div class="front-phone">(800) 917-4446</div>
         <div class="front-corner"></div>
       </div>
+      <div class="safe-guide"></div>
     </div>
 
     <div class="label">Back</div>
@@ -523,6 +547,7 @@
         <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
       </div>
       <div class="back-corner"></div>
+      <div class="safe-guide"></div>
     </div>
   </div>
 
@@ -553,6 +578,7 @@
         <div class="front-phone">(800) 917-4446</div>
         <div class="front-corner"></div>
       </div>
+      <div class="safe-guide"></div>
     </div>
 
     <div class="label">Back</div>
@@ -570,6 +596,7 @@
         <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
       </div>
       <div class="back-corner"></div>
+      <div class="safe-guide"></div>
     </div>
   </div>
 
@@ -600,6 +627,7 @@
         <div class="front-phone">(800) 917-4446</div>
         <div class="front-corner"></div>
       </div>
+      <div class="safe-guide"></div>
     </div>
 
     <div class="label">Back</div>
@@ -617,6 +645,7 @@
         <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
       </div>
       <div class="back-corner"></div>
+      <div class="safe-guide"></div>
     </div>
   </div>
 
