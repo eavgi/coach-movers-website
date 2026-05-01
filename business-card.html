@@ -253,9 +253,102 @@
     line-height: 1.3;
     white-space: normal;
   }
+
+  /* ---------- DOWNLOAD BUTTON (screen only) ---------- */
+  .download-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .download-btn {
+    background: #0a0a0a;
+    color: #C8F23C;
+    border: none;
+    padding: 14px 22px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    border-left: 4px solid #C8F23C;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+  }
+
+  .download-hint {
+    background: rgba(10,10,10,0.85);
+    color: #fff;
+    font-size: 10pt;
+    padding: 6px 12px;
+    max-width: 240px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+  }
+
+  body.printing-front .card.back,
+  body.printing-front .label,
+  body.printing-back .card.front,
+  body.printing-back .label {
+    display: none !important;
+  }
+
+  body.printing-front,
+  body.printing-back {
+    background: #fff;
+  }
+
+  body.printing-front .viewer,
+  body.printing-back .viewer {
+    padding: 0;
+    gap: 0;
+  }
+
+  body.printing-front .card,
+  body.printing-back .card {
+    box-shadow: none;
+  }
+
+  @media print {
+    .download-bar { display: none !important; }
+    body { background: #fff; }
+    .viewer { padding: 0; gap: 0; }
+    .card { box-shadow: none; }
+    .label { display: none; }
+  }
 </style>
 </head>
 <body>
+
+<div class="download-bar">
+  <button class="download-btn" onclick="printSide('front')">Save Front PDF</button>
+  <button class="download-btn" onclick="printSide('back')">Save Back PDF</button>
+  <div class="download-hint">In the print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → 3.5 × 2 in</b> (or set custom).</div>
+</div>
+
+<script>
+  function printSide(side) {
+    document.body.classList.add('printing-' + side);
+    const cleanup = () => {
+      document.body.classList.remove('printing-front', 'printing-back');
+      window.removeEventListener('afterprint', cleanup);
+    };
+    window.addEventListener('afterprint', cleanup);
+    setTimeout(() => window.print(), 50);
+  }
+</script>
 
 <div class="viewer">
 
