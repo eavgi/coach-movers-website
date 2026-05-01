@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Coach Movers — Business Card</title>
+<title>Coach Movers — Business Cards</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,18 +24,93 @@
     color: #1a1a1a;
   }
 
-  .viewer {
-    padding: 0.5in 0;
+  .page-title {
+    text-align: center;
+    padding: 0.5in 0 0.2in;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 22pt;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+  }
+
+  .page-subtitle {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    color: #6e6e6e;
+    margin-bottom: 0.4in;
+    padding: 0 1rem;
+  }
+
+  .variants {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4in;
+    gap: 0.6in;
+    padding-bottom: 0.6in;
+  }
+
+  .variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.18in;
+    background: #fff;
+    padding: 0.4in 0.5in;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-radius: 8px;
+  }
+
+  .variant-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.1in;
+  }
+
+  .variant-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+  }
+
+  .variant-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .variant-btn {
+    background: #0a0a0a;
+    color: #C8F23C;
+    border: none;
+    padding: 10px 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-left: 3px solid #C8F23C;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .variant-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   .label {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
-    font-size: 11pt;
+    font-size: 10pt;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #5a5a5a;
@@ -50,7 +125,7 @@
     background: #fff;
   }
 
-  /* ============== FRONT ============== */
+  /* ============== FRONT (standard dark) ============== */
   .front {
     display: grid;
     grid-template-columns: 1.55in 1.95in;
@@ -139,6 +214,33 @@
     height: 0.32in;
     background: var(--lime);
     clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============== FRONT (blank / write-in white) ============== */
+  .front.blank .front-right {
+    background: #fff;
+  }
+
+  .front.blank .front-tagline {
+    color: #1a1a1a;
+  }
+
+  .front.blank .front-name {
+    color: #c4c4c4;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    border-bottom: 1px dashed #b8b8b8;
+    padding-bottom: 0.03in;
+  }
+
+  .front.blank .front-title {
+    color: #6e6e6e;
+  }
+
+  .front.blank .front-phone {
+    color: #1a1a1a;
   }
 
   /* ============== BACK ============== */
@@ -254,155 +356,287 @@
     white-space: normal;
   }
 
-  /* ---------- DOWNLOAD BUTTON (screen only) ---------- */
-  .download-bar {
+  /* ---------- HINT ---------- */
+  .download-hint {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .download-btn {
-    background: #0a0a0a;
-    color: #C8F23C;
-    border: none;
-    padding: 14px 22px;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 12pt;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    border-left: 4px solid #C8F23C;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-
-  .download-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.32);
-  }
-
-  .download-hint {
     background: rgba(10,10,10,0.85);
     color: #fff;
+    font-family: 'Inter', sans-serif;
     font-size: 10pt;
-    padding: 6px 12px;
-    max-width: 240px;
-    line-height: 1.35;
-    letter-spacing: 0.01em;
+    padding: 10px 14px;
+    max-width: 260px;
+    line-height: 1.4;
+    border-left: 3px solid #C8F23C;
   }
 
-  body.printing-front .card.back,
-  body.printing-front .label,
-  body.printing-back .card.front,
-  body.printing-back .label {
+  /* ---------- PRINT ISOLATION ---------- */
+  body[data-print] .page-title,
+  body[data-print] .page-subtitle,
+  body[data-print] .download-hint,
+  body[data-print] .variant-header,
+  body[data-print] .label {
     display: none !important;
   }
 
-  body.printing-front,
-  body.printing-back {
+  body[data-print] {
     background: #fff;
   }
 
-  body.printing-front .viewer,
-  body.printing-back .viewer {
+  body[data-print] .variants {
+    gap: 0;
     padding: 0;
+  }
+
+  body[data-print] .variant {
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
     gap: 0;
   }
 
-  body.printing-front .card,
-  body.printing-back .card {
+  body[data-print] .variant:not(.print-target) {
+    display: none !important;
+  }
+
+  body[data-print="front"] .print-target .card.back,
+  body[data-print="back"] .print-target .card.front {
+    display: none !important;
+  }
+
+  body[data-print] .card {
     box-shadow: none;
   }
 
   @media print {
-    .download-bar { display: none !important; }
+    .download-hint { display: none !important; }
+    .page-title, .page-subtitle, .variant-header, .label { display: none !important; }
     body { background: #fff; }
-    .viewer { padding: 0; gap: 0; }
+    .variants { gap: 0; padding: 0; }
+    .variant { box-shadow: none; padding: 0; border-radius: 0; background: transparent; gap: 0; }
     .card { box-shadow: none; }
-    .label { display: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="download-bar">
-  <button class="download-btn" onclick="printSide('front')">Save Front PDF</button>
-  <button class="download-btn" onclick="printSide('back')">Save Back PDF</button>
-  <div class="download-hint">In the print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → 3.5 × 2 in</b> (or set custom).</div>
+<div class="download-hint">
+  In the print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → 3.5 × 2 in</b>.
+</div>
+
+<h1 class="page-title">Coach Movers — Business Cards</h1>
+<p class="page-subtitle">Choose a variation below, then click <b>Save Front PDF</b> or <b>Save Back PDF</b> to download a print-ready file.</p>
+
+<div class="variants">
+
+  <!-- ============================================================ -->
+  <!-- VARIATION 1 — LINDA H. -->
+  <!-- ============================================================ -->
+  <div class="variant" id="variant-linda">
+    <div class="variant-header">
+      <div class="variant-name">Linda H.</div>
+      <div class="variant-buttons">
+        <button class="variant-btn" onclick="printCard('variant-linda','front')">Save Front PDF</button>
+        <button class="variant-btn" onclick="printCard('variant-linda','back')">Save Back PDF</button>
+      </div>
+    </div>
+
+    <div class="label">Front</div>
+    <div class="card front">
+      <div class="front-left">
+        <div class="front-left-stripe"></div>
+        <img src="images/logo.png" class="front-logo" alt="Coach Movers">
+      </div>
+      <div class="front-right">
+        <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
+        <div class="front-name-block">
+          <div class="front-name">Linda H.</div>
+          <div class="front-title">Moving Consultant</div>
+        </div>
+        <div class="front-phone">(800) 917-4446</div>
+        <div class="front-corner"></div>
+      </div>
+    </div>
+
+    <div class="label">Back</div>
+    <div class="card back">
+      <div class="back-top-stripe"></div>
+      <div class="back-left">
+        <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
+        <div class="back-est">Est. 2002</div>
+        <div class="back-tag">Moving Made Easy.</div>
+      </div>
+      <div class="back-right">
+        <div class="back-row"><div class="back-label">Phone</div><div class="back-value">(800) 917-4446</div></div>
+        <div class="back-row"><div class="back-label">Email</div><div class="back-value">contact@coachmovers.com</div></div>
+        <div class="back-row"><div class="back-label">Web</div><div class="back-value">CoachMovers.com</div></div>
+        <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
+      </div>
+      <div class="back-corner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VARIATION 2 — THOMAS H. -->
+  <!-- ============================================================ -->
+  <div class="variant" id="variant-thomas">
+    <div class="variant-header">
+      <div class="variant-name">Thomas H.</div>
+      <div class="variant-buttons">
+        <button class="variant-btn" onclick="printCard('variant-thomas','front')">Save Front PDF</button>
+        <button class="variant-btn" onclick="printCard('variant-thomas','back')">Save Back PDF</button>
+      </div>
+    </div>
+
+    <div class="label">Front</div>
+    <div class="card front">
+      <div class="front-left">
+        <div class="front-left-stripe"></div>
+        <img src="images/logo.png" class="front-logo" alt="Coach Movers">
+      </div>
+      <div class="front-right">
+        <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
+        <div class="front-name-block">
+          <div class="front-name">Thomas H.</div>
+          <div class="front-title">Moving Consultant</div>
+        </div>
+        <div class="front-phone">(800) 917-4446</div>
+        <div class="front-corner"></div>
+      </div>
+    </div>
+
+    <div class="label">Back</div>
+    <div class="card back">
+      <div class="back-top-stripe"></div>
+      <div class="back-left">
+        <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
+        <div class="back-est">Est. 2002</div>
+        <div class="back-tag">Moving Made Easy.</div>
+      </div>
+      <div class="back-right">
+        <div class="back-row"><div class="back-label">Phone</div><div class="back-value">(800) 917-4446</div></div>
+        <div class="back-row"><div class="back-label">Email</div><div class="back-value">contact@coachmovers.com</div></div>
+        <div class="back-row"><div class="back-label">Web</div><div class="back-value">CoachMovers.com</div></div>
+        <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
+      </div>
+      <div class="back-corner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VARIATION 3 — KEN G. -->
+  <!-- ============================================================ -->
+  <div class="variant" id="variant-ken">
+    <div class="variant-header">
+      <div class="variant-name">Ken G.</div>
+      <div class="variant-buttons">
+        <button class="variant-btn" onclick="printCard('variant-ken','front')">Save Front PDF</button>
+        <button class="variant-btn" onclick="printCard('variant-ken','back')">Save Back PDF</button>
+      </div>
+    </div>
+
+    <div class="label">Front</div>
+    <div class="card front">
+      <div class="front-left">
+        <div class="front-left-stripe"></div>
+        <img src="images/logo.png" class="front-logo" alt="Coach Movers">
+      </div>
+      <div class="front-right">
+        <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
+        <div class="front-name-block">
+          <div class="front-name">Ken G.</div>
+          <div class="front-title">Moving Consultant</div>
+        </div>
+        <div class="front-phone">(800) 917-4446</div>
+        <div class="front-corner"></div>
+      </div>
+    </div>
+
+    <div class="label">Back</div>
+    <div class="card back">
+      <div class="back-top-stripe"></div>
+      <div class="back-left">
+        <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
+        <div class="back-est">Est. 2002</div>
+        <div class="back-tag">Moving Made Easy.</div>
+      </div>
+      <div class="back-right">
+        <div class="back-row"><div class="back-label">Phone</div><div class="back-value">(800) 917-4446</div></div>
+        <div class="back-row"><div class="back-label">Email</div><div class="back-value">contact@coachmovers.com</div></div>
+        <div class="back-row"><div class="back-label">Web</div><div class="back-value">CoachMovers.com</div></div>
+        <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
+      </div>
+      <div class="back-corner"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- VARIATION 4 — BLANK / WRITE-IN -->
+  <!-- ============================================================ -->
+  <div class="variant" id="variant-blank">
+    <div class="variant-header">
+      <div class="variant-name">Blank (write-in)</div>
+      <div class="variant-buttons">
+        <button class="variant-btn" onclick="printCard('variant-blank','front')">Save Front PDF</button>
+        <button class="variant-btn" onclick="printCard('variant-blank','back')">Save Back PDF</button>
+      </div>
+    </div>
+
+    <div class="label">Front</div>
+    <div class="card front blank">
+      <div class="front-left">
+        <div class="front-left-stripe"></div>
+        <img src="images/logo.png" class="front-logo" alt="Coach Movers">
+      </div>
+      <div class="front-right">
+        <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
+        <div class="front-name-block">
+          <div class="front-name">&nbsp;</div>
+          <div class="front-title">Moving Consultant</div>
+        </div>
+        <div class="front-phone">(800) 917-4446</div>
+        <div class="front-corner"></div>
+      </div>
+    </div>
+
+    <div class="label">Back</div>
+    <div class="card back">
+      <div class="back-top-stripe"></div>
+      <div class="back-left">
+        <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
+        <div class="back-est">Est. 2002</div>
+        <div class="back-tag">Moving Made Easy.</div>
+      </div>
+      <div class="back-right">
+        <div class="back-row"><div class="back-label">Phone</div><div class="back-value">(800) 917-4446</div></div>
+        <div class="back-row"><div class="back-label">Email</div><div class="back-value">contact@coachmovers.com</div></div>
+        <div class="back-row"><div class="back-label">Web</div><div class="back-value">CoachMovers.com</div></div>
+        <div class="back-row"><div class="back-label">Address</div><div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div></div>
+      </div>
+      <div class="back-corner"></div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-  function printSide(side) {
-    document.body.classList.add('printing-' + side);
+  function printCard(variantId, side) {
+    document.querySelectorAll('.variant').forEach(v => v.classList.remove('print-target'));
+    document.getElementById(variantId).classList.add('print-target');
+    document.body.dataset.print = side;
+
     const cleanup = () => {
-      document.body.classList.remove('printing-front', 'printing-back');
+      document.body.removeAttribute('data-print');
+      document.querySelectorAll('.variant').forEach(v => v.classList.remove('print-target'));
       window.removeEventListener('afterprint', cleanup);
     };
     window.addEventListener('afterprint', cleanup);
     setTimeout(() => window.print(), 50);
   }
 </script>
-
-<div class="viewer">
-
-  <div class="label">Front</div>
-
-  <!-- FRONT -->
-  <div class="card front">
-    <div class="front-left">
-      <div class="front-left-stripe"></div>
-      <img src="images/logo.png" class="front-logo" alt="Coach Movers">
-    </div>
-    <div class="front-right">
-      <div class="front-tagline">New York &amp; Connecticut's Most<br>Trusted Moving Company</div>
-      <div class="front-name-block">
-        <div class="front-name">John Smith</div>
-        <div class="front-title">Moving Consultant</div>
-      </div>
-      <div class="front-phone">(800) 917-4446</div>
-      <div class="front-corner"></div>
-    </div>
-  </div>
-
-  <div class="label">Back</div>
-
-  <!-- BACK -->
-  <div class="card back">
-    <div class="back-top-stripe"></div>
-    <div class="back-left">
-      <div class="back-logo-tile"><img src="images/logo.png" alt="Coach Movers"></div>
-      <div class="back-est">Est. 2002</div>
-      <div class="back-tag">Moving Made Easy.</div>
-    </div>
-    <div class="back-right">
-      <div class="back-row">
-        <div class="back-label">Phone</div>
-        <div class="back-value">(800) 917-4446</div>
-      </div>
-      <div class="back-row">
-        <div class="back-label">Email</div>
-        <div class="back-value">contact@coachmovers.com</div>
-      </div>
-      <div class="back-row">
-        <div class="back-label">Web</div>
-        <div class="back-value">CoachMovers.com</div>
-      </div>
-      <div class="back-row">
-        <div class="back-label">Address</div>
-        <div class="back-value address">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div>
-      </div>
-    </div>
-    <div class="back-corner"></div>
-  </div>
-
-</div>
 
 </body>
 </html>
