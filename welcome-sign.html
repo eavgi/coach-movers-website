@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coach Movers — Welcome Sign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: 12in 18in; margin: 0; }
+
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #d8d8d8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a1a;
+  }
+
+  .page {
+    width: 12in;
+    height: 18in;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 6.5in;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    background: url('images/mover-shot-scaled.jpg') center / cover no-repeat;
+  }
+
+  .hero-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2.6in;
+    background: linear-gradient(to bottom,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.25) 35%,
+        rgba(255,255,255,0.85) 78%,
+        #ffffff 100%);
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 0.6in;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4in;
+    height: auto;
+    z-index: 2;
+  }
+
+  .welcome-badge {
+    position: absolute;
+    bottom: 0.7in;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+  }
+
+  .welcome-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 13pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 0.18in;
+  }
+
+  .welcome-word {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 88pt;
+    letter-spacing: 0.02em;
+    color: #111;
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+  }
+
+  .welcome-underline {
+    width: 2.5in;
+    height: 8px;
+    background: #C8F23C;
+    margin: 0.18in auto 0;
+  }
+
+  /* ---------- CONTENT ---------- */
+  .content {
+    padding: 0.7in 0.92in 0.55in;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .info-block {
+    text-align: center;
+    padding: 0.32in 0;
+  }
+
+  .info-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.22in;
+  }
+
+  .info-block.hours .info-label-tick {
+    width: 0.7in;
+    height: 5px;
+    background: #C8F23C;
+    margin: 0 auto 0.22in;
+  }
+
+  .hours-value {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 96pt;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    color: #111;
+    margin: 0;
+  }
+
+  .hours-sub {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 28pt;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-top: 0.12in;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #E6E6E6;
+    margin: 0.1in 0;
+  }
+
+  .phone-value {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 70pt;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    color: #111;
+    margin: 0;
+  }
+
+  .address-value {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 26pt;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    position: relative;
+    flex-shrink: 0;
+    height: 1.05in;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.92in;
+    overflow: hidden;
+  }
+
+  .footer-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 18pt;
+    letter-spacing: 0.18em;
+    color: #C8F23C;
+    text-transform: uppercase;
+  }
+
+  .footer-tagline .web {
+    color: #fff;
+    margin-left: 0.5in;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-stripe-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0.1in;
+    background: #C8F23C;
+  }
+
+  /* ---------- DOWNLOAD BUTTON (screen only) ---------- */
+  .download-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .download-btn {
+    background: #0a0a0a;
+    color: #C8F23C;
+    border: none;
+    padding: 14px 22px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    border-left: 4px solid #C8F23C;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.32);
+  }
+
+  .download-hint {
+    background: rgba(10,10,10,0.85);
+    color: #fff;
+    font-size: 10pt;
+    padding: 6px 12px;
+    max-width: 260px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+  }
+
+  @media print {
+    .download-bar { display: none !important; }
+    body { background: #fff; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="download-bar">
+  <button class="download-btn" onclick="window.print()">Save as PDF</button>
+  <div class="download-hint">In the print dialog: <b>Destination → Save as PDF</b>, <b>Margins → None</b>, <b>Paper size → Custom 12 × 18 in</b> (Tabloid Extra / "Super B").</div>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-fade"></div>
+    <img src="images/logo.png" class="hero-logo" alt="Coach Movers">
+    <div class="welcome-badge">
+      <div class="welcome-eyebrow">Coach Movers</div>
+      <h1 class="welcome-word">Welcome</h1>
+      <div class="welcome-underline"></div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="info-block hours">
+      <div class="info-label">Open Hours</div>
+      <div class="info-label-tick"></div>
+      <div class="hours-value">9 – 5</div>
+      <div class="hours-sub">7 Days a Week</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="info-block">
+      <div class="info-label">Call Us</div>
+      <div class="phone-value">(800) 917-4446</div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="info-block">
+      <div class="info-label">Visit Us</div>
+      <div class="address-value">200 Broadhollow Rd, Suite 207<br>Melville, NY 11747</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-stripe-top"></div>
+    <div class="footer-tagline">
+      Moving Made Easy.
+      <span class="web">CoachMovers.com</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
