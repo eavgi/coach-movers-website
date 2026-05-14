@@ -34,6 +34,8 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
                         <a href="${base}services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
                         <a href="${base}services/full-service-packing.html"><span class="dd-icon">✨</span> Full-Service Packing</a>
                         <a href="${base}services/storage.html"><span class="dd-icon">🔒</span> Storage Solutions</a>
+                        <a href="${base}index.html#services"><span class="dd-icon">🚗</span> Auto Transport</a>
+                        <a href="${base}index.html#services"><span class="dd-icon">🧹</span> Clean-Out Service</a>
                         <div class="dropdown-divider"></div>
                         <a href="${base}index.html#services"><span class="dd-icon">✨</span> All Services</a>
                     </div>
@@ -59,6 +61,8 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
         <a class="mobile-sub" href="${base}services/packing.html">📦 Packing Services</a>
         <a class="mobile-sub" href="${base}services/full-service-packing.html">✨ Full-Service Packing</a>
         <a class="mobile-sub" href="${base}services/storage.html">🔒 Storage Solutions</a>
+        <a class="mobile-sub" href="${base}index.html#services">🚗 Auto Transport</a>
+        <a class="mobile-sub" href="${base}index.html#services">🧹 Clean-Out Service</a>
         <a href="${base}contact.html">Contact</a>
         <a class="nav-cta" href="#quote-form">Get a Quote</a>
     </div>`;

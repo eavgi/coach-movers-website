@@ -10,7 +10,7 @@
     <section class="cta" id="quote-form">
         <div class="cta-container">
             <h2>Ready To Get Moving?</h2>
-            <p class="cta-subtitle">Free quote in 2 minutes. No hidden fees. No surprises.</p>
+            <p class="cta-subtitle">Get an instant quote. No hidden fees. No surprises.</p>
 
             <div class="cta-form">
                 <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #0A0A0A;">Get a Free Quote</h3>
@@ -152,6 +152,8 @@
                     <li><a href="${base}services/packing.html">Packing Services</a></li>
                     <li><a href="${base}services/full-service-packing.html">Full-Service Packing</a></li>
                     <li><a href="${base}services/storage.html">Storage Solutions</a></li>
+                    <li><a href="${base}index.html#services">Auto Transport</a></li>
+                    <li><a href="${base}index.html#services">Clean-Out Service</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -173,6 +175,7 @@
                     <button class="area-tab" onclick="switchAreaTab(this, 'ct')">CT</button>
                     <button class="area-tab" onclick="switchAreaTab(this, 'nj')">NJ</button>
                 </div>
+                <div class="area-panels-wrapper">
                 <div class="area-panel active" id="area-nassau">
                     <div class="service-areas-list">
                         <span>Garden City</span> <span>East Meadow</span> <span>Massapequa</span>
@@ -224,6 +227,7 @@
                         <span>New Brunswick</span> <span>Princeton</span> <span>Red Bank</span>
                         <span>Morristown</span> <span>Montclair</span> <span>Paramus</span>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
