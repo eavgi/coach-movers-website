@@ -10,7 +10,7 @@
     <section class="cta" id="quote-form">
         <div class="cta-container">
             <h2>Ready To Get Moving?</h2>
-            <p class="cta-subtitle">Free quote in 2 minutes. No hidden fees. No surprises.</p>
+            <p class="cta-subtitle">Get an instant quote. No hidden fees. No surprises.</p>
 
             <div class="cta-form">
                 <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #0A0A0A;">Get a Free Quote</h3>
