@@ -430,11 +430,22 @@ footer {
     color: #0A0A0A;
     border-color: #C8FF00;
 }
+.area-panels-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 .area-panel {
-    display: none;
+    grid-column: 1;
+    grid-row: 1;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
 }
 .area-panel.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
 }
 .service-areas-list {
     display: flex;
@@ -1308,11 +1319,22 @@ footer {
     color: #0A0A0A;
     border-color: #C8FF00;
 }
+.area-panels-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 .area-panel {
-    display: none;
+    grid-column: 1;
+    grid-row: 1;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
 }
 .area-panel.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
 }
 .service-areas-list {
     display: flex;
