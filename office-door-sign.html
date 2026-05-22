@@ -13,15 +13,15 @@
 
   :root {
     --lime: #C8F23C;
-    --ink: #0a0a0a;
-    --rule: #1a1a1a;
-    --muted: #8a8a8a;
+    --ink: #ffffff;          /* "ink" is now white — design prints on dark surfaces */
+    --ink-soft: rgba(255,255,255,0.6);
+    --rule: rgba(255,255,255,0.2);
   }
 
   html, body {
     margin: 0;
     padding: 0;
-    background: #d8d8d8;
+    background: #3a2818;     /* dark brown preview only — not in PNG export */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--ink);
   }
@@ -31,29 +31,21 @@
     width: 14in;
     height: 11in;
     margin: 0 auto;
-    background: #ffffff;
+    background: transparent;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
     display: flex;
     flex-direction: column;
   }
 
-  /* Inner keyline hinting at the acrylic edge */
-  .sign::before {
-    content: '';
-    position: absolute;
-    inset: 0.28in;
-    border: 1px solid #ececec;
-    pointer-events: none;
-    z-index: 6;
-  }
+  /* Inner keyline removed — would be a stray line on the wood */
+  .sign::before { display: none; }
 
-  /* Top + bottom ink+lime stripes */
+  /* Top + bottom white+lime stripes */
   .stripe-top, .stripe-bottom {
     position: absolute;
     left: 0; right: 0;
-    height: 0.16in;
+    height: 0.14in;
     background: var(--ink);
     z-index: 7;
   }
@@ -64,11 +56,11 @@
     content: '';
     position: absolute;
     left: 0; right: 0;
-    height: 0.045in;
+    height: 0.05in;
     background: var(--lime);
   }
-  .stripe-top::after { bottom: 0; }
-  .stripe-bottom::before { top: 0; }
+  .stripe-top::after { bottom: -0.07in; }
+  .stripe-bottom::before { top: -0.07in; }
 
   /* ==================== TOP: EST PILL ==================== */
   .est-pill {
@@ -155,7 +147,7 @@
     font-size: 8.5pt;
     letter-spacing: 0.42em;
     text-transform: uppercase;
-    color: #999;
+    color: var(--ink-soft);
     margin-bottom: 0.05in;
   }
 
@@ -169,7 +161,7 @@
     margin: 0;
     white-space: nowrap;
   }
-  .phone-value .area { color: #aaa; font-weight: 500; }
+  .phone-value .area { color: var(--ink-soft); font-weight: 500; }
 
   .address-value {
     font-family: 'Oswald', sans-serif;
@@ -181,7 +173,7 @@
     margin: 0;
   }
   .address-city {
-    color: #888;
+    color: var(--ink-soft);
     font-weight: 500;
     letter-spacing: 0.05em;
   }
@@ -190,7 +182,7 @@
   .contact-divider {
     width: 1px;
     height: 0.9in;
-    background: #e6e6e6;
+    background: var(--rule);
   }
 
   /* ==================== DOWNLOAD BUTTON ==================== */
@@ -260,7 +252,7 @@
 
   <!-- LOGO (center, large) -->
   <div class="logo-wrap">
-    <img src="images/logo.png" class="logo" alt="Coach Movers">
+    <img src="images/logo-white.png" class="logo" alt="Coach Movers">
   </div>
 
   <!-- TAGLINE -->
