@@ -79,6 +79,7 @@
                                 <div class="size-option-text">4+ Bedrooms / Commercial</div>
                             </div>
                         </div>
+                        <p style="font-size: 13px; line-height: 1.5; color: #767676; margin: 14px 0 4px; text-align: center;">Moving a 2-bedroom home or larger? For the most accurate price, we recommend a free in-home or video-call estimate — call <a href="tel:+18009174446" style="color: #0A0A0A; font-weight: 700;">(800) 917-4446</a>.</p>
                         <button type="button" class="form-button primary" style="width: 100%; margin-top: 12px;" onclick="prevFooterStep()"><span class="arrow">←</span> Back</button>
                     </div>
 
@@ -149,8 +150,7 @@
                 <ul>
                     <li><a href="${base}services/local-moving.html">Local Moving</a></li>
                     <li><a href="${base}services/long-distance.html">Long-Distance</a></li>
-                    <li><a href="${base}services/packing.html">Packing Services</a></li>
-                    <li><a href="${base}services/full-service-packing.html">Full-Service Packing</a></li>
+                    <li><a href="${base}services/packing.html">Packing &amp; Unpacking</a></li>
                     <li><a href="${base}services/storage.html">Storage Solutions</a></li>
                     <li><a href="${base}index.html#services">Auto Transport</a></li>
                     <li><a href="${base}index.html#services">Clean-Out Service</a></li>
@@ -243,7 +243,6 @@
         'local-moving': 'local-moving.html',
         'long-distance': 'long-distance.html',
         'packing': 'packing.html',
-        'full-service-packing': 'full-service-packing.html',
         'storage': 'storage.html',
         'contact': 'contact.html'
     };

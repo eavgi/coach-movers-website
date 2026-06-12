@@ -2,6 +2,13 @@
   publish = "."
   command = "echo 'Static site - no build needed'"
 
+# Merged "Full-Service Packing" into the single Packing & Unpacking page
+[[redirects]]
+  from = "/services/full-service-packing.html"
+  to = "/services/packing.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
