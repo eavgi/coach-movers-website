@@ -31,8 +31,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
                     <div class="dropdown-menu">
                         <a href="${base}services/local-moving.html"><span class="dd-icon">🏠</span> Local Moving</a>
                         <a href="${base}services/long-distance.html"><span class="dd-icon">🚛</span> Long-Distance</a>
-                        <a href="${base}services/packing.html"><span class="dd-icon">📦</span> Packing Services</a>
-                        <a href="${base}services/full-service-packing.html"><span class="dd-icon">✨</span> Full-Service Packing</a>
+                        <a href="${base}services/packing.html"><span class="dd-icon">📦</span> Packing &amp; Unpacking</a>
                         <a href="${base}services/storage.html"><span class="dd-icon">🔒</span> Storage Solutions</a>
                         <a href="${base}index.html#services"><span class="dd-icon">🚗</span> Auto Transport</a>
                         <a href="${base}index.html#services"><span class="dd-icon">🧹</span> Clean-Out Service</a>
@@ -58,8 +57,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
         <a href="${base}index.html#about">About</a>
         <a class="mobile-sub" href="${base}services/local-moving.html">🏠 Local Moving</a>
         <a class="mobile-sub" href="${base}services/long-distance.html">🚛 Long-Distance</a>
-        <a class="mobile-sub" href="${base}services/packing.html">📦 Packing Services</a>
-        <a class="mobile-sub" href="${base}services/full-service-packing.html">✨ Full-Service Packing</a>
+        <a class="mobile-sub" href="${base}services/packing.html">📦 Packing &amp; Unpacking</a>
         <a class="mobile-sub" href="${base}services/storage.html">🔒 Storage Solutions</a>
         <a class="mobile-sub" href="${base}index.html#services">🚗 Auto Transport</a>
         <a class="mobile-sub" href="${base}index.html#services">🧹 Clean-Out Service</a>
@@ -103,7 +101,6 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
         'local-moving': 'Services',
         'long-distance': 'Services',
         'packing': 'Services',
-        'full-service-packing': 'Services',
         'storage': 'Services'
     };
 
@@ -114,8 +111,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
         'contact': 'Contact',
         'local-moving': 'Local Moving',
         'long-distance': 'Long-Distance',
-        'packing': 'Packing Services',
-        'full-service-packing': 'Full-Service Packing',
+        'packing': 'Packing Unpacking',
         'storage': 'Storage Solutions'
     };
 
@@ -134,7 +130,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     // Highlight mobile menu (exact page match)
     if (mobileTarget) {
         document.querySelectorAll('.mobile-menu a').forEach(link => {
-            const text = link.textContent.replace(/[^a-zA-Z\s-]/g, '').trim();
+            const text = link.textContent.replace(/[^a-zA-Z\s-]/g, '').replace(/\s+/g, ' ').trim();
             if (text === mobileTarget) {
                 link.classList.add('active');
             }
@@ -144,7 +140,7 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     // Highlight footer links too
     if (navTarget) {
         document.querySelectorAll('.footer-section a').forEach(link => {
-            const text = link.textContent.trim();
+            const text = link.textContent.replace(/[^a-zA-Z\s-]/g, '').replace(/\s+/g, ' ').trim();
             if (text === navTarget || text === mobileTarget) {
                 link.classList.add('active');
             }
