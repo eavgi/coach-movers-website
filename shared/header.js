@@ -14,12 +14,9 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     if (!container) return;
     const base = container.getAttribute('data-base-path') || '';
 
-    const isHome = document.body.dataset.page === 'home';
-
     container.innerHTML = `
     <div class="top-bar">
-        ${isHome ? '<span class="home-topline">A better move starts with the right people.</span>' : 'Call Us:'}
-        <a href="tel:+18009174446">${isHome ? 'Let’s talk: ' : ''}(800) 917-4446</a>
+        Call Us: <a href="tel:+18009174446">(800) 917-4446</a>
     </div>
     <nav>
         <div class="nav-container">
