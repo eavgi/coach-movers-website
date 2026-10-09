@@ -14,9 +14,12 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     if (!container) return;
     const base = container.getAttribute('data-base-path') || '';
 
+    const isHome = document.body.dataset.page === 'home';
+
     container.innerHTML = `
     <div class="top-bar">
-        Call Us: <a href="tel:+18009174446">(800) 917-4446</a>
+        ${isHome ? '<span class="home-topline">A better move starts with the right people.</span>' : 'Call Us:'}
+        <a href="tel:+18009174446">${isHome ? 'Let’s talk: ' : ''}(800) 917-4446</a>
     </div>
     <nav>
         <div class="nav-container">
@@ -43,11 +46,11 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
                 <li><a href="${base}contact.html">Contact</a></li>
             </ul>
             <a class="nav-cta" href="#quote-form">Get a Quote</a>
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
@@ -74,6 +77,8 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', String(mobileMenu.classList.contains('active')));
+        hamburger.setAttribute('aria-label', mobileMenu.classList.contains('active') ? 'Close menu' : 'Open menu');
         if (mobileMenu.classList.contains('active')) {
             mobileMenu.scrollTop = 0;
         }
@@ -82,13 +87,24 @@ if (!document.querySelector('link[href*="font-awesome"]')) {
     document.getElementById('mobileMenuClose').addEventListener('click', () => {
         hamburger.classList.remove('active');
         mobileMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
     });
 
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Open menu');
         });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            document.getElementById('mobileMenuClose').click();
+            hamburger.focus();
+        }
     });
 
     // Active link highlighting using data-page attribute on <body>
