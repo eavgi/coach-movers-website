@@ -1779,3 +1779,10 @@ html {
         font-size: 28px;
     }
 }
+
+/* Reset native button chrome for the keyboard-accessible menu toggle. */
+button.hamburger {
+    background: transparent;
+    border: 0;
+    padding: 10px;
+}
